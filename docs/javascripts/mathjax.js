@@ -42,6 +42,7 @@ window.MathJax = {
       // macro della collana (GUIDA_DI_STILE di OC §3, preambolo delle dispense)
       MIP: "\\mathrm{MIP}", LP: "\\mathrm{LP}", ILP: "\\mathrm{ILP}", BIP: "\\mathrm{BIP}",
       // \\LB[x] delle dispense = LB(x): MathJax non ha argomenti facoltativi condizionali, sul sito si scrive LB(x) per esteso
+      LIST: "\\mathit{LIST}", pred: "\\mathit{pred}",
       LB: "\\mathrm{LB}", UB: "\\mathrm{UB}",
       bigO: "\\mathcal{O}"
     }
