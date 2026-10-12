@@ -1,0 +1,128 @@
+# Modello di mkdocs.yml (italiano): lo usa genera_sito.py, che scrive mkdocs.yml.
+# Non modificare mkdocs.yml a mano.
+site_name: Ottimizzazione su reti · Fabio Furini
+site_description: >-
+  Dispense di ottimizzazione su reti: grafi, alberi ricoprenti di costo minimo, cammini minimi, flussi su reti (flusso massimo, flusso di costo minimo, trasporto e assegnamento), il simplesso su reti e la gestione dei progetti, con esempi svolti ed esercizi.
+site_author: Fabio Furini
+site_url: https://fabiofurini.github.io/ottimizzazione-su-reti/
+repo_url: https://github.com/fabiofurini/ottimizzazione-su-reti
+copyright: >-
+  &copy; 2026 Fabio Furini — testi e figure con licenza
+  <a href="https://creativecommons.org/licenses/by/4.0/deed.it">CC BY 4.0</a>,
+  codice con licenza
+  <a href="https://github.com/fabiofurini/ottimizzazione-su-reti/blob/main/LICENSE-CODE">MIT</a>
+
+theme:
+  name: material
+  language: it
+  icon:
+    logo: material/graph-outline
+  font:
+    text: Source Sans 3
+    code: JetBrains Mono
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      toggle:
+        icon: material/weather-night
+        name: Tema scuro
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      toggle:
+        icon: material/weather-sunny
+        name: Tema chiaro
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.indexes
+    - navigation.top
+    - navigation.footer
+    - navigation.tracking
+    - toc.follow
+    - content.code.copy
+    - search.suggest
+    - search.highlight
+
+# le pagine delle singole app non stanno nel menu: il laboratorio è una voce sola
+plugins:
+  - search:
+      lang: it
+
+extra:
+  social:
+    - icon: material/web
+      link: https://fabiofurini.github.io/
+      name: Fabio Furini — sito personale
+    - icon: material/school
+      link: https://www.diag.uniroma1.it/
+      name: DIAG — Sapienza Università di Roma
+    - icon: fontawesome/brands/github
+      link: https://github.com/fabiofurini
+      name: GitHub
+    - icon: material/chart-timeline-variant
+      link: https://fabiofurini.github.io/laboratorio-ricerca-operativa/
+      name: Laboratorio di Ricerca Operativa
+    - icon: material/vector-triangle
+      link: https://fabiofurini.github.io/programmazione-lineare/
+      name: Programmazione lineare
+    - icon: material/vector-polygon
+      link: https://fabiofurini.github.io/modellazione-mip/
+      name: Modellazione MIP
+    - icon: material/vector-polyline
+      link: https://fabiofurini.github.io/programmazione-lineare-intera/
+      name: Programmazione lineare intera
+    - icon: material/math-integral
+      link: https://fabiofurini.github.io/analisi-matematica-1/
+      name: Analisi Matematica 1
+    - icon: material/matrix
+      link: https://fabiofurini.github.io/algebra-lineare/
+      name: Algebra lineare
+    - icon: material/chart-bell-curve
+      link: https://fabiofurini.github.io/ottimizzazione-convessa/
+      name: Ottimizzazione convessa
+    - icon: material/code-braces
+      link: https://fabiofurini.github.io/algoritmi/
+      name: Algoritmi
+    - icon: material/puzzle-outline
+      link: https://fabiofurini.github.io/ottimizzazione-combinatoria/
+      name: Ottimizzazione combinatoria
+  alternate:
+    - name: Italiano
+      link: https://fabiofurini.github.io/ottimizzazione-su-reti/
+      lang: it
+    - name: English
+      link: https://fabiofurini.github.io/network-optimization/
+      lang: en
+
+extra_css:
+  - stylesheets/extra.css
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.arithmatex:
+      generic: true
+  - footnotes
+  - tables
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: true
+      title: In questa pagina
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+extra_javascript:
+  - javascripts/cloudflare-analytics.js
+  - javascripts/mathjax.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js
+
+
+nav:
+  - Home: index.md
+

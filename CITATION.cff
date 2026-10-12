@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use this material, please cite it as below."
+title: "Ottimizzazione su reti: online lecture notes with worked exercises"
+abstract: >-
+  The lecture notes of the Ottimizzazione su reti course — graphs, minimum spanning
+  trees, shortest paths, network flows (maximum flow, minimum cost flow,
+  transportation and assignment), the network simplex and project
+  management — with definitions, theorems and proofs, worked examples and
+  exercises with solutions.
+authors:
+  - family-names: Furini
+    given-names: Fabio
+    email: fabio.furini@uniroma1.it
+    affiliation: "DIAG, Sapienza University of Rome"
+url: "https://fabiofurini.github.io/ottimizzazione-su-reti/"
+repository-code: "https://github.com/fabiofurini/ottimizzazione-su-reti"
+license:
+  - CC-BY-4.0
+  - MIT
+date-released: 2026-10-13
+keywords:
+  - network optimization
+  - graphs
+  - shortest paths
+  - network flows
+  - network simplex
+  - operations research
+  - teaching material
