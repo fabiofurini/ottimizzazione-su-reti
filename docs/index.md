@@ -20,13 +20,15 @@ associato al [DIAG](https://www.diag.uniroma1.it/), Sapienza Università di Roma
 
 Per gli studenti del terzo anno della laurea in Ingegneria gestionale della Sapienza, e per chi vuole imparare l'ottimizzazione su reti. Prerequisiti: [Programmazione lineare](https://fabiofurini.github.io/programmazione-lineare/).
 
-**Lavori in corso.** Le pagine dei capitoli arriveranno una alla volta, a traduzione fatta; intanto il corso si legge in [inglese](https://fabiofurini.github.io/network-optimization/).
-
-[:material-translate: Il corso in inglese](https://fabiofurini.github.io/network-optimization/){ .md-button .md-button--primary }
+[:material-school: Studia il corso](grafi/graphs/index.md){ .md-button .md-button--primary }
+[:material-pencil: Esercitati](esercizi/index.md){ .md-button }
+[:material-download: Il materiale](materiale.md){ .md-button }
 
 </div>
 
 ## Le parti del corso
+
+Le stesse voci del menu: ogni scheda dice a quale parte e a quali capitoli della dispensa corrisponde.
 
 <div class="grid cards" markdown>
 
@@ -38,6 +40,8 @@ Per gli studenti del terzo anno della laurea in Ingegneria gestionale della Sapi
 
     Grafi
 
+    [:octicons-arrow-right-24: La parte](grafi/index.md)
+
 -   :material-source-branch: **Alberi e cammini**
 
     ---
@@ -45,6 +49,8 @@ Per gli studenti del terzo anno della laurea in Ingegneria gestionale della Sapi
     *Parte 2 · Capitoli 2–3*
 
     Alberi ricoprenti · Cammini minimi
+
+    [:octicons-arrow-right-24: La parte](alberi-e-cammini/index.md)
 
 -   :material-pipe: **Flussi**
 
@@ -54,6 +60,8 @@ Per gli studenti del terzo anno della laurea in Ingegneria gestionale della Sapi
 
     Modelli di flusso · Flusso massimo · Flusso di costo minimo · Trasporto e assegnamento
 
+    [:octicons-arrow-right-24: La parte](flussi/index.md)
+
 -   :material-swap-horizontal: **Il simplesso su reti**
 
     ---
@@ -61,6 +69,8 @@ Per gli studenti del terzo anno della laurea in Ingegneria gestionale della Sapi
     *Parte 4 · Capitolo 8*
 
     Simplesso su reti
+
+    [:octicons-arrow-right-24: La parte](simplesso-su-reti/index.md)
 
 -   :material-chart-gantt: **Gestione dei progetti**
 
@@ -70,7 +80,48 @@ Per gli studenti del terzo anno della laurea in Ingegneria gestionale della Sapi
 
     Gestione dei progetti
 
+    [:octicons-arrow-right-24: La parte](gestione-dei-progetti/index.md)
+
+-   :material-gesture-tap: **Laboratorio**
+
+    ---
+
+    *App interattive*
+
+    Gli algoritmi del corso passo per passo, sulle istanze di riferimento o su istanze tue.
+
+    [:octicons-arrow-right-24: Le app](laboratorio/index.md)
+
 </div>
+
+## Come usare queste dispense
+
+- **Sito e PDF.** Ogni capitolo del sito è un capitolo della dispensa, con gli stessi numeri e gli stessi colori; i capitoli lunghi sono divisi in una pagina per sezione.
+- **In testa a ogni capitolo** la barra con la parte, il PDF del volume e gli esercizi del capitolo; in fondo, il link agli esercizi.
+
+I box hanno gli stessi colori della dispensa:
+
+<div class="grid" markdown>
+
+!!! definizione "Definizione"
+    Il significato preciso di un concetto nuovo.
+
+!!! teorema "Teorema, proposizione, osservazione"
+    Un risultato da ricordare, con le sue ipotesi.
+
+!!! esempio "Esempio"
+    Un calcolo svolto per intero, un passo alla volta.
+
+!!! algoritmo "Algoritmo"
+    Lo pseudocodice, passo per passo come nella dispensa.
+
+!!! chiave ""
+    **In verde** il punto chiave da portare a casa.
+
+</div>
+
+??? dimostrazione "Dimostrazione: si apre con un clic"
+    Le dimostrazioni ci sono tutte, ma chiuse: prima leggi l'enunciato, poi apri la dimostrazione quando vuoi studiarla. Lo stesso vale per le soluzioni degli esercizi.
 
 ---
 

@@ -10,7 +10,7 @@ window.MathJax = {
     tags: "ams",
     packages: { "[+]": ["mathtools", "cancel", "color"] },
     macros: {
-      allowbreak: "", toprule: "\\hline", midrule: "\\hline", bottomrule: "\\hline",
+      allowbreak: "", qedhere: "", toprule: "\\hline", midrule: "\\hline", bottomrule: "\\hline",
       N: "\\mathbb{N}", Z: "\\mathbb{Z}", Q: "\\mathbb{Q}", R: "\\mathbb{R}",
       C: "\\mathbb{C}", F: "\\mathbb{F}",
       rr: "\\rightarrow", mt: "\\mapsto", ip: "+\\infty", im: "-\\infty",
@@ -42,7 +42,7 @@ window.MathJax = {
       // macro della collana (GUIDA_DI_STILE di OC §3, preambolo delle dispense)
       MIP: "\\mathrm{MIP}", LP: "\\mathrm{LP}", ILP: "\\mathrm{ILP}", BIP: "\\mathrm{BIP}",
       // \\LB[x] delle dispense = LB(x): MathJax non ha argomenti facoltativi condizionali, sul sito si scrive LB(x) per esteso
-      LIST: "\\mathit{LIST}", pred: "\\mathit{pred}",
+      LIST: "\\mathit{LIST}", pred: "\\mathit{pred}", SP: "\\mathrm{SP}", MCF: "\\mathrm{MCF}",
       LB: "\\mathrm{LB}", UB: "\\mathrm{UB}",
       bigO: "\\mathcal{O}"
     }

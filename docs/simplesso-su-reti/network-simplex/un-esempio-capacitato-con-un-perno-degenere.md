@@ -1,0 +1,239 @@
+---
+title: "Un esempio capacitato con un perno degenere"
+---
+
+# 8.8 Un esempio capacitato con un perno degenere { #sez-sec-ns-example-b }
+
+<div class="info-capitolo" markdown>
+
+**Parte 4 · Il simplesso su reti · Capitolo 8** · [:material-book-open-variant: Capitolo 8: Simplesso su reti](index.md) · [:material-file-pdf-box: Dispensa, volume 4 (PDF)](../../pdf/dispensa-4-simplesso-su-reti.pdf) · [:material-pencil: Esercizi: Simplesso su reti](../../esercizi/network-simplex.md)
+
+</div>
+
+- Risolviamo l'istanza di traslato di [Capitolo 4](../../flussi/network-flow-models/un-istanza-di-traslato.md), la rete di riferimento con capacità, partendo dal flusso $\bar{\vet{x}}$ di costo $63$ con la struttura ad albero fortemente realizzabile di <span style="color:#1971c2">[Esempio 8.2](basi-e-alberi-ricoprenti.md#box-8-ns-ex-tree)</span>:
+
+    $$
+    T=\{(1,2),(2,4),(3,2),(4,6),(5,4)\}, \qquad L=\{(4,3)\}, \qquad U=\{(1,3),(3,5),(5,6)\} .
+    $$
+
+<a id="box-26-ns-ex-b"></a>
+
+!!! esempio "Esempio 8.7: la rete simplex con capacità"
+
+    <strong>Iterazione 1</strong><br> Le potenzialità sono $\vet{\pi}=(12,10,12,5,10,0)$ e il costo è $63$.
+
+    <div class="tabella" markdown="0"><table>
+    <tr>
+    <th>arco</th>
+    <th><span class="arithmatex">\((1,2)\)</span></th>
+    <th><span class="arithmatex">\((1,3)\)</span></th>
+    <th><span class="arithmatex">\((2,4)\)</span></th>
+    <th><span class="arithmatex">\((3,2)\)</span></th>
+    <th><span class="arithmatex">\((3,5)\)</span></th>
+    <th><span class="arithmatex">\((4,3)\)</span></th>
+    <th><span class="arithmatex">\((4,6)\)</span></th>
+    <th><span class="arithmatex">\((5,4)\)</span></th>
+    <th><span class="arithmatex">\((5,6)\)</span></th>
+    </tr>
+    <tr>
+    <td>stato</td>
+    <td><span class="arithmatex">\(\mathrm{T}\)</span></td>
+    <td><span class="arithmatex">\(\mathrm{U}\)</span></td>
+    <td><span class="arithmatex">\(\mathrm{T}\)</span></td>
+    <td><span class="arithmatex">\(\mathrm{T}\)</span></td>
+    <td><span class="arithmatex">\(\mathrm{U}\)</span></td>
+    <td><span class="arithmatex">\(\mathrm{L}\)</span></td>
+    <td><span class="arithmatex">\(\mathrm{T}\)</span></td>
+    <td><span class="arithmatex">\(\mathrm{T}\)</span></td>
+    <td><span class="arithmatex">\(\mathrm{U}\)</span></td>
+    </tr>
+    <tr>
+    <td><span class="arithmatex">\(x_{ij}\)</span></td>
+    <td><span class="arithmatex">\(1\)</span></td>
+    <td><span class="arithmatex">\(4\)</span></td>
+    <td><span class="arithmatex">\(3\)</span></td>
+    <td><span class="arithmatex">\(0\)</span></td>
+    <td><span class="arithmatex">\(4\)</span></td>
+    <td><span class="arithmatex">\(0\)</span></td>
+    <td><span class="arithmatex">\(2\)</span></td>
+    <td><span class="arithmatex">\(2\)</span></td>
+    <td><span class="arithmatex">\(2\)</span></td>
+    </tr>
+    <tr>
+    <td><span class="arithmatex">\(\bar{c}_{ij}\)</span></td>
+    <td><span class="arithmatex">\(0\)</span></td>
+    <td><span class="arithmatex">\(2\)</span></td>
+    <td><span class="arithmatex">\(0\)</span></td>
+    <td><span class="arithmatex">\(0\)</span></td>
+    <td><span class="arithmatex">\(1\)</span></td>
+    <td><span class="arithmatex">\(10\)</span></td>
+    <td><span class="arithmatex">\(0\)</span></td>
+    <td><span class="arithmatex">\(0\)</span></td>
+    <td><span class="arithmatex">\(-7\)</span></td>
+    </tr>
+    </table></div>
+
+    - Questo è il perno di <span style="color:#1971c2">[Esempio 8.4](il-perno.md#box-18-ns-ex-pivot)</span>: $e=(1,3) \in U$, apice $w=2$, $C=2,3,1,2$, residuo capacità $0$, $4$, $3$.
+
+    - $\theta=0$: il perno è degenere. L'arco $(3,2)$ lascia l'albero verso $L$ e $(1,3)$ vi entra nel suo capacità. Il costo rimane $63$ e $\pi_3$ scende da $12$ a $10$.
+
+    <strong>Iterazione 2</strong><br> Le potenzialità sono $\vet{\pi}=(12,10,10,5,10,0)$ e il costo è $63$.
+
+    <div class="tabella" markdown="0"><table>
+    <tr>
+    <th>arco</th>
+    <th><span class="arithmatex">\((1,2)\)</span></th>
+    <th><span class="arithmatex">\((1,3)\)</span></th>
+    <th><span class="arithmatex">\((2,4)\)</span></th>
+    <th><span class="arithmatex">\((3,2)\)</span></th>
+    <th><span class="arithmatex">\((3,5)\)</span></th>
+    <th><span class="arithmatex">\((4,3)\)</span></th>
+    <th><span class="arithmatex">\((4,6)\)</span></th>
+    <th><span class="arithmatex">\((5,4)\)</span></th>
+    <th><span class="arithmatex">\((5,6)\)</span></th>
+    </tr>
+    <tr>
+    <td>stato</td>
+    <td><span class="arithmatex">\(\mathrm{T}\)</span></td>
+    <td><span class="arithmatex">\(\mathrm{T}\)</span></td>
+    <td><span class="arithmatex">\(\mathrm{T}\)</span></td>
+    <td><span class="arithmatex">\(\mathrm{L}\)</span></td>
+    <td><span class="arithmatex">\(\mathrm{U}\)</span></td>
+    <td><span class="arithmatex">\(\mathrm{L}\)</span></td>
+    <td><span class="arithmatex">\(\mathrm{T}\)</span></td>
+    <td><span class="arithmatex">\(\mathrm{T}\)</span></td>
+    <td><span class="arithmatex">\(\mathrm{U}\)</span></td>
+    </tr>
+    <tr>
+    <td><span class="arithmatex">\(x_{ij}\)</span></td>
+    <td><span class="arithmatex">\(1\)</span></td>
+    <td><span class="arithmatex">\(4\)</span></td>
+    <td><span class="arithmatex">\(3\)</span></td>
+    <td><span class="arithmatex">\(0\)</span></td>
+    <td><span class="arithmatex">\(4\)</span></td>
+    <td><span class="arithmatex">\(0\)</span></td>
+    <td><span class="arithmatex">\(2\)</span></td>
+    <td><span class="arithmatex">\(2\)</span></td>
+    <td><span class="arithmatex">\(2\)</span></td>
+    </tr>
+    <tr>
+    <td><span class="arithmatex">\(\bar{c}_{ij}\)</span></td>
+    <td><span class="arithmatex">\(0\)</span></td>
+    <td><span class="arithmatex">\(0\)</span></td>
+    <td><span class="arithmatex">\(0\)</span></td>
+    <td><span class="arithmatex">\(2\)</span></td>
+    <td><span class="arithmatex">\(3\)</span></td>
+    <td><span class="arithmatex">\(8\)</span></td>
+    <td><span class="arithmatex">\(0\)</span></td>
+    <td><span class="arithmatex">\(0\)</span></td>
+    <td><span class="arithmatex">\(-7\)</span></td>
+    </tr>
+    </table></div>
+
+    - L'unico arco idoneo è $e=(3,5) \in U$, con $\bar{c}_{35}=3$: $C$ viene attraversato contro di esso, con $p=5$ e $q=3$.
+
+    - I percorsi dell'albero fino alla radice sono $3,1,2,4,6$ e $5,4,6$: l'apice è $w=4$ e $C$ è $4,5,3,1,2,4$.
+
+        <div class="tabella" markdown="0"><table>
+        <tr>
+        <td>arco di <span class="arithmatex">\(C\)</span></td>
+        <td><span class="arithmatex">\((5,4)\)</span></td>
+        <td><span class="arithmatex">\((3,5)\)</span></td>
+        <td><span class="arithmatex">\((1,3)\)</span></td>
+        <td><span class="arithmatex">\((1,2)\)</span></td>
+        <td><span class="arithmatex">\((2,4)\)</span></td>
+        </tr>
+        <tr>
+        <td>direzione</td>
+        <td><span class="arithmatex">\(-\)</span></td>
+        <td><span class="arithmatex">\(-\)</span></td>
+        <td><span class="arithmatex">\(-\)</span></td>
+        <td><span class="arithmatex">\(+\)</span></td>
+        <td><span class="arithmatex">\(+\)</span></td>
+        </tr>
+        <tr>
+        <td>residuo</td>
+        <td><span class="arithmatex">\(2\)</span></td>
+        <td><span class="arithmatex">\(4\)</span></td>
+        <td><span class="arithmatex">\(4\)</span></td>
+        <td><span class="arithmatex">\(3\)</span></td>
+        <td><span class="arithmatex">\(1\)</span></td>
+        </tr>
+        </table></div>
+
+    - $\theta=1$ e l'arco di blocco $(2,4)$, in avanti, lascia l'albero e va a $U$. Un'unità si muove dal percorso $1,3,5,4$ al percorso $1,2,4$ e il costo diventa $63-1 \cdot 3=60$.
+
+    - La rimozione di $(2,4)$ elimina $S=\{1,2,3\}$, che contiene $k=3$: questi potenziali cambiano con $\bar{c}_{35}=3$.
+
+    ![Figura 6](../../img/network-simplex/fig06.svg){ .fig loading=lazy  }
+
+    <strong>Iterazione 3</strong><br> Le potenzialità sono $\vet{\pi}=(15,13,13,5,10,0)$ e il costo è $60$.
+
+    <div class="tabella" markdown="0"><table>
+    <tr>
+    <th>arco</th>
+    <th><span class="arithmatex">\((1,2)\)</span></th>
+    <th><span class="arithmatex">\((1,3)\)</span></th>
+    <th><span class="arithmatex">\((2,4)\)</span></th>
+    <th><span class="arithmatex">\((3,2)\)</span></th>
+    <th><span class="arithmatex">\((3,5)\)</span></th>
+    <th><span class="arithmatex">\((4,3)\)</span></th>
+    <th><span class="arithmatex">\((4,6)\)</span></th>
+    <th><span class="arithmatex">\((5,4)\)</span></th>
+    <th><span class="arithmatex">\((5,6)\)</span></th>
+    </tr>
+    <tr>
+    <td>stato</td>
+    <td><span class="arithmatex">\(\mathrm{T}\)</span></td>
+    <td><span class="arithmatex">\(\mathrm{T}\)</span></td>
+    <td><span class="arithmatex">\(\mathrm{U}\)</span></td>
+    <td><span class="arithmatex">\(\mathrm{L}\)</span></td>
+    <td><span class="arithmatex">\(\mathrm{T}\)</span></td>
+    <td><span class="arithmatex">\(\mathrm{L}\)</span></td>
+    <td><span class="arithmatex">\(\mathrm{T}\)</span></td>
+    <td><span class="arithmatex">\(\mathrm{T}\)</span></td>
+    <td><span class="arithmatex">\(\mathrm{U}\)</span></td>
+    </tr>
+    <tr>
+    <td><span class="arithmatex">\(x_{ij}\)</span></td>
+    <td><span class="arithmatex">\(2\)</span></td>
+    <td><span class="arithmatex">\(3\)</span></td>
+    <td><span class="arithmatex">\(4\)</span></td>
+    <td><span class="arithmatex">\(0\)</span></td>
+    <td><span class="arithmatex">\(3\)</span></td>
+    <td><span class="arithmatex">\(0\)</span></td>
+    <td><span class="arithmatex">\(2\)</span></td>
+    <td><span class="arithmatex">\(1\)</span></td>
+    <td><span class="arithmatex">\(2\)</span></td>
+    </tr>
+    <tr>
+    <td><span class="arithmatex">\(\bar{c}_{ij}\)</span></td>
+    <td><span class="arithmatex">\(0\)</span></td>
+    <td><span class="arithmatex">\(0\)</span></td>
+    <td><span class="arithmatex">\(-3\)</span></td>
+    <td><span class="arithmatex">\(2\)</span></td>
+    <td><span class="arithmatex">\(0\)</span></td>
+    <td><span class="arithmatex">\(11\)</span></td>
+    <td><span class="arithmatex">\(0\)</span></td>
+    <td><span class="arithmatex">\(0\)</span></td>
+    <td><span class="arithmatex">\(-7\)</span></td>
+    </tr>
+    </table></div>
+
+    Gli archi di $L$ hanno $\bar{c}_{32}=2>0$ e $\bar{c}_{43}=11>0$, gli archi di $U$ hanno $\bar{c}_{24}=-3<0$ e $\bar{c}_{56}=-7<0$: <code>STOP</code>. Il flusso è l'unico flusso ottimale del Capitolo 4, con valore $60$, e i potenziali sono quelli del suo certificato.
+
+    ![Figura 7](../../img/network-simplex/fig07.svg){ .fig loading=lazy  }
+
+- Le tre strutture ad albero sono fortemente realizzabili. Nel secondo l'arco base $(1,3)$ è al massimo delle sue capacità e punti lontani dalla radice, come richiede la definizione.
+
+- Il pivot degenere non abbassa il costo: sostituisce solo $(3,2)$ con $(1,3)$ nella base. Viene prima perché la regola di immissione preferisce $|\bar{c}_{13}|=2$ a $|\bar{c}_{35}|=1$.
+
+- Gurobi conferma il valore ottimale $60$ e l'enumerazione delle strutture ad albero realizzabili fornisce lo stesso ottimo unico.
+
+!!! chiave ""
+
+    Con le capacità, gli archi di $U$ entrano diminuendo il loro flusso e un arco saturo può lasciare l'albero verso $U$. Dal flusso $\bar{\vet{x}}$ un pivot degenere e un pivot con $\theta=1$ raggiungono il flusso ottimale del capitolo 4, di valore $60$.
+
+---
+
+**Avanti:** [8.9 L'albero iniziale: Fase 0](l-albero-iniziale-fase-0.md)

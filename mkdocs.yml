@@ -47,6 +47,10 @@ theme:
     - search.highlight
 
 # le pagine delle singole app non stanno nel menu: il laboratorio è una voce sola
+not_in_nav: |
+  /laboratorio/*.md
+  !/laboratorio/index.md
+
 plugins:
   - search:
       lang: it
@@ -98,7 +102,9 @@ extra:
       lang: en
 
 extra_css:
-  - stylesheets/extra.css
+  - stylesheets/extra.css?v=a25c6f8414
+  - https://cdn.jsdelivr.net/npm/jsxgraph@1.10.1/distrib/jsxgraph.css
+  - stylesheets/interattivi.css?v=c51ac2286b
 
 markdown_extensions:
   - admonition
@@ -118,11 +124,127 @@ markdown_extensions:
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
 extra_javascript:
-  - javascripts/cloudflare-analytics.js
-  - javascripts/mathjax.js
+  - javascripts/cloudflare-analytics.js?v=bff73345a1
+  - javascripts/mathjax.js?v=00baaa9282
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js
-
+  # grafici interattivi: JSXGraph, il motore, poi le ricette (gi-*.js, le aggiunge genera_sito.py)
+  - https://cdn.jsdelivr.net/npm/jsxgraph@1.10.1/distrib/jsxgraphcore.js
+  - javascripts/interattivi.js?v=2687ca69e3
+  - javascripts/gi-comune.js?v=40df75e3e5
+  - javascripts/gi-no-0.js?v=da165c7941
+  - javascripts/gi-no-a.js?v=c95bdb2f54
+  - javascripts/gi-no-b.js?v=685b325a9e
 
 nav:
   - Home: index.md
-
+  - Grafi:
+      - grafi/index.md
+      - "1. Grafi":
+          - grafi/graphs/index.md
+          - "Grafi non orientati e orientati": grafi/graphs/grafi-non-orientati-e-orientati.md
+          - "Rappresentazioni di un grafo": grafi/graphs/rappresentazioni-di-un-grafo.md
+          - "Connettività": grafi/graphs/connettivita.md
+          - "Alberi e foreste": grafi/graphs/alberi-e-foreste.md
+          - "Il rango della matrice di incidenza": grafi/graphs/il-rango-della-matrice-di-incidenza.md
+          - "Ricerca su grafi": grafi/graphs/ricerca-su-grafi.md
+  - Alberi e cammini:
+      - alberi-e-cammini/index.md
+      - "2. Alberi ricoprenti":
+          - alberi-e-cammini/minimum-spanning-trees/index.md
+          - "Il problema dell'albero di copertura minimo": alberi-e-cammini/minimum-spanning-trees/il-problema-dell-albero-di-copertura-minimo.md
+          - "Tagli e cicli": alberi-e-cammini/minimum-spanning-trees/tagli-e-cicli.md
+          - "La proprietà di taglio e la proprietà di ciclo": alberi-e-cammini/minimum-spanning-trees/la-proprieta-di-taglio-e-la-proprieta-di-ciclo.md
+          - "L'algoritmo greedy generico": alberi-e-cammini/minimum-spanning-trees/l-algoritmo-greedy-generico.md
+          - "Algoritmo di Kruskal": alberi-e-cammini/minimum-spanning-trees/algoritmo-di-kruskal.md
+          - "Algoritmo di Prim": alberi-e-cammini/minimum-spanning-trees/algoritmo-di-prim.md
+          - "Unicità dell'albero di copertura minimo": alberi-e-cammini/minimum-spanning-trees/unicita-dell-albero-di-copertura-minimo.md
+      - "3. Cammini minimi":
+          - alberi-e-cammini/shortest-paths/index.md
+          - "Problemi del percorso più breve": alberi-e-cammini/shortest-paths/problemi-del-percorso-piu-breve.md
+          - "Condizioni e potenziali di ottimalità": alberi-e-cammini/shortest-paths/condizioni-e-potenziali-di-ottimalita.md
+          - "La formulazione della programmazione lineare": alberi-e-cammini/shortest-paths/la-formulazione-della-programmazione-lineare.md
+          - "Percorsi più brevi nei grafici aciclici": alberi-e-cammini/shortest-paths/percorsi-piu-brevi-nei-grafici-aciclici.md
+          - "L'algoritmo Bellman–Ford": alberi-e-cammini/shortest-paths/l-algoritmo-bellmanford.md
+          - "Algoritmo di Dijkstra": alberi-e-cammini/shortest-paths/algoritmo-di-dijkstra.md
+  - Flussi:
+      - flussi/index.md
+      - "4. Modelli di flusso":
+          - flussi/network-flow-models/index.md
+          - "Reti e flussi": flussi/network-flow-models/reti-e-flussi.md
+          - "Il modello di flusso di costo minimo": flussi/network-flow-models/il-modello-di-flusso-di-costo-minimo.md
+          - "Feasibility conditions": flussi/network-flow-models/feasibility-conditions.md
+          - "Rimozione dei limiti inferiori": flussi/network-flow-models/rimozione-dei-limiti-inferiori.md
+          - "Istanze non bilanciate": flussi/network-flow-models/istanze-non-bilanciate.md
+          - "Totale unimodularità e integralità": flussi/network-flow-models/totale-unimodularita-e-integralita.md
+          - "Il modello duale e i costi ridotti": flussi/network-flow-models/il-modello-duale-e-i-costi-ridotti.md
+          - "Casi speciali": flussi/network-flow-models/casi-speciali.md
+          - "Un'istanza di traslato": flussi/network-flow-models/un-istanza-di-traslato.md
+      - "5. Flusso massimo":
+          - flussi/maximum-flow/index.md
+          - "Il problema del flusso massimo": flussi/maximum-flow/il-problema-del-flusso-massimo.md
+          - "Tagli": flussi/maximum-flow/tagli.md
+          - "La rete residua": flussi/maximum-flow/la-rete-residua.md
+          - "Il teorema del taglio minimo del flusso massimo": flussi/maximum-flow/il-teorema-del-taglio-minimo-del-flusso-massimo.md
+          - "L'algoritmo Ford-Fulkerson": flussi/maximum-flow/l-algoritmo-ford-fulkerson.md
+          - "L'algoritmo Edmonds–Karp": flussi/maximum-flow/l-algoritmo-edmondskarp.md
+          - "Applicazioni": flussi/maximum-flow/applicazioni.md
+      - "6. Flusso di costo minimo":
+          - flussi/min-cost-flow/index.md
+          - "La rete residua con i costi": flussi/min-cost-flow/la-rete-residua-con-i-costi.md
+          - "Circolazioni e loro scomposizione": flussi/min-cost-flow/circolazioni-e-loro-scomposizione.md
+          - "Condizioni di ottimalità del ciclo negativo": flussi/min-cost-flow/condizioni-di-ottimalita-del-ciclo-negativo.md
+          - "Condizioni di ottimalità con potenziali": flussi/min-cost-flow/condizioni-di-ottimalita-con-potenziali.md
+          - "Un primo flusso fattibile": flussi/min-cost-flow/un-primo-flusso-fattibile.md
+          - "L'algoritmo di annullamento del ciclo": flussi/min-cost-flow/l-algoritmo-di-annullamento-del-ciclo.md
+          - "L'algoritmo del percorso più breve successivo": flussi/min-cost-flow/l-algoritmo-del-percorso-piu-breve-successivo.md
+      - "7. Trasporto e assegnamento":
+          - flussi/transportation-and-assignment/index.md
+          - "Il problema dei trasporti": flussi/transportation-and-assignment/il-problema-dei-trasporti.md
+          - "Soluzioni di base": flussi/transportation-and-assignment/soluzioni-di-base.md
+          - "Soluzioni iniziali di base fattibili": flussi/transportation-and-assignment/soluzioni-iniziali-di-base-fattibili.md
+          - "Il metodo potenziale": flussi/transportation-and-assignment/il-metodo-potenziale.md
+          - "Il problema dell'assegnazione": flussi/transportation-and-assignment/il-problema-dell-assegnazione.md
+  - Simplesso su reti:
+      - simplesso-su-reti/index.md
+      - "8. Simplesso su reti":
+          - simplesso-su-reti/network-simplex/index.md
+          - "L'algoritmo del simplesso sul modello del flusso di costo minimo": simplesso-su-reti/network-simplex/l-algoritmo-del-simplesso-sul-modello-del-flusso-di-costo-mi.md
+          - "Basi e alberi ricoprenti": simplesso-su-reti/network-simplex/basi-e-alberi-ricoprenti.md
+          - "Potenziali e ottimalità": simplesso-su-reti/network-simplex/potenziali-e-ottimalita.md
+          - "Il perno": simplesso-su-reti/network-simplex/il-perno.md
+          - "L'algoritmo del simplesso di rete": simplesso-su-reti/network-simplex/l-algoritmo-del-simplesso-di-rete.md
+          - "Un esempio senza capacità": simplesso-su-reti/network-simplex/un-esempio-senza-capacita.md
+          - "Degenerazione e alberi fortemente fattibili": simplesso-su-reti/network-simplex/degenerazione-e-alberi-fortemente-fattibili.md
+          - "Un esempio capacitato con un perno degenere": simplesso-su-reti/network-simplex/un-esempio-capacitato-con-un-perno-degenere.md
+          - "L'albero iniziale: Fase 0": simplesso-su-reti/network-simplex/l-albero-iniziale-fase-0.md
+  - Gestione dei progetti:
+      - gestione-dei-progetti/index.md
+      - "9. Gestione dei progetti":
+          - gestione-dei-progetti/project-management/index.md
+          - "Progetti e reti di progetto": gestione-dei-progetti/project-management/progetti-e-reti-di-progetto.md
+          - "Percorsi e percorsi critici": gestione-dei-progetti/project-management/percorsi-e-percorsi-critici.md
+          - "Il passaggio in avanti: i primi tempi": gestione-dei-progetti/project-management/il-passaggio-in-avanti-i-primi-tempi.md
+          - "Il passaggio all'indietro: ultimi tempi": gestione-dei-progetti/project-management/il-passaggio-all-indietro-ultimi-tempi.md
+          - "Margini e attività critiche": gestione-dei-progetti/project-management/margini-e-attivita-critiche.md
+          - "Il metodo del percorso critico": gestione-dei-progetti/project-management/il-metodo-del-percorso-critico.md
+          - "Il modello di programmazione lineare": gestione-dei-progetti/project-management/il-modello-di-programmazione-lineare.md
+          - "Due percorsi critici e cambi di durata": gestione-dei-progetti/project-management/due-percorsi-critici-e-cambi-di-durata.md
+  - Esercizi:
+      - esercizi/index.md
+      - "Grafi":
+          - "1. Grafi": esercizi/graphs.md
+      - "Alberi e cammini":
+          - "2. Alberi ricoprenti": esercizi/minimum-spanning-trees.md
+          - "3. Cammini minimi": esercizi/shortest-paths.md
+      - "Flussi":
+          - "4. Modelli di flusso": esercizi/network-flow-models.md
+          - "5. Flusso massimo": esercizi/maximum-flow.md
+          - "6. Flusso di costo minimo": esercizi/min-cost-flow.md
+          - "7. Trasporto e assegnamento": esercizi/transportation-and-assignment.md
+      - "Simplesso su reti":
+          - "8. Simplesso su reti": esercizi/network-simplex.md
+      - "Gestione dei progetti":
+          - "9. Gestione dei progetti": esercizi/project-management.md
+  - Laboratorio: laboratorio/index.md
+  - Materiale: materiale.md
+  - Indice: indice.md
