@@ -44,7 +44,7 @@ title: "Soluzioni di base"
 
     2. <em>Costruzione.</em> L'albero ha una foglia $v$ (Lemma «foglie» di [Capitolo 1](../../grafi/graphs/alberi-e-foreste.md)), con uno solo cella $e$ di $T$. Il vincolo di $v$ non contiene altre celle di base, quindi $x_e$ equivale all'offerta o alla domanda di $v$.
 
-    3. Rimuoviamo $v$ e $e$ e sottraiamo $x_e$ dall'offerta o dalla domanda dell'altro endpoint di $e$. Il restante le celle formano un albero di copertura dei nodi rimanenti e le rimanenti forniture e domande hanno ancora somme uguali.
+    3. Rimuoviamo $v$ e $e$ e sottraiamo $x_e$ dall'offerta o dalla domanda dell'altro estremo di $e$. Il restante le celle formano un albero di copertura dei nodi rimanenti e le rimanenti forniture e domande hanno ancora somme uguali.
 
     4. Quando viene lasciata una singola cella, entrambi i suoi punti finali sono foglie e le somme uguali danno lo stesso valore per entrambi vincoli. Ogni valore è ottenuto da somme e differenze dei dati, quindi è intero per dati interi. <span class="qed">□</span>
 

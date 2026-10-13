@@ -22,9 +22,9 @@ title: "Un esempio senza capacità"
 
 <a id="box-20-ns-ex-a"></a>
 
-!!! esempio "Esempio 8.5: la rete simplex senza capacità"
+!!! esempio "Esempio 8.5: rete senza capacità"
 
-    <strong>Iterazione 1</strong><br> Le potenzialità sono $\vet{\pi}=(15,10,13,5,10,0)$ e il costo è $80$.
+    <strong>Iterazione 1</strong><br> Le potenziali sono $\vet{\pi}=(15,10,13,5,10,0)$ e il costo è $80$.
 
     <div class="tabella" markdown="0"><table>
     <tr>
@@ -108,7 +108,7 @@ title: "Un esempio senza capacità"
 
     ![Figura 3](../../img/network-simplex/fig03.svg){ .fig loading=lazy  }
 
-    <strong>Iterazione 2</strong><br> Le potenzialità sono $\vet{\pi}=(8,3,6,-2,3,0)$ e il costo è $52$.
+    <strong>Iterazione 2</strong><br> Le potenziali sono $\vet{\pi}=(8,3,6,-2,3,0)$ e il costo è $52$.
 
     <div class="tabella" markdown="0"><table>
     <tr>
@@ -198,7 +198,7 @@ title: "Un esempio senza capacità"
 
     ![Figura 4](../../img/network-simplex/fig04.svg){ .fig loading=lazy  }
 
-    <strong>Iterazione 3</strong><br> Le potenzialità sono $\vet{\pi}=(8,6,6,1,3,0)$ e il costo è $49$.
+    <strong>Iterazione 3</strong><br> Le potenziali sono $\vet{\pi}=(8,6,6,1,3,0)$ e il costo è $49$.
 
     <div class="tabella" markdown="0"><table>
     <tr>

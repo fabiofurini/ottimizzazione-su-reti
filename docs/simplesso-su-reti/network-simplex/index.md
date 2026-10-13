@@ -56,23 +56,23 @@ title: "Il simplesso su reti"
 
     - Da questo modulo, [Capitolo 1 «Grafi»](../../grafi/graphs/index.md): alberi di copertura, foglie, cicli fondamentali e rango della matrice di incidenza nodo-arco.
 
-    - Da questo modulo, [Capitolo 4 «Modelli di flusso di rete»](../../flussi/network-flow-models/index.md): il modello di flusso a costo minimo, la rimozione dei lower bound, le potenzialità, la riduzione dei costi e l'istanza di traslato sulla rete di riferimento.
+    - Da questo modulo, [Capitolo 4 «Modelli di flusso su reti»](../../flussi/network-flow-models/index.md): il modello di flusso di costo minimo, la rimozione dei limiti inferiori, i potenziali, i costi ridotti e l'istanza di trasbordo sulla rete di riferimento.
 
-    - Dal modulo Programmazione lineare, [Capitolo 6 «Algoritmo del simplesso»](https://fabiofurini.github.io/programmazione-lineare/simplesso/06-simplesso/), [Capitolo 7 «Condizioni di ottimalità e regole pivot»](https://fabiofurini.github.io/programmazione-lineare/simplesso/07-ottimalita-pivot/), [Capitolo 8 «Fase 0 dell'algoritmo del simplesso»](https://fabiofurini.github.io/programmazione-lineare/simplesso/08-fase-zero/) e [Capitolo 11 «Revisionato Algoritmo del simplesso»](https://fabiofurini.github.io/programmazione-lineare/metodi-avanzati/11-simplesso-rivisto/): basi, soluzioni di base, costi ridotti, operazioni pivotanti, degenerazione e Fase 0.
+    - Dal modulo Programmazione lineare, [Capitolo 6 «Algoritmo del simplesso»](https://fabiofurini.github.io/programmazione-lineare/simplesso/06-simplesso/), [Capitolo 7 «Condizioni di ottimalità e regole pivot»](https://fabiofurini.github.io/programmazione-lineare/simplesso/07-ottimalita-pivot/), [Capitolo 8 «Fase 0 dell'algoritmo del simplesso»](https://fabiofurini.github.io/programmazione-lineare/simplesso/08-fase-zero/) e [Capitolo 11 «Simplesso rivisto»](https://fabiofurini.github.io/programmazione-lineare/metodi-avanzati/11-simplesso-rivisto/): basi, soluzioni di base, costi ridotti, pivot, degenerazione e Fase 0.
 
 !!! chiave "Obiettivi"
 
     Alla fine di questo capitolo sarai in grado di:
 
-    - dimostrare che le basi del modello di flusso di costo minimo sono gli albero ricoprente e calcolare una soluzione ad albero da le foglie;
+    - dimostrare che le basi del modello di flusso di costo minimo corrispondono agli alberi ricoprenti e calcolare una soluzione associata a un albero eliminando le foglie;
 
-    - calcola i potenziali di uno albero ricoprente e i costi ridotti e testa l'ottimalità di una soluzione ad albero con archi al limite inferiore e superiore;
+    - calcolare i potenziali di un albero ricoprente e i costi ridotti, e verificare l'ottimalità di una soluzione ad albero con archi ai limiti inferiori o superiori;
 
-    - esegue un pivot: arco di entrata, ciclo orientato, passo, arco di uscita e l'aggiornamento dei flussi, dell'albero e dei potenziali;
+    - eseguire un pivot, individuando l'arco entrante, il ciclo orientato, il passo e l'arco uscente, e aggiornare flussi, albero e potenziali;
 
-    - riconosce un perno degenere, controlla se una struttura ad albero è fortemente ammissibile e applica l'arco uscente regola che lo mantiene fortemente fattibile e impedisce il ciclismo;
+    - riconoscere un pivot degenere, verificare la forte ammissibilità di una struttura ad albero e applicare la regola dell'arco uscente che la preserva e impedisce cicli;
 
-    - trovare una struttura ad albero iniziale con Fase 0 sulla rete ausiliaria o dimostrare che non esiste un flusso fattibile.
+    - trovare una struttura ad albero iniziale con la Fase 0 sulla rete ausiliaria oppure dimostrare che non esistono flussi ammissibili.
 
 ---
 

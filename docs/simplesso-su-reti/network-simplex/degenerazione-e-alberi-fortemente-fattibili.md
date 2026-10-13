@@ -12,7 +12,7 @@ title: "Degenerazione e alberi fortemente fattibili"
 
 <a id="box-21-ns-def-strong"></a>
 
-!!! definizione "Definizione 8.16: struttura ad albero fortemente realizzabile"
+!!! definizione "Definizione 8.16: struttura ad albero fortemente ammissibile"
 
     Sia $(T,L,U)$ una struttura ad albero fattibile con la soluzione ad albero $\vet{x}$ e radice $n$. Per un nodo $i \neq n$, l'albero arco tra $i$ e il nodo successivo del suo percorso verso la radice <strong>punta verso la radice</strong> se $i$ è la sua coda, e <strong>lontano dalla radice</strong> se $i$ è la sua testa. La struttura ad albero è <strong>fortemente fattibile</strong> se
 
@@ -34,7 +34,7 @@ title: "Degenerazione e alberi fortemente fattibili"
 
     <div class="tabella" markdown="0"><table>
     <tr>
-    <th>aggiunti arco, flusso e percorso da <span class="arithmatex">\(3\)</span> alla radice e fortemente realizzabile</th>
+    <th>aggiunti arco, flusso e percorso da <span class="arithmatex">\(3\)</span> alla radice e fortemente ammissibile</th>
     </tr>
     <tr>
     <td><span class="arithmatex">\((3,2)\)</span></td>
@@ -94,7 +94,7 @@ title: "Degenerazione e alberi fortemente fattibili"
 
 !!! teorema "Teorema 8.19: finitezza dell'algoritmo del simplesso di rete"
 
-    Se la struttura ad albero iniziale è fortemente ammissibile e ogni perno utilizza l'arco uscente di <span style="color:#1971c2">[Definizione 8.11](il-perno.md#box-14-ns-def-pivot)</span>, allora ogni struttura ad albero incontrata è fortemente realizzabile, nessuna struttura ad albero è si incontrano due volte e l'algoritmo si ferma dopo un numero finito di pivot. Ciò vale per qualunque regola che scelga l'entrata arco tra gli archi idonei.
+    Se la struttura ad albero iniziale è fortemente ammissibile e ogni perno utilizza l'arco uscente di <span style="color:#1971c2">[Definizione 8.11](il-perno.md#box-14-ns-def-pivot)</span>, allora ogni struttura ad albero incontrata è fortemente ammissibile, nessuna struttura ad albero è si incontrano due volte e l'algoritmo si ferma dopo un numero finito di pivot. Ciò vale per qualunque regola che scelga l'entrata arco tra gli archi idonei.
 
 ??? dimostrazione "Dimostrazione"
 
@@ -104,7 +104,7 @@ title: "Degenerazione e alberi fortemente fattibili"
 
     2. In un pivot degenere, $f$ giace su $P$ (<span style="color:#1971c2">[Lemma 8.17](#box-23-ns-lem-degenerate)</span>), quindi il percorso da $p$ al root passa attraverso $f$ e $p \in S$. Se $e \in L$, allora $p=k$ e i potenziali di $S$ cambiano di $\bar{c}_{kl}<0$; se $e \in U$, allora $p=l$ e cambiano con $-\bar{c}_{kl}<0$ (<span style="color:#1971c2">[Proposizione 8.13](il-perno.md#box-16-ns-prop-update)</span>). Quindi $\sum_{i \in N}\pi_i$ diminuisce rigorosamente, mentre il costo non cambia.
 
-    3. Una struttura ad albero determina il suo costo e le sue potenzialità. Ad ogni pivot la coppia $\big(\vet{c}'\vet{x},\, \sum_{i \in N}\pi_i\big)$ diminuisce rigorosamente in ordine lessicografo, quindi nessuna struttura ad albero viene soddisfatta due volte; ci sono infinitamente molti di loro. <span class="qed">□</span>
+    3. Una struttura ad albero determina il suo costo e le sue potenziali. Ad ogni pivot la coppia $\big(\vet{c}'\vet{x},\, \sum_{i \in N}\pi_i\big)$ diminuisce rigorosamente in ordine lessicografo, quindi nessuna struttura ad albero viene soddisfatta due volte; ci sono infinitamente molti di loro. <span class="qed">□</span>
 
 - La dimostrazione utilizza la regola in due punti: in un perno degenere l'arco uscente si trova tra l'apice e $p$, e il nuovo albero è fortemente fattibile. Una scelta diversa tra gli archi di blocco può produrre una struttura ad albero che non lo è fortemente fattibile.
 

@@ -10,7 +10,7 @@ title: "Un esempio capacitato con un perno degenere"
 
 </div>
 
-- Risolviamo l'istanza di traslato di [Capitolo 4](../../flussi/network-flow-models/un-istanza-di-traslato.md), la rete di riferimento con capacità, partendo dal flusso $\bar{\vet{x}}$ di costo $63$ con la struttura ad albero fortemente realizzabile di <span style="color:#1971c2">[Esempio 8.2](basi-e-alberi-ricoprenti.md#box-8-ns-ex-tree)</span>:
+- Risolviamo l'istanza di traslato di [Capitolo 4](../../flussi/network-flow-models/un-istanza-di-traslato.md), la rete di riferimento con capacità, partendo dal flusso $\bar{\vet{x}}$ di costo $63$ con la struttura ad albero fortemente ammissibile di <span style="color:#1971c2">[Esempio 8.2](basi-e-alberi-ricoprenti.md#box-8-ns-ex-tree)</span>:
 
     $$
     T=\{(1,2),(2,4),(3,2),(4,6),(5,4)\}, \qquad L=\{(4,3)\}, \qquad U=\{(1,3),(3,5),(5,6)\} .
@@ -18,9 +18,9 @@ title: "Un esempio capacitato con un perno degenere"
 
 <a id="box-26-ns-ex-b"></a>
 
-!!! esempio "Esempio 8.7: la rete simplex con capacità"
+!!! esempio "Esempio 8.7: rete con capacità"
 
-    <strong>Iterazione 1</strong><br> Le potenzialità sono $\vet{\pi}=(12,10,12,5,10,0)$ e il costo è $63$.
+    <strong>Iterazione 1</strong><br> Le potenziali sono $\vet{\pi}=(12,10,12,5,10,0)$ e il costo è $63$.
 
     <div class="tabella" markdown="0"><table>
     <tr>
@@ -77,7 +77,7 @@ title: "Un esempio capacitato con un perno degenere"
 
     - $\theta=0$: il perno è degenere. L'arco $(3,2)$ lascia l'albero verso $L$ e $(1,3)$ vi entra nel suo capacità. Il costo rimane $63$ e $\pi_3$ scende da $12$ a $10$.
 
-    <strong>Iterazione 2</strong><br> Le potenzialità sono $\vet{\pi}=(12,10,10,5,10,0)$ e il costo è $63$.
+    <strong>Iterazione 2</strong><br> Le potenziali sono $\vet{\pi}=(12,10,10,5,10,0)$ e il costo è $63$.
 
     <div class="tabella" markdown="0"><table>
     <tr>
@@ -167,7 +167,7 @@ title: "Un esempio capacitato con un perno degenere"
 
     ![Figura 6](../../img/network-simplex/fig06.svg){ .fig loading=lazy  }
 
-    <strong>Iterazione 3</strong><br> Le potenzialità sono $\vet{\pi}=(15,13,13,5,10,0)$ e il costo è $60$.
+    <strong>Iterazione 3</strong><br> Le potenziali sono $\vet{\pi}=(15,13,13,5,10,0)$ e il costo è $60$.
 
     <div class="tabella" markdown="0"><table>
     <tr>

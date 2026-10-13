@@ -55,7 +55,7 @@ title: "Il metodo potenziale"
     \bar{c}_{ij}=c_{ij}-\pi_i+\pi_j=0, \quad \forall (i,j) \in T, \qquad\qquad \pi_{m+n}=0 .
     $$
 
-- Le potenzialità di una base esistono e sono uniche. A partire da $\pi_{m+n}=0$, una cella base $(i,j)$ con uno noto endpoint fornisce l'altro: $\pi_i=\pi_j+c_{ij}$ o $\pi_j=\pi_i-c_{ij}$. Ogni nodo viene raggiunto lungo il suo percorso unico nell'albero da $m+n$, che ne forza il valore.
+- I potenziali di una base esistono e sono uniche. A partire da $\pi_{m+n}=0$, una cella base $(i,j)$ con un estremo già noto permette di calcolare l'altro: $\pi_i=\pi_j+c_{ij}$ o $\pi_j=\pi_i-c_{ij}$. Ogni nodo viene raggiunto lungo il suo percorso unico nell'albero da $m+n$, che ne forza il valore.
 
 <a id="box-16-ta-th-opt"></a>
 
@@ -136,9 +136,9 @@ title: "Il metodo potenziale"
 
     Con <span style="color:#1971c2">[Teorema 7.12](#box-18-ta-th-pivot)</span> ogni iterazione con $\theta>0$ si sposta su una nuova base e diminuisce il costo di $\theta\,|\bar{c}_e|>0$. Una base determina la sua soluzione di base (<span style="color:#1971c2">[Teorema 7.6](soluzioni-di-base.md#box-9-ta-th-basis)</span>), quindi una base visitata due volte avrebbe due costi diversi: nessuna base si ripete. Esistono un numero finito di set di $m+n-1$ celle, quindi il metodo si interrompe al passaggio 2 e si applica <span style="color:#1971c2">[Teorema 7.10](#box-16-ta-th-opt)</span>. <span class="qed">□</span>
 
-- Quando $\theta=0$ il pivot è <strong>degenerato</strong>: cambia la base, la soluzione ed il suo costo no. Il il metodo potenziale è l'algoritmo del simplesso sul modello $\mathrm{TP}$: le celle di base sono le variabili di base, $\bar{c}_{ij}$ sono i costi ridotti e il ciclo descrive come cambiano le variabili di base quando $x_e$ cresce.
+- Quando $\theta=0$ il pivot è <strong>degenerato</strong>: cambia la base, la soluzione ma non la soluzione di base né il costo. Il il metodo potenziale è l'algoritmo del simplesso sul modello $\mathrm{TP}$: le celle di base sono le variabili di base, $\bar{c}_{ij}$ sono i costi ridotti e il ciclo descrive come cambiano le variabili di base quando $x_e$ cresce.
 
-- Da qui la regola anticiclismo di Ble of [Capitolo 7 «Condizioni di ottimalità e regole pivot»](https://fabiofurini.github.io/programmazione-lineare/simplesso/07-ottimalita-pivot/) del modulo Si applica la Programmazione lineare: con la prima cella con $\bar{c}_{ij}<0$ in ordine riga-colonna come la cella entrante e la regola uscente di cui sopra, nessuna base si ripete anche con perni degeneri.
+- Da qui la regola anticiclismo di Ble of [Capitolo 7 «Condizioni di ottimalità e regole pivot»](https://fabiofurini.github.io/programmazione-lineare/simplesso/07-ottimalita-pivot/) del modulo di Programmazione lineare: con la prima cella con $\bar{c}_{ij}<0$ in ordine riga-colonna come la cella entrante e la regola uscente di cui sopra, nessuna base si ripete anche con perni degeneri.
 
 !!! attenzione "La convenzione u-v"
 

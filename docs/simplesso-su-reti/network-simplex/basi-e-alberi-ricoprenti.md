@@ -12,23 +12,23 @@ title: "Basi e alberi ricoprenti"
 
 <a id="box-4-ns-th-bases"></a>
 
-!!! teorema "Teorema 8.3: le basi sono gli albero ricoprente"
+!!! teorema "Teorema 8.3: le basi corrispondono agli alberi ricoprenti"
 
-    Lascia che il grafo non orientato sottostante di $G=(N,A)$ sia connesso. Un insieme $T$ di archi $n-1$ è una base se e solo se è un albero di copertura. Inoltre, per uno albero ricoprente $T$ le righe e le colonne di $\mat{M}_T$ possono essere ordinate in modo che la matrice è triangolare inferiore con voci diagonali $\pm 1$ e $\det(\mat{M}_T)=\pm 1$.
+    Supponiamo che il grafo non orientato sottostante a $G=(N,A)$ sia connesso. Un insieme $T$ di $n-1$ archi è una base se e solo se è un albero ricoprente. Inoltre, per ogni albero ricoprente $T$ si possono ordinare le righe e le colonne di $\mat{M}_T$ in modo che la matrice sia triangolare inferiore, con elementi diagonali pari a $\pm 1$; dunque $\det(\mat{M}_T)=\pm 1$.
 
 ??? dimostrazione "Dimostrazione"
 
     Utilizziamo i risultati di [Capitolo 1 «Grafi»](../../grafi/graphs/index.md).
 
-    1. <em>Le colonne di $T$ in $\mat{M}$ e in $\mat{B}$ sono indipendenti insieme.</em> La voce del nodo $n$ di $\sum_{a \in T}\lambda_a\mat{B}_a$ è meno la somma delle altre voci, poiché la somma delle righe di $\mat{B}$ dà come risultato zero. Quindi $\sum_{a \in T}\lambda_a\mat{M}_a=\vet{0}$ se e solo se $\sum_{a \in T}\lambda_a\mat{B}_a=\vet{0}$.
+    1. <em>Indipendenza delle colonne.</em> Ogni combinazione lineare delle colonne di $\mat{B}$ ha somma delle componenti uguale a zero. Perciò, se le prime $n-1$ componenti sono nulle, lo è anche la componente $n$. Ne segue che le colonne di $\mat{M}_T$ sono indipendenti se e solo se lo sono le corrispondenti colonne di $\mat{B}$.
 
-    2. <em>Un albero ricoprente è una base.</em> Le sue colonne in $\mat{B}$ sono linearmente indipendenti dal Lemma «colonne di a foresta».
+    2. <em>Un albero ricoprente è una base.</em> Le colonne di $\mat{B}$ associate agli archi di un albero ricoprente sono linearmente indipendenti, per il Lemma «Colonne di una foresta».
 
-    3. <em>Una base è uno albero ricoprente.</em> Se gli archi $n-1$ di $T$ fossero aciclici, formerebbero uno albero ricoprente Teorema «caratterizzazioni di un albero»(c). Altrimenti $T$ contiene un ciclo, le cui colonne sono linearmente dipendenti da Lemma «colonne di un ciclo», e $T$ non è una base.
+    3. <em>Una base è un albero ricoprente.</em> Se gli $n-1$ archi di $T$ non formassero un albero ricoprente, per la caratterizzazione degli alberi del Capitolo 1 conterrebbero un ciclo. Le colonne associate a un ciclo sono linearmente dipendenti (Lemma «Colonne di un ciclo»), quindi $T$ non sarebbe una base.
 
-    4. <em>Forma triangolare.</em> Per induzione su $n$; per $n=2$ la matrice è $1 \times 1$ con voce $\pm 1$. Per $n \ge 3$ l'albero ha almeno due foglie (Lemma «foglie»), quindi ha una foglia $\ell \neq n$, con il suo unico arco arboreo $a_\ell$. La riga $\ell$ di $\mat{M}_T$ ha la singola voce diversa da zero $\pm 1$, nella colonna di $a_\ell$.
+    4. <em>Forma triangolare.</em> Procediamo per induzione su $n$. Per $n=2$, $\mat{M}_T$ è una matrice $1 \times 1$ con elemento $\pm 1$. Per $n\ge 3$, l'albero ha almeno due foglie (Lemma «Foglie»); scegliamone una $\ell\neq n$ e indichiamo con $a_\ell$ il suo unico arco. Nella riga $\ell$ di $\mat{M}_T$ l'unico elemento non nullo è $\pm 1$, nella colonna di $a_\ell$.
 
-    5. Inserisci prima la riga $\ell$ e la colonna di $a_\ell$. La loro eliminazione lascia la matrice costruita allo stesso modo per lo albero ricoprente $T \setminus \{a_\ell\}$ dei nodi $N \setminus \{\ell\}$, che contengono ancora $n$: per induzione esso può essere ordinato nella forma triangolare inferiore. Espansione lungo la prima fila, $\det(\mat{M}_T)=\pm 1$. <span class="qed">□</span>
+    5. Ordiniamo per prima la riga $\ell$ e per prima la colonna di $a_\ell$. Eliminandole, resta la matrice associata all'albero ricoprente $T\setminus\{a_\ell\}$ sui nodi $N\setminus\{\ell\}$, che contiene ancora $n$. Per induzione, questa sottomatrice si può ordinare in forma triangolare inferiore. Sviluppando il determinante lungo la prima riga, otteniamo $\det(\mat{M}_T)=\pm 1$. <span class="qed">□</span>
 
 <a id="box-5-ns-cor-integer"></a>
 
@@ -38,13 +38,13 @@ title: "Basi e alberi ricoprenti"
 
 ??? dimostrazione "Dimostrazione"
 
-    Il lato destro $\vet{h}-\sum_{a \in U}\mat{M}_au_a$ è intero e $\det(\mat{M}_T)=\pm 1$ per <span style="color:#1971c2">[Teorema 8.3](#box-4-ns-th-bases)</span>: per la regola di Cramer ogni variabile base è un numero intero. Questo è il integralità di [Capitolo 4 «Flusso di rete modelli»](../../flussi/network-flow-models/index.md), visti sulle basi. <span class="qed">□</span>
+    Il termine noto $\vet{h}-\sum_{a \in U}\mat{M}_a u_a$ è intero e, per <span style="color:#1971c2">[Teorema 8.3](#box-4-ns-th-bases)</span>, $\det(\mat{M}_T)=\pm1$. Per la regola di Cramer, tutte le variabili di base sono quindi intere. È il risultato di integralità del [Capitolo 4](../../flussi/network-flow-models/index.md), applicato alle soluzioni di base. <span class="qed">□</span>
 
 <a id="box-6-ns-def-tree"></a>
 
 !!! definizione "Definizione 8.5: struttura ad albero e soluzione ad albero"
 
-    Sia $T$ uno albero ricoprente di $G$. Una <strong>struttura ad albero</strong> è una tripla $(T,L,U)$, dove la partizione $L$ e $U$ $A \setminus T$ e ogni arco di $U$ hanno una capacità finita. La sua <strong>tree solution</strong> è la sua soluzione di base: $x_{ij}=0$ su $L$, $x_{ij}=u_{ij}$ su $U$ e $\mat{B}\vet{x}=\vet{b}$.
+    Sia $T$ un albero ricoprente di $G$. Una <strong>struttura ad albero</strong> è una tripla $(T,L,U)$, dove $L$ e $U$ formano una partizione di $A\setminus T$ e ogni arco in $U$ ha capacità finita. La <strong>soluzione ad albero</strong> associata è la soluzione di base definita da $x_{ij}=0$ sugli archi in $L$, $x_{ij}=u_{ij}$ sugli archi in $U$ e $\mat{B}\vet{x}=\vet{b}$.
 
     - La struttura ad albero è <strong>ammissibile</strong> se $0 \le x_{ij} \le u_{ij}$ su ogni arco di $T$.
 
@@ -52,13 +52,13 @@ title: "Basi e alberi ricoprenti"
 
 !!! attenzione "Base e stato associato"
 
-    - L'albero $T$ è la base. Gli insiemi $L$ e $U$ dicono solo su quale limite si trova ciascun arco non di base.
+    - L'albero $T$ è la base. Gli insiemi $L$ e $U$ indicano soltanto a quale limite è fissato ciascun arco fuori base.
 
-    - Un arco di $U$ non è basico, sebbene il suo flusso $u_{ij}$ sia positivo. Un arco di $T$ può avere flusso $0$ o $u_{ij}$: la soluzione dell'albero è quindi degenere, ma l'arco è ancora fondamentale.
+    - Un arco in $U$ è fuori base anche quando il suo flusso $u_{ij}$ è positivo. Un arco di $T$ può invece avere flusso $0$ oppure $u_{ij}$: in tal caso la soluzione ad albero è degenere, ma l'arco rimane di base.
 
 <a id="box-7-ns-prop-leaves"></a>
 
-!!! teorema "Proposizione 8.6: la soluzione per l'albero dalle foglie"
+!!! teorema "Proposizione 8.6: calcolo della soluzione ad albero eliminando le foglie"
 
     Sia $(T,L,U)$ una struttura ad albero e siano <strong>saldi residui</strong>
 
@@ -66,17 +66,17 @@ title: "Basi e alberi ricoprenti"
     \hat{b}_i=b_i-\sum_{(i,j) \in U}u_{ij}+\sum_{(j,i) \in U}u_{ji}, \qquad \forall i \in N.
     $$
 
-    Ripetere fino a quando non rimane più alcun arco di albero: prendere una foglia $\ell \neq n$ dell'albero rimanente, con il suo arco di albero $a$ e il suo vicino $j$; impostare $x_a=\hat{b}_\ell$ se $a=(\ell,j)$ e $x_a=-\hat{b}_\ell$ se $a=(j,\ell)$; aggiungi $\hat{b}_\ell$ a $\hat{b}_j$; eliminare $\ell$ e $a$. I valori ottenuti, con $x=0$ su $L$ e $x=u$ su $U$, sono la soluzione dell'albero.
+    Finché restano archi dell'albero, scegli una foglia $\ell\neq n$ dell'albero residuo; siano $a$ il suo unico arco e $j$ il nodo adiacente. Poni $x_a=\hat{b}_\ell$ se $a=(\ell,j)$ e $x_a=-\hat{b}_\ell$ se $a=(j,\ell)$; aggiorna $\hat{b}_j$ aggiungendovi $\hat{b}_\ell$; infine elimina $\ell$ e $a$. I valori così ottenuti, insieme a $x=0$ sugli archi in $L$ e $x=u$ su quelli in $U$, costituiscono la soluzione ad albero.
 
 ??? dimostrazione "Dimostrazione"
 
-    Il saldo residuo $\hat{b}_i$ è il saldo del nodo $i$ una volta che i flussi sugli archi di $U$ vengono spostati sul lato destro. Dimostriamo che ogni passo mantiene questa invarianza: i restanti archi degli alberi devono soddisfare la conservazione con il saldi residui correnti.
+    Il saldo residuo $\hat{b}_i$ è il saldo del nodo $i$ dopo aver trasferito al termine noto i flussi sugli archi di $U$. Mostriamo che ogni passo conserva questa proprietà: gli archi dell'albero rimasti devono soddisfare i vincoli di conservazione con i saldi residui correnti.
 
     1. Alla foglia $\ell$ l'unica incognita rimasta è $x_a$, quindi il vincolo di conservazione di $\ell$ legge $x_a= \hat{b}_\ell$ se $\ell$ è la coda di $a$ e $-x_a=\hat{b}_\ell$ se $\ell$ è la sua testa.
 
-    2. Nel vincolo di $j$ compare l'arco $a$ con $-x_a$ se $a=(\ell,j)$ e con $+x_a$ se $a=(j,\ell)$. Moving il termine noto sul lato destro aggiunge $x_a=\hat{b}_\ell$ o $-x_a=\hat{b}_\ell$ a $\hat{b}_j$.
+    2. Nel vincolo del nodo $j$, il coefficiente di $x_a$ è $-1$ se $a=(\ell,j)$ e $+1$ se $a=(j,\ell)$. Trasferendo il termine noto al secondo membro, il saldo residuo $\hat{b}_j$ aumenta di $x_a=\hat{b}_\ell$ oppure di $-x_a=\hat{b}_\ell$, rispettivamente.
 
-    3. Un albero con almeno due nodi ha una foglia diversa da $n$ ([Capitolo 1, Lemma «foglie»](../../grafi/graphs/alberi-e-foreste.md)), quindi la procedura termina con il solo nodo $n$. Il suo vincolo è mantenuto da<span style="color:#1971c2">[Lemma 8.2](l-algoritmo-del-simplesso-sul-modello-del-flusso-di-costo-mi.md#box-2-ns-lem-redundant)</span>, e la soluzione è unica per <span style="color:#1971c2">[Teorema 8.3](#box-4-ns-th-bases)</span>. <span class="qed">□</span>
+    3. Ogni albero con almeno due nodi ha una foglia diversa da $n$ ([Lemma «Foglie» del Capitolo 1](../../grafi/graphs/alberi-e-foreste.md)); quindi la procedura termina quando resta il solo nodo $n$. Il suo vincolo è automaticamente soddisfatto per <span style="color:#1971c2">[Lemma 8.2](l-algoritmo-del-simplesso-sul-modello-del-flusso-di-costo-mi.md#box-2-ns-lem-redundant)</span>, e la soluzione è unica per <span style="color:#1971c2">[Teorema 8.3](#box-4-ns-th-bases)</span>. <span class="qed">□</span>
 
 - Negli esempi l'anta è sempre quella con <strong>indice più piccolo</strong> diverso da $n$.
 
@@ -182,7 +182,7 @@ title: "Basi e alberi ricoprenti"
 
 !!! chiave ""
 
-    Le basi del modello $\mathrm{MCF}$ sono gli albero ricoprente e le loro matrici sono triangolari con determinante $\pm 1$. A la soluzione ad albero fissa gli archi di $L$ a $0$ e quelli di $U$ alla loro capacità, e seguono i flussi sugli archi dell'albero dalle foglie.
+    Le basi del modello $\mathrm{MCF}$ corrispondono agli alberi ricoprenti e le relative matrici hanno determinante $\pm1$. La soluzione ad albero fissa a $0$ i flussi sugli archi in $L$ e alla capacità quelli sugli archi in $U$; i flussi sugli archi dell'albero si calcolano eliminando le foglie.
 
 ---
 

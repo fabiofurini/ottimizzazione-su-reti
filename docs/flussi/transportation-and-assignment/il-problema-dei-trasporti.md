@@ -137,13 +137,13 @@ title: "Il problema dei trasporti"
 
 !!! teorema "Proposizione 7.3: traslato come trasporto"
 
-    Sia $G=(N,A)$ una rete con saldi $b_i$, zero limiti inferiori, nessuna capacità e costi $c_{ij} \ge 0$. Lasciamo $P=\{i \in N : b_i>0\}$ e $D=\{j \in N : b_j<0\}$ e supponiamo che ogni $j \in D$ sia raggiungibile da ogni $i \in P$, with distance $\tilde{d}(i,j)$ for the lengths $c_{ij}$. Allora il costo minimo di un flusso realizzabile è uguale a valore ottimale dell'istanza di trasporto con origini $P$, forniture $a_i=b_i$, destinazioni $D$, richieste $d_j=-b_j$ e costa $\tilde{d}(i,j)$.
+    Sia $G=(N,A)$ una rete con saldi $b_i$, zero limiti inferiori, nessuna capacità e costi $c_{ij} \ge 0$. Lasciamo $P=\{i \in N : b_i>0\}$ e $D=\{j \in N : b_j<0\}$ e supponiamo che ogni $j \in D$ sia raggiungibile da ogni $i \in P$. Indichiamo con $\tilde{d}(i,j)$ la lunghezza di un cammino minimo da $i$ a $j$, usando $c_{ij}$ come lunghezza degli archi. Il costo minimo di un flusso ammissibile coincide con il valore ottimo del problema di trasporto con origini $P$, offerte $a_i=b_i$, destinazioni $D$, domande $d_j=-b_j$ e costi unitari $\tilde{d}(i,j)$.
 
 ??? dimostrazione "Dimostrazione"
 
     Confrontiamo i due valori ottimali.
 
-    1. <em>Dalle spedizioni ai flussi.</em> Lascia che $\vet{y}$ sia fattibile per l'istanza di trasporto. Invio di unità $y_{ij}$ lungo un percorso più breve da $i$ a $j$, per ogni coppia, dà un flusso $\vet{x} \ge \vet{0}$: il nodo $i \in P$ invia Unità $\sum_{j \in D} y_{ij}=b_i$, il nodo $j \in D$ riceve $-b_j$, gli altri nodi trasmettono ciò che ricevono. Il suo costo è $\sum_{i,j} \tilde{d}(i,j)\,y_{ij}$, quindi il costo di flusso minimo è al massimo il trasporto ottimale.
+    1. <em>Dalle spedizioni ai flussi.</em> Sia $\vet{y}$ un flusso ammissibile per il problema di trasporto. Per ogni coppia $(i,j)$, inviamo $y_{ij}$ unità lungo un cammino minimo da $i$ a $j$. Otteniamo così un flusso $\vet{x} \ge \vet{0}$: ogni nodo $i \in P$ invia $\sum_{j \in D} y_{ij}=b_i$ unità, ogni nodo $j \in D$ riceve $-b_j$ unità e i nodi intermedi trasmettono il flusso che ricevono. Il costo è $\sum_{i,j} \tilde{d}(i,j)\,y_{ij}$; dunque il costo minimo di flusso non supera il valore ottimo del problema di trasporto.
 
     2. <em>Dai flussi alle spedizioni.</em> Mostriamo per induzione sul numero di archi con $x_{ij}>0$ più il numero di nodi con $b_i \neq 0$ che ogni flusso fattibile $\vet{x}$ costa almeno $\sum_{i,j} \tilde{d}(i,j)\,y_{ij}$ per alcuni realizzabile $\vet{y}$. Se $\vet{b}=\vet{0}$, prendi $\vet{y}=\vet{0}$.
 
