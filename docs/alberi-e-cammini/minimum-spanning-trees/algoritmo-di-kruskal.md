@@ -29,7 +29,7 @@ title: "Algoritmo di Kruskal"
 
     Mostriamo che ogni lato accettato $e_k=\{u,v\}$ è una scelta del passo 2 dell'algoritmo greedy generico. Lasciamo $S$ è il componente di $(V,F)$ che contiene $u$, subito prima che $e_k$ venga accettato: $v \notin S$ e nessun lato di $F$ incrocia $\delta(S)$.
 
-    1. Lascia che $e_h \in \delta(S)$ con $h<k$. Quando $e_h$ è stato scansionato non è stato accettato, poiché $F \cap \delta(S)=\emptyset$; quindi è allora gli endpoint erano nello stesso componente e lo sono ancora, perché i componenti si uniscono solo. Ciò contraddice $e_h \in \delta(S)$.
+    1. Lascia che $e_h \in \delta(S)$ con $h<k$. Quando $e_h$ è stato scansionato non è stato accettato, poiché $F \cap \delta(S)=\emptyset$; quindi è allora gli estremo erano nello stesso componente e lo sono ancora, perché i componenti si uniscono solo. Ciò contraddice $e_h \in \delta(S)$.
 
     2. Quindi ogni lato di $\delta(S)$ è un certo $e_h$ con $h \ge k$ e $w_{e_h} \ge w_{e_k}$: $e_k$ ha un minimo peso in $\delta(S)$.
 
@@ -55,7 +55,7 @@ title: "Algoritmo di Kruskal"
 
     2. La scansione esegue i test $m$, ciascuno nel tempo $O(1)$.
 
-    3. Quando un vertice viene rietichettato, il suo componente si fonde con uno almeno altrettanto grande, quindi la dimensione del suo componente a almeno raddoppia. La dimensione non supera mai $n$, quindi ogni vertice viene rietichettato al massimo $\log_2 n$ volte: tutte le fusioni richiedono $O(n\log n)$ ora.
+    3. Quando un vertice cambia rappresentante, il suo componente si fonde con un componente di dimensione almeno pari. La dimensione del componente almeno raddoppia e non supera mai $n$; quindi ogni vertice cambia rappresentante al massimo $\log_2 n$ volte. Tutte le fusioni richiedono complessivamente tempo $O(n\log n)$.
 
     $G$ è connesso, quindi $n-1 \le m$ e il totale è $O(m\log n+n\log n)=O(m\log n)$. <span class="qed">□</span>
 

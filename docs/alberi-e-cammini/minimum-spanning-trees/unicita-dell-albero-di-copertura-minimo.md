@@ -73,7 +73,7 @@ title: "Unicità dell'albero di copertura minimo"
 
     - <strong>Utilizzo della proprietà di taglio con un taglio attraversato da $F$.</strong> Il lato più leggero di $\delta(S)$ è sicuro solo se non il lato già scelto incrocia $\delta(S)$.
 
-    - <strong>Accettare un lato nell'algoritmo di Kruskal perché tocca un nuovo vertice.</strong> Il test è se i due gli endpoint si trovano in componenti diversi: $\{3,4\}$ è accettato sebbene sia $3$ che $4$ siano già coperti.
+    - <strong>Accettare un lato nell'algoritmo di Kruskal perché tocca un nuovo vertice.</strong> Il test è se i due gli estremo si trovano in componenti diversi: $\{3,4\}$ è accettato sebbene sia $3$ che $4$ siano già coperti.
 
     - <strong>Aggiornamento delle etichette nell'algoritmo di Prim con le lunghezze dei percorsi.</strong> La nuova etichetta è il peso $w_{vu}$ di un lato singolo, non $d(v)+w_{vu}$: questo è l'algoritmo di Dijkstra per i percorsi più brevi.
 

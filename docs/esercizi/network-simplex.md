@@ -88,7 +88,7 @@ title: "Esercizi · Il simplesso su reti"
 
     3. La struttura ad albero è fattibile? È degenerato? Calcolarne il costo.
 
-    4. La struttura ad albero è fortemente realizzabile, con radice $5$?
+    4. La struttura ad albero è fortemente ammissibile, con radice $5$?
 
 ??? soluzione "Soluzione"
 
@@ -355,7 +355,7 @@ title: "Esercizi · Il simplesso su reti"
         c_{43}-c_{13}-c_{51}+c_{52}-c_{42}=4-6-6+4-4=-8=\bar{c}_{43} .
         $$
 
-    4. Con $\alpha_{ij}=\max\{0,-\bar{c}_{ij}\}$ valgono i doppi vincoli $\pi_i-\pi_j-\alpha_{ij} \le c_{ij}$, e $\alpha_{ij}>0$ solo sugli archi di $U$: $\alpha_{23}=2$, $\alpha_{43}=8$. Il doppio valore è
+    4. Con $\alpha_{ij}=\max\{0,-\bar{c}_{ij}\}$ valgono i vincoli duali $\pi_i-\pi_j-\alpha_{ij} \le c_{ij}$, e $\alpha_{ij}>0$ solo sugli archi di $U$: $\alpha_{23}=2$, $\alpha_{43}=8$. Il valore duale è
 
         $$
         \sum_{i \in N} b_i\pi_i-\sum_{(i,j) \in A} u_{ij}\alpha_{ij}=102-22=80,
@@ -365,7 +365,7 @@ title: "Esercizi · Il simplesso su reti"
 
     !!! chiave ""
 
-        Le potenzialità $\vet{\pi}=(-6,-4,-12,0,0)$ danno $\bar{c}>0$ su $L$ e $\bar{c}<0$ su $U$: la soluzione ad albero è l'unico ottimo, con costo $80$ pari al valore duale.
+        I potenziali $\vet{\pi}=(-6,-4,-12,0,0)$ danno $\bar{c}>0$ su $L$ e $\bar{c}<0$ su $U$: la soluzione ad albero è l'unico ottimo, con costo $80$ pari al valore duale.
 
 <a id="esercizio-8-3"></a>
 
@@ -414,7 +414,7 @@ title: "Esercizi · Il simplesso su reti"
 
     **Domande**
 
-    1. Calcola la soluzione ad albero della struttura ad albero iniziale, il suo costo e le sue potenzialità. Non è degenerato?
+    1. Calcola la soluzione ad albero della struttura ad albero iniziale, il suo costo e le sue potenziali. Non è degenerato?
 
     2. Risolvere il problema con l'algoritmo del simplesso di rete, con le regole (N1)–(N4): per ogni iterazione fornire i flussi, i potenziali, i costi ridotti, l'arco entrante, il ciclo con il suo apice, il passo e l'arco uscente.
 
@@ -455,7 +455,7 @@ title: "Esercizi · Il simplesso su reti"
 
         Ogni arco dell'albero ha un flusso positivo, quindi la soluzione dell'albero non è degenere; il suo costo è $83$. Dalla radice $6$, $\vet{\pi}=(-5,-6,-10,-14,-16,0)$.
 
-    2. <strong>Iterazione 1</strong><br> Le potenzialità sono $\vet{\pi}=(-5,-6,-10,-14,-16,0)$ e il costo è $83$.
+    2. <strong>Iterazione 1</strong><br> I potenziali sono $\vet{\pi}=(-5,-6,-10,-14,-16,0)$ e il costo è $83$.
 
         <div class="tabella" markdown="0"><table>
         <tr>
@@ -537,7 +537,7 @@ title: "Esercizi · Il simplesso su reti"
 
         - La rimozione di $(1,2)$ elimina $S=\{2,3,4,5\}$, che contiene $l=2$: questi potenziali cambiano con $-\bar{c}_{62}=4$.
 
-        <strong>Iterazione 2</strong><br> Le potenzialità sono $\vet{\pi}=(-5,-2,-6,-10,-12,0)$ e il costo è $67$.
+        <strong>Iterazione 2</strong><br> I potenziali sono $\vet{\pi}=(-5,-2,-6,-10,-12,0)$ e il costo è $67$.
 
         <div class="tabella" markdown="0"><table>
         <tr>
@@ -619,7 +619,7 @@ title: "Esercizi · Il simplesso su reti"
 
         - La rimozione di $(3,4)$ elimina $S=\{4\}$, che contiene $l=4$: questi potenziali cambiano con $-\bar{c}_{24}=1$.
 
-        <strong>Iterazione 3</strong><br> Le potenzialità sono $\vet{\pi}=(-5,-2,-6,-9,-12,0)$ e il costo è $65$.
+        <strong>Iterazione 3</strong><br> I potenziali sono $\vet{\pi}=(-5,-2,-6,-9,-12,0)$ e il costo è $65$.
 
         <div class="tabella" markdown="0"><table>
         <tr>
@@ -819,7 +819,7 @@ title: "Esercizi · Il simplesso su reti"
 
         Il suo costo è $121$. Gli archi dell'albero a limite sono: $(1,4)$, con $x_{14}=0$, punta verso la radice; $(1,2)$, con $x_{12}=5=u_{12}$, punta lontano dalla radice. Per (N5) la struttura ad albero è fortemente ammissibile.
 
-    2. <strong>Iterazione 1</strong><br> Le potenzialità sono $\vet{\pi}=(9,3,16,7,0)$ e il costo è $121$.
+    2. <strong>Iterazione 1</strong><br> I potenziali sono $\vet{\pi}=(9,3,16,7,0)$ e il costo è $121$.
 
         <div class="tabella" markdown="0"><table>
         <tr>
@@ -900,7 +900,7 @@ title: "Esercizi · Il simplesso su reti"
 
         - La rimozione di $(1,4)$ elimina $S=\{1,2,3\}$, che contiene $l=3$: questi potenziali cambiano con $-\bar{c}_{53}=-22$.
 
-        <strong>Iterazione 2</strong><br> Le potenzialità sono $\vet{\pi}=(-13,-19,-6,7,0)$ e il costo è $121$.
+        <strong>Iterazione 2</strong><br> I potenziali sono $\vet{\pi}=(-13,-19,-6,7,0)$ e il costo è $121$.
 
         <div class="tabella" markdown="0"><table>
         <tr>
@@ -978,7 +978,7 @@ title: "Esercizi · Il simplesso su reti"
 
         - La rimozione di $(5,3)$ elimina $S=\{1,2,3\}$, che contiene $k=1$: questi potenziali cambiano con $\bar{c}_{15}=19$.
 
-        <strong>Iterazione 3</strong><br> Le potenzialità sono $\vet{\pi}=(6,0,13,7,0)$ e il costo è $83$.
+        <strong>Iterazione 3</strong><br> I potenziali sono $\vet{\pi}=(6,0,13,7,0)$ e il costo è $83$.
 
         <div class="tabella" markdown="0"><table>
         <tr>
@@ -1140,9 +1140,9 @@ title: "Esercizi · Il simplesso su reti"
 
     2. Calcolare i potenziali ed i costi ridotti, e scegliere l'arco entrante con (N4).
 
-    3. Trova l'apice, il ciclo, il gradino e gli archi di blocco. Quale arco esce dall'albero con la regola di (N4)? Verificare che la nuova struttura ad albero sia fortemente realizzabile.
+    3. Trova l'apice, il ciclo, il gradino e gli archi di blocco. Quale arco esce dall'albero con la regola di (N4)? Verificare che la nuova struttura ad albero sia fortemente ammissibile.
 
-    4. Mostrare che scegliendo l'altro arco di blocco, $(1,3)$, si ottiene una struttura ad albero che non è fortemente realizzabile.
+    4. Mostrare che scegliendo l'altro arco di blocco, $(1,3)$, si ottiene una struttura ad albero che non è fortemente ammissibile.
 
     5. Dimostrare che in un pivot degenere da un albero fortemente ammissibile, eseguito con la regola di (N4), la somma dei potenziali diminuisce rigorosamente, e verificarlo su questo pivot.
 
@@ -1279,7 +1279,7 @@ title: "Esercizi · Il simplesso su reti"
 
         Quindi $\theta=0$ e gli archi di blocco sono $(1,3)$ e $(2,3)$, in questo ordine dall'apice: l'arco in uscita è $(2,3)$ e va a $L$. Il flusso non cambia e il nuovo albero è $T'=\{(1,3),(1,5),(4,2),(5,4),(6,1)\}$. Gli archi dell'albero in corrispondenza di un limite sono: $(6,1)$, con $x_{61}=5=u_{61}$, punta lontano dalla radice; $(1,3)$, con $x_{13}=3=u_{13}$, punta lontano dalla radice; $(5,4)$, con $x_{54}=3=u_{54}$, punta lontano dalla radice. Per (N5) la struttura ad albero è fortemente ammissibile.
 
-    4. Con $(1,3)$ in uscita, l'albero sarebbe $\{(1,5),(2,3),(4,2),(5,4),(6,1)\}$ e l'arco $(2,3)$ ha flusso zero e punta lontano dalla radice: per (N5) questa struttura ad albero non è fortemente realizzabile.
+    4. Con $(1,3)$ in uscita, l'albero sarebbe $\{(1,5),(2,3),(4,2),(5,4),(6,1)\}$ e l'arco $(2,3)$ ha flusso zero e punta lontano dalla radice: per (N5) questa struttura ad albero non è fortemente ammissibile.
 
     5. In un pivot degenere tutti gli archi bloccanti giacciono sul percorso dell'albero $P$ dall'apice a $p$, il punto finale dove $C$ entra in $e$: gli archi del percorso da $q$ all'apice e $e$ stesso hanno capacità residua positiva, per forte fattibilità. Quindi l'arco uscente separa $p$ dalla radice, $p \in S$, e da (N4) i potenziali di $S$ cambiano da $\bar{c}_{kl}<0$ se $p=k$ (arco di $L$) o da $-\bar{c}_{kl}<0$ se $p=l$ (arco di $U$). Qui $p=4$, $S=\{2,4\}$ e i potenziali di $S$ cambiano di $-22$: la somma dei potenziali passa da $-40$ a $-84$.
 
@@ -1337,7 +1337,7 @@ title: "Esercizi · Il simplesso su reti"
 
     **Domande**
 
-    1. Costruire la rete ausiliaria della Fase 0 come in (N6): nodo artificiale, archi artificiali, costi, albero iniziale, i suoi flussi, il suo costo $z_0$ e le sue potenzialità.
+    1. Costruire la rete ausiliaria della Fase 0 come in (N6): nodo artificiale, archi artificiali, costi, albero iniziale, i suoi flussi, il suo costo $z_0$ e le sue potenziali.
 
     2. Esegui la Fase 0 con le regole (N1)–(N4). La rete è fattibile?
 
@@ -1353,7 +1353,7 @@ title: "Esercizi · Il simplesso su reti"
 
         Gli archi di $A$, tutti vuoti, non vengono disegnati.
 
-    2. <strong>Iterazione 1</strong><br> Le potenzialità sono $\vet{\pi}=(1,-1,1,-1,-1,0)$ e il costo $z_0$ è $14$.
+    2. <strong>Iterazione 1</strong><br> I potenziali sono $\vet{\pi}=(1,-1,1,-1,-1,0)$ e il costo $z_0$ è $14$.
 
         <div class="tabella" markdown="0"><table>
         <tr>
@@ -1784,7 +1784,7 @@ title: "Esercizi · Il simplesso su reti"
 
         La fase 0 termina con $z_0=0$: per (N6) la rete è percorribile.
 
-    3. Gli archi congelati, con $\bar{c}^0_{ij} \neq 0$, sono $(6,2)$ ($\bar{c}^0=2$), $(6,4)$ ($\bar{c}^0=2$), $(6,5)$ ($\bar{c}^0=2$). Con i costi $c_{ij}$ su $A$ e $0$ sugli archi artificiali: <br><strong>Iterazione 1</strong><br> Le potenzialità sono $\vet{\pi}=(0,-19,-13,-8,-8,0)$ e il costo è $61$.
+    3. Gli archi congelati, con $\bar{c}^0_{ij} \neq 0$, sono $(6,2)$ ($\bar{c}^0=2$), $(6,4)$ ($\bar{c}^0=2$), $(6,5)$ ($\bar{c}^0=2$). Con i costi $c_{ij}$ su $A$ e $0$ sugli archi artificiali: <br><strong>Iterazione 1</strong><br> I potenziali sono $\vet{\pi}=(0,-19,-13,-8,-8,0)$ e il costo è $61$.
 
         <div class="tabella" markdown="0"><table>
         <tr>
@@ -1882,7 +1882,7 @@ title: "Esercizi · Il simplesso su reti"
 
         - La rimozione di $(4,3)$ elimina $S=\{2,3\}$, che contiene $l=2$: questi potenziali cambiano con $-\bar{c}_{52}=4$.
 
-        <strong>Iterazione 2</strong><br> Le potenzialità sono $\vet{\pi}=(0,-15,-9,-8,-8,0)$ e il costo è $57$.
+        <strong>Iterazione 2</strong><br> I potenziali sono $\vet{\pi}=(0,-15,-9,-8,-8,0)$ e il costo è $57$.
 
         <div class="tabella" markdown="0"><table>
         <tr>

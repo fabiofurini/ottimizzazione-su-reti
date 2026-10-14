@@ -16,15 +16,15 @@ title: "Margini e attività critiche"
 
     Per ogni attività $j \in \{1,2,\dots,n\}$:
 
-    - <strong>gioco totale</strong> è $\mathit{TS}_j=\mathit{LS}_j-\mathit{ES}_j=\mathit{LF}_j-\mathit{EF}_j$;
+    - <strong>margine totale</strong> è $\mathit{TS}_j=\mathit{LS}_j-\mathit{ES}_j=\mathit{LF}_j-\mathit{EF}_j$;
 
-    - <strong>gioco libero</strong> è $\mathit{FS}_j=\min_{(j,k) \in \delta^+(j)} \mathit{ES}_k-\mathit{EF}_j$.
+    - <strong>margine libero</strong> è $\mathit{FS}_j=\min_{(j,k) \in \delta^+(j)} \mathit{ES}_k-\mathit{EF}_j$.
 
-    Un arco $(i,j) \in A$ è <strong>tight</strong> se $\mathit{ES}_j=\mathit{EF}_i$.
+    Un arco $(i,j) \in A$ è <strong>stretto</strong> se $\mathit{ES}_j=\mathit{EF}_i$.
 
 - Le due differenze in $\mathit{TS}_j$ coincidono, poiché entrambe le coppie di orari differiscono per $d_j$.
 
-- Il margine di flessibilità totale è il ritardo dell'attività $j$ che non ritarda il progetto; il gioco libero è il ritardo che non sposta la prima ora di inizio di qualsiasi altra attività. I prossimi due risultati lo chiariscono.
+- Il margine di flessibilità totale è il ritardo dell'attività $j$ che non ritarda il progetto; il margine libero è il ritardo che non sposta la prima ora di inizio di qualsiasi altra attività. I due risultati seguenti precisano queste definizioni.
 
 <a id="box-17-pm-th-total"></a>
 
@@ -268,19 +268,19 @@ title: "Margini e attività critiche"
 
     - Le attività critiche sono $1,2,3,5,6,10,12,14$. Gli archi stretti dall'INIZIO raggiungono la FINE solo lungo START$,1,2,3,5,6,10,12,14,$FINISH: il percorso critico è unico e la sua lunghezza è $T=44$ (blu in figura).
 
-    - Le attività $4,7,8,13$ formano una catena con $\mathit{TS}_{4}=\mathit{TS}_{7}=\mathit{TS}_{8}=\mathit{TS}_{13}=4$, ma solo l'ultima ha gioco libero, $\mathit{FS}_{13}=4$. Se l'attività $4$ inizia $4$ con settimane di ritardo, le attività $7$, $8$, $13$ devono iniziare $4$ con settimane di ritardo anche, e il progetto termina ancora alla settimana $44$.
+    - Le attività $4,7,8,13$ formano una catena con $\mathit{TS}_{4}=\mathit{TS}_{7}=\mathit{TS}_{8}=\mathit{TS}_{13}=4$, ma solo l'ultima ha margine libero, $\mathit{FS}_{13}=4$. Se l'attività $4$ inizia $4$ con settimane di ritardo, le attività $7$, $8$, $13$ devono iniziare $4$ con settimane di ritardo anche, e il progetto termina ancora alla settimana $44$.
 
     - Le attività $9$ e $11$ hanno lo stesso margine di flessibilità totale e libero delle settimane $2$ e $1$.
 
     ![Figura 5](../../img/project-management/fig05.svg){ .fig loading=lazy  }
 
-!!! attenzione "I giochi totali sono condivisi"
+!!! attenzione "I margini totali sono condivisi"
 
-    Il rallentamento totale di un'attività viene condiviso con le altre attività dei suoi percorsi: i quattro rallentamenti totali del catena $4,7,8,13$ sono le stesse settimane $4$. Se l'attività $4$ richiede $3$ settimane in più e l'attività $8$ richiede $2$ settimane in più, il percorso attraverso di essi cresce di $5>4$ settimane e il progetto termina alla settimana $45$.
+    Il margine totale di un'attività è condiviso con le altre attività dello stesso percorso. Le attività della catena $4,7,8,13$ hanno ciascuna un margine totale di $4$ settimane. Se l'attività $4$ dura $3$ settimane in più e l'attività $8$ dura $2$ settimane in più, il ritardo complessivo lungo la catena è $5>4$ settimane e il progetto termina alla settimana $45$.
 
 !!! chiave ""
 
-    Il margine di flessibilità totale $\mathit{TS}_j=\mathit{LS}_j-\mathit{ES}_j$ è il ritardo di $j$ che non ritarda il progetto; il gioco libero $\mathit{FS}_j \le \mathit{TS}_j$ è il ritardo che non sposta nessun'altra attività. Le attività critiche hanno $\mathit{TS}_j=0$ e il i percorsi critici sono i percorsi dall'INIZIO alla FINE costituiti da archi stretti.
+    Il margine di flessibilità totale $\mathit{TS}_j=\mathit{LS}_j-\mathit{ES}_j$ è il ritardo di $j$ che non ritarda il progetto; il margine libero $\mathit{FS}_j \le \mathit{TS}_j$ è il ritardo che non sposta nessun'altra attività. Le attività critiche hanno $\mathit{TS}_j=0$ e il i percorsi critici sono i percorsi dall'INIZIO alla FINE costituiti da archi stretti.
 
 ---
 

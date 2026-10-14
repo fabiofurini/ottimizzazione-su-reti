@@ -82,7 +82,7 @@ title: "La proprietà di taglio e la proprietà di ciclo"
 
     - <strong>(i)$\Rightarrow$(iii).</strong> Se $f$ incrocia il taglio fondamentale di $e \in T$ con $w_f<w_e$, allora $T \cup \{f\} \setminus \{e\}$ è uno albero ricoprente (<span style="color:#1971c2">[Lemma 2.5](tagli-e-cicli.md#box-7-mst-lem-exchange)</span>(2)) più leggero di $T$.
 
-    - <strong>(iii)$\Rightarrow$(ii).</strong> Lascia che $e \notin T$ e $f \in C(T,e)$, $f \neq e$. Il percorso di $T$ tra i gli endpoint di $e$ utilizzano $f$ ed è unico, quindi la rimozione di $f$ li separa: $e$ attraversa il taglio fondamentale di $f$, e $w_f \le w_e$ da (iii).
+    - <strong>(iii)$\Rightarrow$(ii).</strong> Lascia che $e \notin T$ e $f \in C(T,e)$, $f \neq e$. Il percorso di $T$ tra i gli estremo di $e$ utilizzano $f$ ed è unico, quindi la rimozione di $f$ li separa: $e$ attraversa il taglio fondamentale di $f$, e $w_f \le w_e$ da (iii).
 
     <strong>(ii)$\Rightarrow$(i).</strong> Tra gli albero ricoprente minimi, sia $T^\star$ ad avere il maggior numero di archi in comune con $T$ e presuppone $T^\star \neq T$.
 

@@ -186,7 +186,7 @@ title: "Grafi non orientati e orientati"
 
 ??? dimostrazione "Dimostrazione"
 
-    Tra i cammini da $u$ a $v$ che utilizzano solo i vertici del cammino dato, sia $v_0,v_1,\dots,v_k$ uno dei minimi lunghezza. Se due gli indici $s<t$ avevano $v_s=v_t$, l'eliminazione di $v_{s+1},\dots,v_t$ darebbe la cammino $v_0,\dots,v_s,v_{t+1},\dots,v_k$ da Da $u$ a $v$, più corto di $t-s \ge 1$. Quindi i vertici sono distinti e la passeggiata è un percorso. Vale lo stesso argomento per passeggiate guidate, poiché la cancellazione mantiene ogni arco percorso dalla coda alla testa. <span class="qed">□</span>
+    Tra i cammini da $u$ a $v$ che utilizzano solo i vertici del cammino dato, sia $v_0,v_1,\dots,v_k$ uno dei minimi lunghezza. Se due gli indici $s<t$ avevano $v_s=v_t$, l'eliminazione di $v_{s+1},\dots,v_t$ darebbe il cammino $v_0,\dots,v_s,v_{t+1},\dots,v_k$ da Da $u$ a $v$, più corto di $t-s \ge 1$. Quindi i vertici sono distinti e la passeggiata è un percorso. Vale lo stesso argomento per passeggiate guidate, poiché la cancellazione mantiene ogni arco percorso dalla coda alla testa. <span class="qed">□</span>
 
 - In <span style="color:#1971c2">[Esempio 1.3](#box-8-gr-ex-walks)</span>, eliminando il pezzo chiuso $3,2,4,3$ dalla passeggiata $1,3,2,4,3,5$ esce il percorso diretto $1,3,5$.
 

@@ -24,7 +24,7 @@ title: "Esercizi · Flusso di costo minimo"
         d^k(j)=\min\Big\{ d^{k-1}(j),\ \min_{(i,j) \in A(\vet{x})} \big(d^{k-1}(i)+c^x_{ij}\big)\Big\};
         $$
 
-        i pareggi vanno alla coda più piccola e il predecessore cambia solo in stretta diminuzione. Se $d^k=d^{k-1}$, arresto: no ciclo negativo e $\pi_i=-d^k(i)$, spostato in modo che $\pi_n=0$. Se $d^n \neq d^{n-1}$: $j$ è il nodo più piccolo con $d^n(j)<d^{n-1}(j)$, la cammino viene letta all'indietro dalla riga $n$ alla riga $1$ e il ciclo è il pezzo tra i due le occorrenze del primo nodo si sono incontrate due volte, leggendo il cammino dal suo primo nodo.
+        i pareggi vanno alla coda più piccola e il predecessore cambia solo in stretta diminuzione. Se $d^k=d^{k-1}$, arresto: no ciclo negativo e $\pi_i=-d^k(i)$, spostato in modo che $\pi_n=0$. Se $d^n \neq d^{n-1}$: $j$ è il nodo più piccolo con $d^n(j)<d^{n-1}(j)$, il cammino viene letta all'indietro dalla riga $n$ alla riga $1$ e il ciclo è il pezzo tra i due le occorrenze del primo nodo si sono incontrate due volte, leggendo il cammino dal suo primo nodo.
 
     - **(M4)** <strong>Annullamento del ciclo.</strong> Aumentare lungo il ciclo di (M3) di $\theta=r(W)$, finché (M3) non trova alcun negativo ciclo.
 
@@ -44,7 +44,7 @@ title: "Esercizi · Flusso di costo minimo"
         A=\{(1,3),(1,4),(2,1),(2,3),(4,3),(5,1),(5,2)\},
         $$
 
-        limiti inferiori dello zero e i saldi $b_1=0$, $b_2=2$, $b_3=-2$, $b_4=-2$, $b_5=2$. Costi e capacità sono riportati in tabella e, come $c_{ij},u_{ij}$, in figura; i saldi sono accanto ai nodi. La tabella riporta anche un flusso realizzabile $\bar{\vet{x}}$.
+        limiti inferiori dello zero e i saldi $b_1=0$, $b_2=2$, $b_3=-2$, $b_4=-2$, $b_5=2$. Costi e capacità sono riportati in tabella e, come $c_{ij},u_{ij}$, in figura; i saldi sono accanto ai nodi. La tabella riporta anche un flusso ammissibile $\bar{\vet{x}}$.
 
         <div class="tabella" markdown="0"><table>
         <tr>
@@ -219,7 +219,7 @@ title: "Esercizi · Flusso di costo minimo"
         A=\{(1,3),(2,3),(2,5),(4,2),(4,3),(4,5),(5,1),(5,3)\},
         $$
 
-        limiti inferiori dello zero e i saldi $b_1=0$, $b_2=0$, $b_3=-5$, $b_4=6$, $b_5=-1$. Costi e capacità sono riportati in tabella e, come $c_{ij},u_{ij}$, in figura; i saldi sono accanto ai nodi. La tabella riporta anche un flusso realizzabile $\tilde{\vet{x}}$, ritenuto ottimale.
+        limiti inferiori dello zero e i saldi $b_1=0$, $b_2=0$, $b_3=-5$, $b_4=6$, $b_5=-1$. Costi e capacità sono riportati in tabella e, come $c_{ij},u_{ij}$, in figura; i saldi sono accanto ai nodi. La tabella riporta anche un flusso ammissibile $\tilde{\vet{x}}$, ritenuto ottimale.
 
         <div class="tabella" markdown="0"><table>
         <tr>
@@ -422,7 +422,7 @@ title: "Esercizi · Flusso di costo minimo"
         A=\{(1,2),(1,3),(1,4),(1,5),(2,4),(3,2),(4,5),(5,2)\},
         $$
 
-        limiti inferiori dello zero e i saldi $b_1=5$, $b_2=-2$, $b_3=1$, $b_4=0$, $b_5=-4$. Costi e capacità sono riportati in tabella e, come $c_{ij},u_{ij}$, in figura; i saldi sono accanto ai nodi. La tabella riporta anche un flusso realizzabile $\vet{x}^0$.
+        limiti inferiori dello zero e i saldi $b_1=5$, $b_2=-2$, $b_3=1$, $b_4=0$, $b_5=-4$. Costi e capacità sono riportati in tabella e, come $c_{ij},u_{ij}$, in figura; i saldi sono accanto ai nodi. La tabella riporta anche un flusso ammissibile $\vet{x}^0$.
 
         <div class="tabella" markdown="0"><table>
         <tr>
@@ -477,7 +477,7 @@ title: "Esercizi · Flusso di costo minimo"
 
     1. Eseguire l'algoritmo di annullamento del ciclo da $\vet{x}^0$ con le regole (M3) e (M4). Per ogni iterazione fornire la rete residua, la tabella di Bellman–Ford, il ciclo e il nuovo flusso.
 
-    2. Regala il flusso ottimale, il suo costo e le potenzialità che lo certificano.
+    2. Riporta il flusso ottimale, il suo costo e i potenziali che lo certificano.
 
     3. Quante iterazioni consente il $\vet{c}'\vet{x}^0-z(\mathrm{MCF})$ associato?
 
@@ -549,7 +549,7 @@ title: "Esercizi · Flusso di costo minimo"
         \end{array}
         $$
 
-        Nel passaggio $5$ il nodo più piccolo la cui etichetta decresce è $j=1$; la cammino è $5,4,2,5,4,1$ e il ciclo è $W=5,4,2,5$, con gli archi $(5,4)$ indietro di $(4,5)$, $(4,2)$ indietro di $(2,4)$, $(2,5)$ indietro di $(5,2)$:
+        Nel passaggio $5$ il nodo più piccolo la cui etichetta decresce è $j=1$; il cammino è $5,4,2,5,4,1$ e il ciclo è $W=5,4,2,5$, con gli archi $(5,4)$ indietro di $(4,5)$, $(4,2)$ indietro di $(2,4)$, $(2,5)$ indietro di $(5,2)$:
 
         $$
         c(W)=-1-2-5=-8, \qquad r(W)=\min\{2,1,1\}=1.
@@ -621,7 +621,7 @@ title: "Esercizi · Flusso di costo minimo"
         \end{array}
         $$
 
-        Nel passaggio $5$ il nodo più piccolo la cui etichetta diminuisce è $j=1$; la cammino è $5,4,1,5,4,1$ e il ciclo è $W=5,4,1,5$, con gli archi $(5,4)$ indietro di $(4,5)$, $(4,1)$ indietro di $(1,4)$, $(1,5)$ avanti:
+        Nel passaggio $5$ il nodo più piccolo la cui etichetta diminuisce è $j=1$; il cammino è $5,4,1,5,4,1$ e il ciclo è $W=5,4,1,5$, con gli archi $(5,4)$ indietro di $(4,5)$, $(4,1)$ indietro di $(1,4)$, $(1,5)$ avanti:
 
         $$
         c(W)=-1-7+1=-7, \qquad r(W)=\min\{1,1,1\}=1.
@@ -719,7 +719,7 @@ title: "Esercizi · Flusso di costo minimo"
         </tr>
         </table></div>
 
-        con costo $z(\mathrm{MCF})=7$ (lo conferma Gurobi). Le etichette dell'ultima tabella riportano, spostate in modo che $\pi_5=0$, le potenzialità $\vet{\pi}=(2,\,0,\,1,\,0,\,0)$; i costi ridotti degli archi dell'ultima rete residua sono tutti non negativi, come richiede (M2).
+        con costo $z(\mathrm{MCF})=7$ (lo conferma Gurobi). Le etichette dell'ultima tabella riportano, spostate in modo che $\pi_5=0$, i potenziali $\vet{\pi}=(2,\,0,\,1,\,0,\,0)$; i costi ridotti degli archi dell'ultima rete residua sono tutti non negativi, come richiede (M2).
 
     3. Il costo va da $22$ a $7$ e ogni iterazione lo abbassa di almeno $1$: al massimo $22-7=15$ iterazioni. L'algoritmo necessita di $2$, riducendo il costo di $8$ e $7$.
 
@@ -781,7 +781,7 @@ title: "Esercizi · Flusso di costo minimo"
 
     **Domande**
 
-    1. Eseguire l'algoritmo del percorso più breve successivo con le regole (M6). Per ogni iterazione fornire $s$, i costi ridotti, le distanze dell'algoritmo di Dijkstra, $t$, il percorso $P$, $\delta$ e le nuove potenzialità.
+    1. Eseguire l'algoritmo del percorso più breve successivo con le regole (M6). Per ogni iterazione fornire $s$, i costi ridotti, le distanze dell'algoritmo di Dijkstra, $t$, il percorso $P$, $\delta$ e i nuovi potenziali.
 
     2. Fornire il flusso ottimale e il relativo costo e verificarne l'ottimalità con i potenziali finali.
 
@@ -982,7 +982,7 @@ title: "Esercizi · Flusso di costo minimo"
         </tr>
         </table></div>
 
-        con costo $27$ (lo conferma Gurobi). Spostato in modo che $\pi_5=0$, le potenzialità finali siano $\vet{\pi}=(-4,\,4,\,-4,\,0,\,0)$, con costi ridotti
+        con costo $27$ (lo conferma Gurobi). Spostato in modo che $\pi_5=0$, i potenziali finali siano $\vet{\pi}=(-4,\,4,\,-4,\,0,\,0)$, con costi ridotti
 
         <div class="tabella" markdown="0"><table>
         <tr>
@@ -1019,7 +1019,7 @@ title: "Esercizi · Flusso di costo minimo"
 
 <a id="esercizio-6-5"></a>
 
-!!! esercizio "Esercizio 6.5: Un primo flusso realizzabile e la scomposizione"
+!!! esercizio "Esercizio 6.5: Un primo flusso ammissibile e la scomposizione"
 
     !!! esercizio "Esercizio"
 
@@ -1294,7 +1294,7 @@ title: "Esercizi · Flusso di costo minimo"
         </tr>
         </table></div>
 
-        Dijkstra di $s$ rende permanenti i nodi nell'ordine 1,3,4,5, con distanze $d=(0,\,+\infty,\,1,\,3,\,4)$. Il nodo deficitario è $5$: $t=5$, con percorso $P=1,3,4,5$ di costo ridotto $4$ e costo $c(P)=4$. Quindi $\delta=\min\{1,2,1,1,1\}=1$, le nuove potenzialità sono $\vet{\pi}=(0,\,-4,\,-1,\,-3,\,-4)$ e il costo diventa $4$.
+        Dijkstra di $s$ rende permanenti i nodi nell'ordine 1,3,4,5, con distanze $d=(0,\,+\infty,\,1,\,3,\,4)$. Il nodo deficitario è $5$: $t=5$, con percorso $P=1,3,4,5$ di costo ridotto $4$ e costo $c(P)=4$. Quindi $\delta=\min\{1,2,1,1,1\}=1$, i nuovi potenziali sono $\vet{\pi}=(0,\,-4,\,-1,\,-3,\,-4)$ e il costo diventa $4$.
 
         Il nodo $1$ ha inviato la sua unità; ora $e_2>0$, quindi la seconda iterazione inizia da $s=2$.
 
@@ -1404,7 +1404,7 @@ title: "Esercizi · Flusso di costo minimo"
         </tr>
         </table></div>
 
-        Dijkstra di $s$ rende permanenti i nodi nell'ordine 2,4,3,1,5, con distanze $d=(4,\,0,\,4,\,4,\,6)$. Il nodo deficitario è $5$: $t=5$, con percorso $P=2,4,3,5$ di costo ridotto $6$ e costo $c(P)=6$. Quindi $\delta=\min\{1,1,1,1,1\}=1$, le nuove potenzialità sono $\vet{\pi}=(-4,\,-4,\,-5,\,-7,\,-10)$ e il costo diventa $10$.
+        Dijkstra di $s$ rende permanenti i nodi nell'ordine 2,4,3,1,5, con distanze $d=(4,\,0,\,4,\,4,\,6)$. Il nodo deficitario è $5$: $t=5$, con percorso $P=2,4,3,5$ di costo ridotto $6$ e costo $c(P)=6$. Quindi $\delta=\min\{1,1,1,1,1\}=1$, i nuovi potenziali sono $\vet{\pi}=(-4,\,-4,\,-5,\,-7,\,-10)$ e il costo diventa $10$.
 
         Ora $\vet{e}=\vet{0}$ e il flusso ottimale è
 

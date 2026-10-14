@@ -58,7 +58,7 @@ title: "Tagli e cicli"
 
 ??? dimostrazione "Dimostrazione"
 
-    1. Il resto di $C(T,e)$ si unisce agli endpoint di $f$, quindi rimuovendo $f$ dal grafo connesso $T \cup \{e\}$ lascia si è connesso. Il risultato è connesso con gli lati $n-1$: è uno albero ricoprente tramite il [caratterizzazioni di a albero](../../grafi/graphs/alberi-e-foreste.md), (b).
+    1. Il resto di $C(T,e)$ si unisce agli estremo di $f$, quindi rimuovendo $f$ dal grafo connesso $T \cup \{e\}$ lascia si è connesso. Il risultato è connesso con gli lati $n-1$: è uno albero ricoprente tramite il [caratterizzazioni di a albero](../../grafi/graphs/alberi-e-foreste.md), (b).
 
     2. I punti finali di $e$ si trovano su lati diversi del taglio fondamentale $\delta(S_f)$. Il percorso tra di loro in $T$ fa parte di $C(T,e)$ e deve attraversare $\delta(S_f)$ con un lato di $T$; l'unico è $f$. La parte 1 si conclude. <span class="qed">□</span>
 

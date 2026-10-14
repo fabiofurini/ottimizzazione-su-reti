@@ -22,7 +22,7 @@ title: "Esercizi · Gestione dei progetti"
 
     - **(P4)** <strong>Passaggio all'indietro</strong>, in ordine inverso: $\mathit{LF}_{n+1}=T$, $\mathit{LF}_j=\min_{(j,k) \in A} \mathit{LS}_k$, $\mathit{LS}_j=\mathit{LF}_j-d_j$. Pantaloni $\mathit{TS}_j=\mathit{LS}_j-\mathit{ES}_j$ e $\mathit{FS}_j=\min_{(j,k) \in A} \mathit{ES}_k-\mathit{EF}_j$; l'arco $(i,j)$ è teso se $\mathit{ES}_j=\mathit{EF}_i$, e i percorsi critici sono i percorsi dall'INIZIO alla FINE costituiti da archi stretti.
 
-    - **(P5)** <strong>Modifiche e LP.</strong> Se $d_j$ cresce di $\delta$, $T'=T+\max\{0,\delta-\mathit{TS}_j\}$; se diminuisce di $\delta$, $T-\delta \le T' \le T$, con $T'=T$ quando un percorso critico evita $j$. Il modello $\mathrm{PD}$ lo è $\min\{t_{n+1}-t_0 : t_j-t_i \ge d_i,\ (i,j) \in A\}$ e il suo doppio invia un'unità di flusso da INIZIO a FINE, massimizzando $\sum d_i x_{ij}$.
+    - **(P5)** <strong>Modifiche e LP.</strong> Se $d_j$ cresce di $\delta$, $T'=T+\max\{0,\delta-\mathit{TS}_j\}$; se diminuisce di $\delta$, $T-\delta \le T' \le T$, con $T'=T$ quando un percorso critico evita $j$. Il modello $\mathrm{PD}$ lo è $\min\{t_{n+1}-t_0 : t_j-t_i \ge d_i,\ (i,j) \in A\}$ e il suo duale invia un'unità di flusso da INIZIO a FINE, massimizzando $\sum d_i x_{ij}$.
 
 <a id="esercizio-9-1"></a>
 
@@ -1022,7 +1022,7 @@ title: "Esercizi · Gestione dei progetti"
 
     !!! chiave ""
 
-        $z(\mathrm{PD})=z(D(\mathrm{PD}))=17$: $\mathit{ES}$ e $\mathit{LS}$ sono pianificazioni ottimali e il percorso critico è la doppia soluzione ottimale.
+        $z(\mathrm{PD})=z(D(\mathrm{PD}))=17$: $\mathit{ES}$ e $\mathit{LS}$ sono pianificazioni ottimali e il percorso critico è la soluzione duale ottimale.
 
 <a id="esercizio-9-6"></a>
 

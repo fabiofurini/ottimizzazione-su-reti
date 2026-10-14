@@ -121,15 +121,15 @@ title: "Un'istanza di traslato"
 
     - Gli archi con $\bar{c}_{ij}>0$, $(3,2)$ e $(4,3)$, sono vuoti; gli archi con $\bar{c}_{ij}<0$, $(2,4)$ e $(5,6)$, sono al completo. Per <span style="color:#1971c2">[Corollario 4.20](il-modello-duale-e-i-costi-ridotti.md#box-27-nf-cor-certificate)</span>, $\tilde{\vet{x}}$ è ottimale.
 
-    - Il doppio valore è $\sum_{i \in N} b_i\pi_i-\sum_{(i,j) \in A} u_{ij}\alpha_{ij}=86-26=60$, pari al costo di $\tilde{\vet{x}}$. I potenziali coincidono con i valori duali restituiti da Gurobi, spostati in modo che $\pi_6=0$.
+    - Il valore duale è $\sum_{i \in N} b_i\pi_i-\sum_{(i,j) \in A} u_{ij}\alpha_{ij}=86-26=60$, pari al costo di $\tilde{\vet{x}}$. I potenziali coincidono con i valori duali restituiti da Gurobi, spostati in modo che $\pi_6=0$.
 
 - <strong>Unicità.</strong> Ogni flusso ottimale ha gap zero con $(\vet{\pi},\vet{\alpha})$, quindi per <span style="color:#1971c2">[Teorema 4.19](il-modello-duale-e-i-costi-ridotti.md#box-26-nf-th-gap)</span> ha $x_{32}=x_{43}=0$, $x_{24}=4$ e $x_{56}=2$. Il flusso sui cinque gli archi degli alberi viene quindi fissato per conservazione, poiché le loro colonne sono linearmente indipendenti: $\tilde{\vet{x}}$ è il flusso ottimale unico.
 
-- <strong>Il flusso $\bar{\vet{x}}$.</strong> Il flusso realizzabile $\bar{\vet{x}}$ di <span style="color:#1971c2">[Esempio 4.1](reti-e-flussi.md#box-3-nf-ex-ref)</span> costi $63$, e il suo divario con la stessa doppia soluzione è $63-60=3=\alpha_{24}(u_{24}-\bar{x}_{24})=3 \cdot (4-3)$: l'arco $(2,4)$ non è utilizzato abbastanza.
+- <strong>Il flusso $\bar{\vet{x}}$.</strong> Il flusso ammissibile $\bar{\vet{x}}$ di <span style="color:#1971c2">[Esempio 4.1](reti-e-flussi.md#box-3-nf-ex-ref)</span> costi $63$, e il suo divario con la stessa soluzione duale è $63-60=3=\alpha_{24}(u_{24}-\bar{x}_{24})=3 \cdot (4-3)$: l'arco $(2,4)$ non è utilizzato abbastanza.
 
 !!! chiave ""
 
-    Sulla rete di riferimento il flusso ottimale costa $60$. Le potenzialità del suo albero ricoprente danno costi ridotti positivo solo su archi vuoti e negativo solo su archi saturi: certificano l'ottimalità senza solutore.
+    Sulla rete di riferimento il flusso ottimale costa $60$. I potenziali del suo albero ricoprente danno costi ridotti positivo solo su archi vuoti e negativo solo su archi saturi: certificano l'ottimalità senza solutore.
 
 ## 4.10 Errori tipici
 
@@ -155,13 +155,13 @@ title: "Un'istanza di traslato"
 
     - Una rete ha saldi $b_i$, limiti inferiori $l_{ij}$, capacità $u_{ij}$ e costi $c_{ij}$; il costo minimo il problema del flusso è l'LP $\min\{\vet{c}'\vet{x} : \mat{B}\vet{x}=\vet{b},~\vet{l} \le \vet{x} \le \vet{u}\}$.
 
-    - Attraverso ogni taglio il deflusso netto è uguale al saldo interno; una rete realizzabile è equilibrata e soddisfa i condizione di taglio.
+    - Attraverso ogni taglio il deflusso netto è uguale al saldo interno; una rete ammissibile è equilibrata e soddisfa i condizione di taglio.
 
     - I limiti inferiori vengono rimossi con $\vet{x}=\vet{l}+\vet{x}'$; un eccesso di offerta passa attraverso un nodo fittizio archi a costo zero.
 
     - La matrice di incidenza è totalmente unimodulare, quindi con l'intero $\vet{b}$, $\vet{l}$, $\vet{u}$ ogni vertice è intero e il modello $\mathrm{MCF}$ ha una soluzione ottima intera.
 
-    - Il duale ha potenzialità $\pi_i$; con $\bar{c}_{ij}=c_{ij}-\pi_i+\pi_j$, un flusso con archi vuoti a costo positivo e gli archi saturati a costo negativo sono ottimali.
+    - Il duale ha potenziali $\pi_i$; con $\bar{c}_{ij}=c_{ij}-\pi_i+\pi_j$, un flusso con archi vuoti a costo positivo e gli archi saturati a costo negativo sono ottimali.
 
     - Percorso più breve, flusso massimo, trasporto e assegnazione sono i modelli $\mathrm{MCF}$.
 

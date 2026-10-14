@@ -151,7 +151,7 @@ title: "Algoritmo di Dijkstra"
 
 !!! esempio "Esempio 3.10: un arco negativo interrompe l'algoritmo di Dijkstra"
 
-    Nel grafo sottostante, con $s=1$, l'algoritmo rende permanente il nodo $2$ con $d(2)=2$, quindi il nodo $3$ con $d(3)=3$; il l'arco $(3,2)$ termina con un nodo permanente e viene ignorato. Il percorso $1,3,2$ ha lunghezza $3-2=1<2$.
+    Nel grafo sottostante, con $s=1$, l'algoritmo rende permanente il nodo $2$ con $d(2)=2$, quindi il nodo $3$ con $d(3)=3$; l'arco $(3,2)$ termina con un nodo permanente e viene ignorato. Il percorso $1,3,2$ ha lunghezza $3-2=1<2$.
 
     ![Figura 6](../../img/shortest-paths/fig06.svg){ .fig loading=lazy  }
 
@@ -191,7 +191,7 @@ title: "Algoritmo di Dijkstra"
 
     - I potenziali fattibili, $\bar{c}_{ij}=d_{ij}-\pi_i+\pi_j \ge 0$ e un percorso di archi stretti certificano l'ottimalità.
 
-    - Il modello LP è un'unità di flusso, $\mat{B}\vet{x}=\vet{b}$, $\vet{x} \ge \vet{0}$; il suo doppio è $\max\{\pi_s-\pi_t : \pi_i-\pi_j \le d_{ij}\}$, ottimale su $\pi_i=-\tilde{d}(i)$.
+    - Il modello LP è un'unità di flusso, $\mat{B}\vet{x}=\vet{b}$, $\vet{x} \ge \vet{0}$; il suo duale è $\max\{\pi_s-\pi_t : \pi_i-\pi_j \le d_{ij}\}$, ottimale su $\pi_i=-\tilde{d}(i)$.
 
     - Grafi aciclici: ordine topologico, $O(n+m)$, qualsiasi lunghezza. Bellman–Ford: $O(n\,m)$, qualsiasi lunghezza, rileva cicli negativi. Dijkstra: $O(n^2)$, lunghezze non negative.
 

@@ -26,11 +26,11 @@ title: "Il problema dei trasporti"
 
     Il <strong>problema di trasporto</strong> richiede gli importi $x_{ij} \ge 0$ da spedire da ogni origine $i$ a ogni destinazione $j$, in modo che ogni origine spedisca l'intera fornitura e ogni destinazione riceva almeno la sua domanda costo totale.
 
-- In questo capitolo $m$ e $n$ sono i numeri di origine e destinazione. La rete sottostante ha nodi $m+n$ e un arco $(i,j)$ per ogni $i \in P$ e $j \in D$, cioè archi $m\,n$: è l'arco <strong>bipartito completo rete</strong> di $P$ e $D$, poiché ogni arco va da $P$ a $D$.
+- In questo capitolo $m$ e $n$ indicano rispettivamente il numero di origini e di destinazioni. La rete associata ha $m+n$ nodi e un arco $(i,j)$ per ogni coppia $i \in P$, $j \in D$: è il grafo bipartito completo tra $P$ e $D$, con $mn$ archi.
 
-- Numerare le destinazioni dopo le origini dà ad ogni nodo il proprio numero, e successivamente le proprie potenzialità.
+- Numeriamo prima le origini e poi le destinazioni, così ogni nodo ha un indice univoco.
 
-- Usiamo una variabile continua $x_{ij}$ per ogni coppia $i \in P$, $j \in D$: l'importo spedito da $i$ a $j$.
+- Per ogni coppia $i \in P$, $j \in D$ introduciamo la variabile continua $x_{ij}$, che rappresenta la quantità spedita da $i$ a $j$.
 
 !!! chiave ""
 
@@ -145,7 +145,7 @@ title: "Il problema dei trasporti"
 
     1. <em>Dalle spedizioni ai flussi.</em> Sia $\vet{y}$ un flusso ammissibile per il problema di trasporto. Per ogni coppia $(i,j)$, inviamo $y_{ij}$ unità lungo un cammino minimo da $i$ a $j$. Otteniamo così un flusso $\vet{x} \ge \vet{0}$: ogni nodo $i \in P$ invia $\sum_{j \in D} y_{ij}=b_i$ unità, ogni nodo $j \in D$ riceve $-b_j$ unità e i nodi intermedi trasmettono il flusso che ricevono. Il costo è $\sum_{i,j} \tilde{d}(i,j)\,y_{ij}$; dunque il costo minimo di flusso non supera il valore ottimo del problema di trasporto.
 
-    2. <em>Dai flussi alle spedizioni.</em> Mostriamo per induzione sul numero di archi con $x_{ij}>0$ più il numero di nodi con $b_i \neq 0$ che ogni flusso fattibile $\vet{x}$ costa almeno $\sum_{i,j} \tilde{d}(i,j)\,y_{ij}$ per alcuni realizzabile $\vet{y}$. Se $\vet{b}=\vet{0}$, prendi $\vet{y}=\vet{0}$.
+    2. <em>Dai flussi alle spedizioni.</em> Mostriamo per induzione sul numero di archi con $x_{ij}>0$ più il numero di nodi con $b_i \neq 0$ che ogni flusso fattibile $\vet{x}$ costa almeno $\sum_{i,j} \tilde{d}(i,j)\,y_{ij}$ per alcuni ammissibile $\vet{y}$. Se $\vet{b}=\vet{0}$, prendi $\vet{y}=\vet{0}$.
 
     3. Altrimenti inizia da un nodo $i_0$ con $b_{i_0}>0$: il suo deflusso è positivo, quindi ha un arco uscente con positivo flusso. Un nodo $v$ con $b_v \ge 0$ raggiunto lungo tale arco ha un afflusso positivo, quindi un deflusso positivo. Segui questi archi fino a quando un nodo si ripete o viene raggiunto un nodo $j_0$ con $b_{j_0}<0$.
 
@@ -177,7 +177,7 @@ title: "Il problema dei trasporti"
 
         minimo per $t=2$: $y_{14}=1$, $y_{16}=4$, $y_{24}=2$, $y_{26}=0$, con costo $49$.
 
-    - Lungo i percorsi più brevi si ottiene il flusso $x_{12}=1$, $x_{13}=4$, $x_{24}=3$, $x_{35}=4$, $x_{56}=4$ (blu), del costo $49$, l'ottimo calcolato da Gurobi. Con le capacità del Capitolo 4 questo flusso non è fattibile, poiché il l'arco $(5,6)$ ha la capacità $2$ e l'ottimale è $60$.
+    - Lungo i percorsi più brevi si ottiene il flusso $x_{12}=1$, $x_{13}=4$, $x_{24}=3$, $x_{35}=4$, $x_{56}=4$ (blu), del costo $49$, l'ottimo calcolato da Gurobi. Con i limiti di capacità del Capitolo 4 questo flusso non è ammissibile, perché l'arco $(5,6)$ ha capacità $2$; l'ottimo con capacità è $60$.
 
     ![Figura 2](../../img/transportation-and-assignment/fig02.svg){ .fig loading=lazy  }
 

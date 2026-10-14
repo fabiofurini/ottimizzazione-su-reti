@@ -184,7 +184,7 @@ title: "L'algoritmo Edmonds–Karp"
 
 !!! chiave ""
 
-    L'algoritmo Edmonds–Karp aumenta lungo i percorsi con il minor numero di archi, trovati dalla ricerca in ampiezza. Il le distanze da $s$ nella rete residua non diminuiscono mai, ogni arco è critico al massimo $\frac{n}{2}$ volte e il l'algoritmo effettua al massimo gli aumenti $n\,m$: tempo $O(n\,m^2)$, per qualsiasi capacità.
+    L'algoritmo di Edmonds–Karp sceglie, con una ricerca in ampiezza, un cammino aumentante con il minor numero di archi. Le distanze dei nodi da $s$ nella rete residua non diminuiscono mai. Ogni arco diventa critico al massimo $\frac{n}{2}$ volte, perciò l'algoritmo esegue al più $nm$ aumenti e richiede tempo $O(nm^2)$, indipendentemente dai valori delle capacità.
 
 ---
 

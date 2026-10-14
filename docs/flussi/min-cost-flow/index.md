@@ -76,7 +76,7 @@ title: "Flusso di costo minimo"
 
     - In [Capitolo 5 «Portata massima»](../maximum-flow/index.md) a il flusso cresce lungo percorsi aumentanti della rete residua $G(\vet{x})$.
 
-    - In questo capitolo il certificato diventa un algoritmo: abbassiamo il costo di un flusso realizzabile lungo cicli di $G(\vet{x})$, oppure costruiamo il flusso lungo i percorsi più brevi di $G(\vet{x})$ mantenendo vero il certificato.
+    - In questo capitolo il certificato diventa un algoritmo: abbassiamo il costo di un flusso ammissibile lungo cicli di $G(\vet{x})$, oppure costruiamo il flusso lungo i percorsi più brevi di $G(\vet{x})$ mantenendo vero il certificato.
 
 ---
 

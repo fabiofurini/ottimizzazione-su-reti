@@ -56,7 +56,7 @@ title: "Tagli"
 
 !!! teorema "Corollario 5.4: dualità debole"
 
-    Per ogni portata realizzabile $\vet{x}$ di valore $v$ ed ogni $s$–$t$ taglio $(S,N \setminus S)$,
+    Per ogni portata ammissibile $\vet{x}$ di valore $v$ ed ogni $s$–$t$ taglio $(S,N \setminus S)$,
 
     $$
     v \le u(S,N \setminus S),

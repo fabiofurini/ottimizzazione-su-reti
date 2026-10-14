@@ -12,7 +12,7 @@ title: "Il modello duale e i costi ridotti"
 
 - Con <span style="color:#1971c2">[Proposizione 4.9](rimozione-dei-limiti-inferiori.md#box-12-nf-prop-subst)</span> i limiti inferiori possono essere rimossi, quindi in questa sezione $\vet{l}=\vet{0}$ e ogni capacità è finita. Il vincolo $x_{ij} \le u_{ij}$ è scritto come $-x_{ij} \ge -u_{ij}$.
 
-- Seguire le regole di [Capitolo 9 «Teoria della dualità»](https://fabiofurini.github.io/programmazione-lineare/dualita/09-dualita/) del modulo Programmazione lineare, utilizziamo una variabile duale libera $\pi_i$, il <strong>potenziale</strong> di nodo $i$, per la sua equazione di conservazione, e una variabile doppia non negativa $\alpha_{ij}$ per la capacità di $(i,j)$.
+- Seguire le regole di [Capitolo 9 «Teoria della dualità»](https://fabiofurini.github.io/programmazione-lineare/dualita/09-dualita/) del modulo Programmazione lineare, utilizziamo una variabile duale libera $\pi_i$, il <strong>potenziale</strong> di nodo $i$, per la sua equazione di conservazione, e una variabile duale non negativa $\alpha_{ij}$ per la capacità di $(i,j)$.
 
 !!! chiave ""
 
@@ -29,9 +29,9 @@ title: "Il modello duale e i costi ridotti"
 
     Questo modello LP è denominato modello $D(\mathrm{MCF})$.
 
-- Descrizione del modello doppio:
+- Descrizione del modello duale:
 
-    - la colonna di $x_{ij}$ ha $+1$ nell'equazione di $i$, $-1$ nell'equazione di $j$ e $-1$ nella sua capacità vincolo, che dà il doppio vincolo $\eqref{nf:dcons}$, uno per ogni arco;
+    - la colonna di $x_{ij}$ ha $+1$ nell'equazione di $i$, $-1$ nell'equazione di $j$ e $-1$ nella sua capacità vincolo, che dà il vincolo duale $\eqref{nf:dcons}$, uno per ogni arco;
 
     - le variabili primarie sono non negative, quindi i vincoli duali sono di tipo $\le$.
 
@@ -41,13 +41,13 @@ title: "Il modello duale e i costi ridotti"
 
 !!! definizione "Definizione 4.17: costo ridotto"
 
-    Date le potenzialità $\vet{\pi} \in \R^n$, il <strong>costo ridotto</strong> dell'arco $(i,j) \in A$ è
+    Date i potenziali $\vet{\pi} \in \R^n$, il <strong>costo ridotto</strong> dell'arco $(i,j) \in A$ è
 
     $$
     \bar{c}_{ij}=c_{ij}-\pi_i+\pi_j .
     $$
 
-- Il doppio vincolo $\eqref{nf:dcons}$ legge $\bar{c}_{ij}+\alpha_{ij} \ge 0$. Per i potenziali fissi, il migliore la scelta di $\alpha_{ij} \ge 0$ è la più piccola, $\alpha_{ij}=\max\{0,-\bar{c}_{ij}\}$.
+- Il vincolo duale $\eqref{nf:dcons}$ legge $\bar{c}_{ij}+\alpha_{ij} \ge 0$. Per i potenziali fissi, il migliore la scelta di $\alpha_{ij} \ge 0$ è la più piccola, $\alpha_{ij}=\max\{0,-\bar{c}_{ij}\}$.
 
 <a id="box-25-nf-lem-identity"></a>
 
@@ -142,7 +142,7 @@ title: "Il modello duale e i costi ridotti"
 
     I bilancieri $b_3=b_5=0$ fanno scomparire $\pi_3$ e $\pi_5$ dall'obiettivo.
 
-- Le potenzialità ed i costi ridotti sono alla base dei test di ottimalità di [Capitolo 6 «Flusso di costo minimo»](../min-cost-flow/index.md).
+- I potenziali ed i costi ridotti sono alla base dei test di ottimalità di [Capitolo 6 «Flusso di costo minimo»](../min-cost-flow/index.md).
 
 !!! chiave ""
 

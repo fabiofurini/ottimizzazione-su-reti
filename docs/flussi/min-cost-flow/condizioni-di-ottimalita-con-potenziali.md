@@ -62,7 +62,7 @@ title: "Condizioni di ottimalità con potenziali"
 
     Poiché $l_{ij} \le x_{ij} \le u_{ij}$, la prima implicazione è equivalente a $\bar{c}_{ij}<0 \Rightarrow x_{ij}=u_{ij}$, mentre la seconda equivale a $\bar{c}_{ij}>0 \Rightarrow x_{ij}=l_{ij}$. Se $l_{ij}<x_{ij}<u_{ij}$, si applicano entrambe le implicazioni e $\bar{c}_{ij}=0$. <span class="qed">□</span>
 
-- Con $\vet{l}=\vet{0}$ queste sono le condizioni del Corollario «certificato a costo ridotto» di [Capitolo 4](../network-flow-models/il-modello-duale-e-i-costi-ridotti.md). Lì si sono dimostrati sufficienti con la dualità LP; <span style="color:#1971c2">[Teorema 6.9](#box-12-mc-th-potentials)</span> mostra che ogni il flusso ottimale ha tali potenzialità che con $\alpha_{ij}=\max\{0,-\bar{c}_{ij}\}$ formano una doppia soluzione ottimale.
+- Con $\vet{l}=\vet{0}$ queste sono le condizioni del Corollario «certificato a costo ridotto» di [Capitolo 4](../network-flow-models/il-modello-duale-e-i-costi-ridotti.md). Lì si sono dimostrati sufficienti con la dualità LP; <span style="color:#1971c2">[Teorema 6.9](#box-12-mc-th-potentials)</span> mostra che ogni il flusso ottimale ha tali potenziali che con $\alpha_{ij}=\max\{0,-\bar{c}_{ij}\}$ formano una soluzione duale ottimale.
 
 - I potenziali della prova sono $\pi_i=-d(i)$, meno le distanze da $r$, come $\pi_i=-\tilde{d}(i)$ in [Capitolo 3](../../alberi-e-cammini/shortest-paths/condizioni-e-potenziali-di-ottimalita.md). Possono essere spostati di una costante; li normalizziamo con $\pi_n=0$.
 
@@ -137,7 +137,7 @@ title: "Condizioni di ottimalità con potenziali"
 
     - Tutti gli archi $14$ di $G(\tilde{\vet{x}})$ hanno costo ridotto non negativo: da <span style="color:#1971c2">[Teorema 6.9](#box-12-mc-th-potentials)</span>, $\tilde{\vet{x}}$ è ottimale. Sotto forma di <span style="color:#1971c2">[Corollario 6.10](#box-13-mc-cor-cs)</span>: $(3,2)$ e $(4,3)$ sono vuoti, $(2,4)$ e $(5,6)$ sono saturati.
 
-    - I potenziali sono meno i costi delle passeggiate più economiche di $G(\tilde{\vet{x}})$ che terminano in ciascun nodo. Per esempio la cammino $6,4,5,3,1$ utilizza quattro archi all'indietro e costa $-5-5-3-2=-15=-\pi_1$: in $G$ è il percorso $1,3,5,4,6$ dello albero ricoprente del capitolo 4.
+    - I potenziali sono meno i costi delle passeggiate più economiche di $G(\tilde{\vet{x}})$ che terminano in ciascun nodo. Per per esempio, il cammino $6,4,5,3,1$ utilizza quattro archi all'indietro e costa $-5-5-3-2=-15=-\pi_1$: in $G$ è il percorso $1,3,5,4,6$ dello albero ricoprente del capitolo 4.
 
 !!! chiave ""
 

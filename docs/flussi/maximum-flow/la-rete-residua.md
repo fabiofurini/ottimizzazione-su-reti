@@ -48,7 +48,7 @@ title: "La rete residua"
 
 !!! teorema "Lemma 5.7: aumento"
 
-    Aumentando un flusso ammissibile $\vet{x}$ di valore $v$ lungo un percorso aumentante $P$ con collo di bottiglia $\delta$ si ottiene un portata realizzabile $\vet{x}'$ di valore $v+\delta$.
+    Aumentando un flusso ammissibile $\vet{x}$ di valore $v$ lungo un percorso aumentante $P$ con collo di bottiglia $\delta$ si ottiene un portata ammissibile $\vet{x}'$ di valore $v+\delta$.
 
 ??? dimostrazione "Dimostrazione"
 

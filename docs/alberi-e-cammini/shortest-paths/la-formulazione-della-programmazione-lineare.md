@@ -43,9 +43,9 @@ title: "La formulazione della programmazione lineare"
 
 - Il <strong>vettore di incidenza</strong> $\vet{x}^P$ di un percorso $P$ da $s$ a $t$, con $x^P_{ij}=1$ sugli archi di $P$ e $0$ altrove, è fattibile e il suo valore è $d(P)$.
 
-## 3.3.1 Il modello duale e le potenzialità
+## 3.3.1 Il modello duale e i potenziali
 
-- Il vincolo del nodo $i$ è un'equazione, quindi la sua variabile duale $\pi_i$ è libera. La colonna di $x_{ij}$ in $\mat{B}$ ha $+1$ nella riga $i$ e $-1$ nella riga $j$, quindi il doppio vincolo di $x_{ij} \ge 0$ è $\pi_i-\pi_j \le d_{ij}$ ([Lineare Programmazione, Capitolo 9 «Teoria della dualità»](https://fabiofurini.github.io/programmazione-lineare/dualita/09-dualita/)).
+- Il vincolo del nodo $i$ è un'equazione, quindi la sua variabile duale $\pi_i$ è libera. La colonna di $x_{ij}$ in $\mat{B}$ ha $+1$ nella riga $i$ e $-1$ nella riga $j$, quindi il vincolo duale di $x_{ij} \ge 0$ è $\pi_i-\pi_j \le d_{ij}$ ([Lineare Programmazione, Capitolo 9 «Teoria della dualità»](https://fabiofurini.github.io/programmazione-lineare/dualita/09-dualita/)).
 
 !!! chiave ""
 
@@ -89,7 +89,7 @@ title: "La formulazione della programmazione lineare"
 
 !!! attenzione "Il segno dei potenziali"
 
-    Con la matrice di incidenza del percorso ($+1$ in coda) il doppio vincolo è $\pi_i-\pi_j \le d_{ij}$, e il i potenziali ottimali sono $\pi_i=-\tilde{d}(i)$, fino ad una costante additiva. Il modulo $\pi_j-\pi_i \le d_{ij}$, con $\pi_i=\tilde{d}(i)$, appartiene alla convenzione dei segni opposti ($-1$ nella coda).
+    Con la matrice di incidenza del percorso ($+1$ in coda) il vincolo duale è $\pi_i-\pi_j \le d_{ij}$, e il i potenziali ottimali sono $\pi_i=-\tilde{d}(i)$, fino ad una costante additiva. Il modulo $\pi_j-\pi_i \le d_{ij}$, con $\pi_i=\tilde{d}(i)$, appartiene alla convenzione dei segni opposti ($-1$ nella coda).
 
 ## 3.3.2 Il modello a fonte unica
 
@@ -99,7 +99,7 @@ title: "La formulazione della programmazione lineare"
     b_s=n-1, \qquad b_i=-1, \quad \forall i \in N \setminus \{s\}.
     $$
 
-    Con queste bilance il modello [(3.1)](#eq-SP_ST) si chiama $\mathrm{SP}(s)$; il suo doppio massimizza $(n-1)\pi_s-\sum_{i \neq s}\pi_i$ con gli stessi vincoli $\eqref{cons1_DSP}$.
+    Con queste bilance il modello [(3.1)](#eq-SP_ST) si chiama $\mathrm{SP}(s)$; il suo duale massimizza $(n-1)\pi_s-\sum_{i \neq s}\pi_i$ con gli stessi vincoli $\eqref{cons1_DSP}$.
 
 <a id="box-16-sp-prop-single"></a>
 
@@ -127,7 +127,7 @@ title: "La formulazione della programmazione lineare"
 
     Risolviamo i modelli con le lunghezze <span style="color:#1971c2">[Esempio 3.1](problemi-del-percorso-piu-breve.md#box-2-sp-ex-ref)</span>, $s=1$ e $t=6$ (valori verificati con Gurobi).
 
-    - $\mathrm{SP}(1,6)$: $z(\mathrm{SP}(1,6))=13$, con $x_{13}=x_{32}=x_{24}=x_{46}=1$ e tutte le altre variabili $0$: il percorso $1,3,2,4,6$. Il doppio valore è $\pi_1-\pi_6=13$.
+    - $\mathrm{SP}(1,6)$: $z(\mathrm{SP}(1,6))=13$, con $x_{13}=x_{32}=x_{24}=x_{46}=1$ e tutte le altre variabili $0$: il percorso $1,3,2,4,6$. Il valore duale è $\pi_1-\pi_6=13$.
 
     - $\mathrm{SP}(1)$: $z(\mathrm{SP}(1))=0+5+2+8+10+13=38$, con i flussi sull'albero dei percorsi più brevi
 

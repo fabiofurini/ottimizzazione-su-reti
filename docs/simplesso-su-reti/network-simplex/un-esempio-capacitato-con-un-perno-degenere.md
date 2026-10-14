@@ -20,7 +20,7 @@ title: "Un esempio capacitato con un perno degenere"
 
 !!! esempio "Esempio 8.7: rete con capacità"
 
-    <strong>Iterazione 1</strong><br> Le potenziali sono $\vet{\pi}=(12,10,12,5,10,0)$ e il costo è $63$.
+    <strong>Iterazione 1</strong><br> I potenziali sono $\vet{\pi}=(12,10,12,5,10,0)$ e il costo è $63$.
 
     <div class="tabella" markdown="0"><table>
     <tr>
@@ -77,7 +77,7 @@ title: "Un esempio capacitato con un perno degenere"
 
     - $\theta=0$: il perno è degenere. L'arco $(3,2)$ lascia l'albero verso $L$ e $(1,3)$ vi entra nel suo capacità. Il costo rimane $63$ e $\pi_3$ scende da $12$ a $10$.
 
-    <strong>Iterazione 2</strong><br> Le potenziali sono $\vet{\pi}=(12,10,10,5,10,0)$ e il costo è $63$.
+    <strong>Iterazione 2</strong><br> I potenziali sono $\vet{\pi}=(12,10,10,5,10,0)$ e il costo è $63$.
 
     <div class="tabella" markdown="0"><table>
     <tr>
@@ -167,7 +167,7 @@ title: "Un esempio capacitato con un perno degenere"
 
     ![Figura 6](../../img/network-simplex/fig06.svg){ .fig loading=lazy  }
 
-    <strong>Iterazione 3</strong><br> Le potenziali sono $\vet{\pi}=(15,13,13,5,10,0)$ e il costo è $60$.
+    <strong>Iterazione 3</strong><br> I potenziali sono $\vet{\pi}=(15,13,13,5,10,0)$ e il costo è $60$.
 
     <div class="tabella" markdown="0"><table>
     <tr>

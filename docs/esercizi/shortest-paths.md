@@ -28,7 +28,7 @@ title: "Esercizi · Cammini minimi"
 
     - **(S4)** <strong>Grafi aciclici.</strong> Ordine topologico rimuovendo un nodo senza inserire archi (indice più piccolo); i nodi vengono elaborati in questo ordine, ognuno rilassando i propri archi uscenti. Le lunghezze $-d_{ij}$ danno i percorsi più lunghi.
 
-    - **(S5)** <strong>Potenziali.</strong> $\bar{c}_{ij}=d_{ij}-\pi_i+\pi_j$; con etichette, $\pi_i=-d(i)$. Fattibile potenziali ($\bar{c} \ge 0$) e un percorso da $s$ a $t$ di archi stretti ($\bar{c}=0$) dimostrano che il percorso è più corto, di lunghezza $\pi_s-\pi_t$. Il doppio di $\mathrm{SP}(s,t)$ è $\max\{\pi_s-\pi_t : \pi_i-\pi_j \le d_{ij}\}$.
+    - **(S5)** <strong>Potenziali.</strong> $\bar{c}_{ij}=d_{ij}-\pi_i+\pi_j$; dalle etichette si ottiene $\pi_i=-d(i)$. Potenziali ammissibili, per cui $\bar{c}_{ij} \ge 0$, e un percorso da $s$ a $t$ formato da archi con costo ridotto nullo certificano che il percorso è minimo, con lunghezza $\pi_s-\pi_t$. Il duale di $\mathrm{SP}(s,t)$ è $\max\{\pi_s-\pi_t : \pi_i-\pi_j \le d_{ij}\}$.
 
 <a id="esercizio-3-1"></a>
 

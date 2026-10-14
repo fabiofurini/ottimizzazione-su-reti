@@ -72,7 +72,7 @@ title: "Modelli di flusso su reti"
 
     - dimostrare che la matrice di incidenza è totalmente unimodulare e dedurre che il modello ha ottimo intero soluzioni quando i dati sono interi;
 
-    - scrivere il duale con le potenzialità $\pi_i$, calcolare i costi ridotti e certificare l'ottimalità di un flusso;
+    - scrivere il duale con i potenziali $\pi_i$, calcolare i costi ridotti e certificare l'ottimalità di un flusso;
 
     - riconosce il percorso più breve, il flusso massimo, i problemi di trasporto e di assegnazione come costo minimo modelli di flusso.
 

@@ -30,7 +30,7 @@ title: "Percorsi più brevi nei grafici aciclici"
 
     Se $G$ avesse un ordine topologico, un ciclo $i_0,i_1,\dots,i_k=i_0$ andrebbe avanti su ogni arco e ritornerebbe al suo primo nodo: impossibile. Viceversa, sia $G$ aciclico; discutiamo per induzione su $n$.
 
-    1. $G$ ha un nodo senza arco entrante: altrimenti, camminare all'indietro lungo archi entranti da qualsiasi nodo, dopo $n$ passi che un nodo ripete e la cammino contiene un ciclo.
+    1. $G$ ha un nodo senza arco entrante: altrimenti, camminare all'indietro lungo archi entranti da qualsiasi nodo, dopo $n$ passi che un nodo ripete e il cammino contiene un ciclo.
 
     2. Metti prima un nodo di questo tipo $v_1$. Il grafo senza $v_1$ è aciclico e per induzione ha un ordine topologico $v_2,\dots,v_n$; nessun arco entra in $v_1$, quindi $v_1,v_2,\dots,v_n$ è un ordine topologico di $G$. <span class="qed">□</span>
 

@@ -22,7 +22,7 @@ title: "Esercizi · Trasporto e assegnamento"
 
     - **(F4)** <strong>Metodo potenziale.</strong> $\pi_i-\pi_j=c_{ij}$ sulle celle base, $\pi_{m+n}=0$; $\bar{c}_{ij}=c_{ij}-\pi_i+\pi_j$. Ottimale se $\bar{c} \ge 0$, unico se $\bar{c}_{ij}>0$ fuori base. Altrimenti entra il $\bar{c}_e$ più negativo (a pari merito: il più piccolo $i$, poi $j$); il ciclo inizia da $e$ lungo la sua fila con segnaletica $+,-,+,\dots$; $\theta$ è il minimo sulle celle $-$ e il primo di essi con $\bar{x}=\theta$ in righe-colonne in ordine di foglie; il costo varia in base a $\theta\,\bar{c}_e$.
 
-    - **(F5)** <strong>Algoritmo ungherese.</strong> Sottrai i minimi di riga ($\pi_i$) e poi i minimi di colonna ($-\pi_j$). Trova un insieme massimo di zeri indipendenti (riga per riga, percorsi alternati, colonne in ordine crescente); se ha $n$ zeri, fermati. Altrimenti le linee sono le righe non raggiunte e le colonne raggiunte alternando percorsi dal righe senza corrispondenza; $\delta$ è lo scoperto minimo, sottratto agli scoperti e sommato a quelli coperti due volte ($\pi_i \mathrel{+}=\delta$ su file scoperte, $\pi_j \mathrel{+}=\delta$ su colonne coperte). Il doppio valore $\sum_i\pi_i-\sum_j\pi_j$ cresce di $\delta\,(n-k)$ con le linee $k$.
+    - **(F5)** <strong>Algoritmo ungherese.</strong> Sottrai i minimi di riga ($\pi_i$) e poi i minimi di colonna ($-\pi_j$). Trova un insieme massimo di zeri indipendenti (riga per riga, percorsi alternati, colonne in ordine crescente); se ha $n$ zeri, fermati. Altrimenti, partendo dalle righe senza assegnazione, si tracciano i cammini alternati. Le righe non raggiunte e le colonne raggiunte definiscono le linee di copertura; $\delta$ è lo scoperto minimo, sottratto agli scoperti e sommato a quelli coperti due volte ($\pi_i \mathrel{+}=\delta$ sulle righe scoperte, $\pi_j \mathrel{+}=\delta$ su colonne coperte). Il valore duale $\sum_i\pi_i-\sum_j\pi_j$ cresce di $\delta\,(n-k)$ con le linee $k$.
 
 <a id="esercizio-7-1"></a>
 
@@ -287,7 +287,7 @@ title: "Esercizi · Trasporto e assegnamento"
 
     1. Costruisci la soluzione ammissibile di base iniziale con la regola dell'angolo nord-ovest e calcolane il costo.
 
-    2. Calcola le potenzialità della sua base ($\pi_7=0$) e i costi ridotti. La soluzione è ottimale?
+    2. Calcola i potenziali della sua base ($\pi_7=0$) e i costi ridotti. La soluzione è ottimale?
 
     3. Eseguire il metodo potenziale fino alla soluzione ottima, con le regole di (F4).
 
@@ -391,7 +391,7 @@ title: "Esercizi · Trasporto e assegnamento"
 
     2. Da $\pi_7=0$ lungo le celle base: $\pi_{1}=7,\ \pi_{2}=6,\ \pi_{3}=2,\ \pi_{4}=3,\ \pi_{5}=1,\ \pi_{6}=-1,\ \pi_{7}=0$. I costi ridotti delle celle non basiche si trovano nel primo tableau della risposta successiva; $\bar{c}_{25}=-3$ e $\bar{c}_{24}=-1$ sono negativi, quindi la soluzione non è ottimale.
 
-    3. I tableaux contengono gli importi delle celle base (blu, grassetto) ed i costi ridotti delle altre celle; le potenzialità sono ai margini. <br><strong>Iterazione 1</strong><br> Potenziali: $\pi_{1}=7,\ \pi_{2}=6,\ \pi_{3}=2,\ \pi_{4}=3,\ \pi_{5}=1,\ \pi_{6}=-1,\ \pi_{7}=0$.
+    3. I tableaux contengono gli importi delle celle base (blu, grassetto) ed i costi ridotti delle altre celle; i potenziali sono ai margini. <br><strong>Iterazione 1</strong><br> Potenziali: $\pi_{1}=7,\ \pi_{2}=6,\ \pi_{3}=2,\ \pi_{4}=3,\ \pi_{5}=1,\ \pi_{6}=-1,\ \pi_{7}=0$.
 
         <div class="tabella" markdown="0"><table>
         <tr>
@@ -542,7 +542,7 @@ title: "Esercizi · Trasporto e assegnamento"
         </tr>
         </table></div>
 
-        - Tutti i costi ridotti sono non negativi: la soluzione di base realizzabile è ottimale, con costo $z=320$.
+        - Tutti i costi ridotti sono non negativi: la soluzione di base ammissibile è ottimale, con costo $z=320$.
 
     4. I potenziali ottimali sono $\pi_{1}=7,\ \pi_{2}=5,\ \pi_{3}=2,\ \pi_{4}=3,\ \pi_{5}=3,\ \pi_{6}=-1,\ \pi_{7}=0$ e il valore duale è
 
@@ -806,9 +806,9 @@ title: "Esercizi · Trasporto e assegnamento"
         </tr>
         </table></div>
 
-        - Tutti i costi ridotti sono non negativi: la soluzione di base realizzabile è ottimale, con costo $z=290$.
+        - Tutti i costi ridotti sono non negativi: la soluzione di base ammissibile è ottimale, con costo $z=290$.
 
-    3. Il primo pivot ha $\theta=0$: la cella $(3,4)$ entra con valore $0$ ed esce $(2,5)$; la soluzione ed il suo costo non cambiano, ma le nuove potenzialità mostrano un costo ridotto negativo. La soluzione ottimale è $\tilde{x}_{15}=10$, $\tilde{x}_{16}=10$, $\tilde{x}_{26}=10$, $\tilde{x}_{34}=10$, $\tilde{x}_{36}=15$, con costo $290$, ed è unica, poiché ogni cella non di base ha $\bar{c}_{ij}>0$.
+    3. Il primo pivot ha $\theta=0$: la cella $(3,4)$ entra con valore $0$ ed esce $(2,5)$; la soluzione ed il suo costo non cambiano, ma i nuovi potenziali mostrano un costo ridotto negativo. La soluzione ottimale è $\tilde{x}_{15}=10$, $\tilde{x}_{16}=10$, $\tilde{x}_{26}=10$, $\tilde{x}_{34}=10$, $\tilde{x}_{36}=15$, con costo $290$, ed è unica, poiché ogni cella non di base ha $\bar{c}_{ij}>0$.
 
     !!! chiave ""
 
@@ -836,7 +836,7 @@ title: "Esercizi · Trasporto e assegnamento"
 
     **Domande**
 
-    1. Ridurre le righe e poi le colonne della matrice. Quali potenzialità offrono le riduzioni e quale limite inferiore al costo ottimale?
+    1. Ridurre le righe e poi le colonne della matrice. Quali potenziali offrono le riduzioni e quale limite inferiore al costo ottimale?
 
     2. Eseguire l'algoritmo ungherese: ad ogni iterazione fornire un insieme massimo di zeri indipendenti, le linee di (F5) e la regolazione $\delta$.
 
@@ -860,9 +860,9 @@ title: "Esercizi · Trasporto e assegnamento"
         \end{array}
         $$
 
-        I minimi di colonna sono quindi $2,0,2,0,0$, quindi $\pi_{6}=-2$ e $\pi_{8}=-2$, e gli altri $\pi_j$ sono $0$. Il doppio valore $\sum_i\pi_i-\sum_j\pi_j=18$ rappresenta un limite inferiore al costo di ogni incarico.
+        I minimi di colonna sono quindi $2,0,2,0,0$, quindi $\pi_{6}=-2$ e $\pi_{8}=-2$, e gli altri $\pi_j$ sono $0$. Il valore duale $\sum_i\pi_i-\sum_j\pi_j=18$ rappresenta un limite inferiore al costo di ogni incarico.
 
-    2. In ciascuna matrice gli zeri indipendenti sono riquadrati, le linee blu e la cella di $\delta$ rossa; le potenzialità sono ai margini. <br><strong>Iterazione 1</strong>
+    2. In ciascuna matrice gli zeri indipendenti sono riquadrati, le linee blu e la cella di $\delta$ rossa; i potenziali sono ai margini. <br><strong>Iterazione 1</strong>
 
         <div class="tabella" markdown="0"><table>
         <tr>
@@ -934,7 +934,7 @@ title: "Esercizi · Trasporto e assegnamento"
 
         - Le righe $4<5$ (blu) sono le righe $2$, $3$ e $5$ e la colonna $10$.
 
-        - La voce minima scoperta è $\delta=1$, nella cella $(1,6)$ (rossa). Lo sottraiamo dalle voci scoperte e lo aggiungiamo alle voci coperte due volte: $\pi_i$ cresce di $1$ per le righe scoperte $1$ e $4$ e $\pi_j$ cresce di $1$ per la colonna coperta $10$. Il doppio valore cresce di $1\cdot(5-4)=1$.
+        - La voce minima scoperta è $\delta=1$, nella cella $(1,6)$ (rossa). Lo sottraiamo dalle voci scoperte e lo aggiungiamo alle voci coperte due volte: $\pi_i$ cresce di $1$ per le righe scoperte $1$ e $4$ e $\pi_j$ cresce di $1$ per la colonna coperta $10$. Il valore duale cresce di $1\cdot(5-4)=1$.
 
         <strong>Iterazione 2</strong>
 
@@ -1008,7 +1008,7 @@ title: "Esercizi · Trasporto e assegnamento"
 
         - Le righe $4<5$ (blu) sono le righe $2$ e $3$ e le colonne $6$ e $10$.
 
-        - La voce minima scoperta è $\delta=1$, nella cella $(1,9)$ (rossa). Lo sottraiamo dalle voci scoperte e lo aggiungiamo alle voci coperte due volte: $\pi_i$ cresce di $1$ per le righe scoperte $1$, $4$ e $5$ e $\pi_j$ cresce di $1$ per le colonne rivestite $6$ e $10$. Il doppio valore cresce di $1\cdot(5-4)=1$.
+        - La voce minima scoperta è $\delta=1$, nella cella $(1,9)$ (rossa). Lo sottraiamo dalle voci scoperte e lo aggiungiamo alle voci coperte due volte: $\pi_i$ cresce di $1$ per le righe scoperte $1$, $4$ e $5$ e $\pi_j$ cresce di $1$ per le colonne coperte $6$ e $10$. Il valore duale cresce di $1\cdot(5-4)=1$.
 
         <strong>Iterazione 3</strong>
 
@@ -1082,7 +1082,7 @@ title: "Esercizi · Trasporto e assegnamento"
 
         - Formano un'assegnazione a costo ridotto pari a zero: l'algoritmo si ferma e l'assegnazione è ottimale.
 
-    3. L'assegnazione ottimale è $1 \to 9$, $2 \to 8$, $3 \to 7$, $4 \to 10$, $5 \to 6$, con costo $5+9+1+2+3=20$. Le potenzialità finali danno $\sum_i\pi_i-\sum_j\pi_j=19-(-1)=20$, pari al costo; tutti i costi ridotti sono non negativi, quindi i potenziali sono duplici ed entrambe le soluzioni sono ottimali. L'ottimale è unico, come conferma l'enumerazione delle assegnazioni $120$.
+    3. L'assegnazione ottimale è $1 \to 9$, $2 \to 8$, $3 \to 7$, $4 \to 10$, $5 \to 6$, con costo $5+9+1+2+3=20$. I potenziali finali danno $\sum_i\pi_i-\sum_j\pi_j=19-(-1)=20$, pari al costo; tutti i costi ridotti sono non negativi, quindi i potenziali sono duali ed entrambe le soluzioni sono ottimali. L'ottimale è unico, come conferma l'enumerazione delle assegnazioni $120$.
 
     !!! chiave ""
 
@@ -1123,7 +1123,7 @@ title: "Esercizi · Trasporto e assegnamento"
 
     2. Dimostrare che aggiungendo una costante $k$ a tutti i costi della riga $i$ si aggiunge $k\,a_i$ al costo di ogni soluzione fattibile, in modo che le soluzioni ottime non cambino. Cosa succede aggiungendo $k$ ad una colonna $j$?
 
-    3. Costruisci la soluzione a costo minimo e decidi con le potenzialità se è ottimale. La regola del costo minimo è sempre ottimale?
+    3. Costruisci la soluzione a costo minimo e decidi con i potenziali se è ottimale. La regola del costo minimo è sempre ottimale?
 
 ??? soluzione "Soluzione"
 
@@ -1137,7 +1137,7 @@ title: "Esercizi · Trasporto e assegnamento"
 
         - $T_3$ contiene le celle $(2,5)$, $(3,5)$, $(3,6)$, $(2,6)$, che formano il ciclo $2,5,3,6,2$ alternando righe e colonne: le loro colonne sono linearmente dipendenti e $T_3$ non è un base.
 
-    2. Lascia che $c'_{ij}=c_{ij}+k$ per ogni $j$ e $c'_{hj}=c_{hj}$ per $h \neq i$. Per ogni $\vet{x}$ realizzabile
+    2. Lascia che $c'_{ij}=c_{ij}+k$ per ogni $j$ e $c'_{hj}=c_{hj}$ per $h \neq i$. Per ogni $\vet{x}$ ammissibile
 
         $$
         \sum_{h}\sum_{j} c'_{hj}x_{hj}=\sum_{h}\sum_{j} c_{hj}x_{hj}+k\sum_{j} x_{ij}=\sum_{h}\sum_{j} c_{hj}x_{hj}+k\,a_i ,
@@ -1224,7 +1224,7 @@ title: "Esercizi · Trasporto e assegnamento"
         </tr>
         </table></div>
 
-        con costo $175$. Le sue potenzialità e i costi ridotti lo sono
+        con costo $175$. Le sue potenziali e i costi ridotti lo sono
 
         <div class="tabella" markdown="0"><table>
         <tr>
@@ -1381,7 +1381,7 @@ title: "Esercizi · Trasporto e assegnamento"
 
         - Le linee $3<4$ (blu) sono le righe $3$ e $4$ e la colonna $5$.
 
-        - La voce minima scoperta è $\delta=2$, nella cella $(2,6)$ (rossa). Lo sottraiamo dalle voci scoperte e lo aggiungiamo alle voci coperte due volte: $\pi_i$ cresce di $2$ per le righe scoperte $1$ e $2$ e $\pi_j$ cresce di $2$ per la colonna coperta $5$. Il doppio valore cresce di $2\cdot(4-3)=2$.
+        - La voce minima scoperta è $\delta=2$, nella cella $(2,6)$ (rossa). Lo sottraiamo dalle voci scoperte e lo aggiungiamo alle voci coperte due volte: $\pi_i$ cresce di $2$ per le righe scoperte $1$ e $2$ e $\pi_j$ cresce di $2$ per la colonna coperta $5$. Il valore duale cresce di $2\cdot(4-3)=2$.
 
         <strong>Iterazione 2</strong>
 

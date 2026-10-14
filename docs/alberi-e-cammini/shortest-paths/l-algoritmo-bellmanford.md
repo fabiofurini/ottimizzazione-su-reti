@@ -29,7 +29,7 @@ title: "L'algoritmo Bellman–Ford"
 
 ??? dimostrazione "Dimostrazione"
 
-    L'unica cammino con archi $0$ è la cammino $s$. Per $k \ge 1$, una cammino verso $j$ con al massimo archi $k$ ha al massimo Archi $k-1$, con lunghezza minima $d^{k-1}(j)$, oppure ha esattamente archi $k$ e ultimo arco $(i,j)$: è una passeggiata fino a $i$ con $k-1$ archi seguiti da $(i,j)$ e la sua lunghezza minima è $\min_{(i,j)}\big(d^{k-1}(i)+d_{ij}\big)$. <span class="qed">□</span>
+    L'unico cammino con zero archi è quello che parte e termina in $s$. Per $k \ge 1$, un cammino da $s$ a $j$ con al massimo $k$ archi o ne contiene al massimo $k-1$, e ha lunghezza minima $d^{k-1}(j)$, oppure contiene esattamente $k$ archi e termina con un arco $(i,j)$. In quest'ultimo caso, prima percorre un cammino da $s$ a $i$ con $k-1$ archi; la lunghezza minima è quindi $\min_{(i,j) \in A}\big(d^{k-1}(i)+d_{ij}\big)$. <span class="qed">□</span>
 
 !!! algoritmo "Algoritmo: Algoritmo Bellman–Ford"
 

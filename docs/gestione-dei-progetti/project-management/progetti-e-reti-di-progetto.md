@@ -165,7 +165,7 @@ title: "Progetti e reti di progetto"
 
     Il nodo $j$ inizia a $t_j$ e termina a $t_j+d_j$. La <strong>durata</strong> della pianificazione è $t_{n+1}$ e la <strong>durata minima del progetto</strong> $T$ è la durata minima di una pianificazione.
 
-- Il vincolo dell'arco $(i,j)$ dice che $j$ inizia dopo che $i$ è finito. Per (H1) e (H2), il le precedenze sono gli unici vincoli di una pianificazione.
+- Il vincolo dell'arco $(i,j)$ dice che $j$ inizia dopo che $i$ è finito. Per (H1) e (H2), le precedenze costituiscono gli unici vincoli della pianificazione.
 
 - Gli archi $(j,n+1)$ fanno iniziare FINISH al termine di ogni attività: $t_{n+1}$ è il tempo di completamento del progetto.
 

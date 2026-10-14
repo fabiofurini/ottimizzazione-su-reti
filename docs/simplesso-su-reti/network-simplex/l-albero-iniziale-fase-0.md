@@ -233,7 +233,7 @@ title: "L'albero iniziale: Fase 0"
     <td>senza capacità e costi <span class="arithmatex">\(80\)</span>, <span class="arithmatex">\(52\)</span>, <span class="arithmatex">\(49\)</span>; albero ottimale <span class="arithmatex">\((1,2),(1,3),(2,4),(3,5),(5,6)\)</span></td>
     </tr>
     <tr>
-    <td>con capacità, da <span class="arithmatex">\(\bar{\vet{x}}\)</span> e costi <span class="arithmatex">\(63\)</span>, <span class="arithmatex">\(63\)</span> (degenerato), <span class="arithmatex">\(60\)</span>; <span class="arithmatex">\(U=\{(2,4),(5,6)\}\)</span></td>
+    <td>con capacità, da <span class="arithmatex">\(\bar{\vet{x}}\)</span> e costa <span class="arithmatex">\(63\)</span>, <span class="arithmatex">\(63\)</span> (degenerato), <span class="arithmatex">\(60\)</span>; <span class="arithmatex">\(U=\{(2,4),(5,6)\}\)</span></td>
     </tr>
     <tr>
     <td>potenziali ottimali (<span class="arithmatex">\(\pi_6=0\)</span>) e <span class="arithmatex">\((8,6,6,1,3,0)\)</span> senza capacità, <span class="arithmatex">\((15,13,13,5,10,0)\)</span> con</td>

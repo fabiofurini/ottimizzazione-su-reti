@@ -149,13 +149,13 @@ title: "Il problema dell'assegnazione"
 
 ??? dimostrazione "Dimostrazione"
 
-    È l'identità di <span style="color:#1971c2">Sezione [7.4](il-metodo-potenziale.md#sez-ta-sec-potentials)</span> con $a_i=d_j=1$. Sottraendo $r$ dalla riga $i$ si ottiene il costi ridotti di $\pi_i=r$ e delle altre potenzialità $0$; sottraendo $s$ dalla colonna $j$ quelli di $\pi_j=-s$. <span class="qed">□</span>
+    È l'identità di <span style="color:#1971c2">Sezione [7.4](il-metodo-potenziale.md#sez-ta-sec-potentials)</span> con $a_i=d_j=1$. Sottrarre $r$ dalla riga $i$ equivale a porre $\pi_i=r$ e tutti gli altri potenziali uguali a zero: il costo ridotto della cella $(i,j)$ diminuisce di $r$. Sottrarre $s$ dalla colonna $j$ equivale a porre $\pi_j=-s$ e gli altri potenziali a zero: il costo ridotto della cella $(i,j)$ diminuisce di $s$. <span class="qed">□</span>
 
 <a id="box-26-ta-cor-zero"></a>
 
 !!! teorema "Corollario 7.17: gli incarichi a costo zero sono ottimali"
 
-    Se $\bar{c}_{ij} \ge 0$ per ogni cella e un'assegnazione utilizza solo celle con $\bar{c}_{ij}=0$, allora è ottimale, anche per il relax LP il suo costo è $\sum_{i \in P}\pi_i-\sum_{j \in D}\pi_j$, e $\vet{\pi}$ è ottimale per il doppio del relax LP, il modello $D(\mathrm{TP})$ con $a_i=d_j=1$.
+    Se $\bar{c}_{ij} \ge 0$ per ogni cella, ogni assegnazione che utilizza soltanto celle con costo ridotto nullo è ottimale. Il suo costo coincide con $\sum_{i \in P}\pi_i-\sum_{j \in D}\pi_j$; pertanto $\vet{\pi}$ è una soluzione ottimale del duale del rilassamento lineare, il modello $D(\mathrm{TP})$ con $a_i=d_j=1$.
 
 ??? dimostrazione "Dimostrazione"
 
@@ -212,7 +212,7 @@ title: "Il problema dell'assegnazione"
 
 !!! teorema "Teorema 7.20: correttezza dell'algoritmo ungherese"
 
-    Ad ogni iterazione $\bar{c}_{ij}=c_{ij}-\pi_i+\pi_j \ge 0$ per ogni cella e il passaggio 3 aumenta il valore duale $\sum_{i \in P}\pi_i-\sum_{j \in D}\pi_j$ per $\delta\,(n-k)>0$, dove $k<n$ è il numero di righe. Con costi interi l'algoritmo si ferma dopo un numero finito di iterazioni con un'assegnazione ottimale e $\vet{\pi}$ è ottimale per il doppio del relax LP.
+    Ad ogni iterazione $\bar{c}_{ij}=c_{ij}-\pi_i+\pi_j \ge 0$ per ogni cella e il passaggio 3 aumenta il valore duale $\sum_{i \in P}\pi_i-\sum_{j \in D}\pi_j$ per $\delta\,(n-k)>0$, dove $k<n$ è il numero di righe. Con costi interi l'algoritmo si ferma dopo un numero finito di iterazioni con un'assegnazione ottimale e $\vet{\pi}$ è ottimale per il duale del rilassamento LP.
 
 ??? dimostrazione "Dimostrazione"
 
@@ -220,7 +220,7 @@ title: "Il problema dell'assegnazione"
 
     2. <em>Passaggio 3.</em> Tutti gli zeri sono coperti, quindi $\delta>0$ e le voci scoperte rimangono $\ge 0$. L'aggiornamento del i potenziali danno $-\delta$ su riga e colonna scoperte, $-\delta+\delta=0$ su riga scoperta e colonna coperta, $+\delta$ su riga e colonna coperte, $0$ su riga coperta e colonna scoperta: esattamente la regolazione.
 
-    3. <em>Doppio valore.</em> Con righe coperte $k_r$ e colonne coperte $k_c$, il valore aumenta di $\delta\,(n-k_r)-\delta\,k_c=\delta\,(n-k)$ e $k=|M|<n$ di <span style="color:#1971c2">[Teorema 7.19](#box-28-ta-th-konig)</span>.
+    3. <em>Valore duale.</em> Con righe coperte $k_r$ e colonne coperte $k_c$, il valore aumenta di $\delta\,(n-k_r)-\delta\,k_c=\delta\,(n-k)$ e $k=|M|<n$ di <span style="color:#1971c2">[Teorema 7.19](#box-28-ta-th-konig)</span>.
 
     4. <em>Terminazione.</em> Con <span style="color:#1971c2">[Lemma 7.16](#box-25-ta-lem-reduce)</span> il valore duale non supera mai il costo di un incarico. Con costi interi ogni $\delta$ è un intero $\ge 1$, quindi il numero di aggiustamenti è finito. Alla fermata $M$ è un'assegnazione di zeri, ottimale con $\vet{\pi}$ di <span style="color:#1971c2">[Corollario 7.17](#box-26-ta-cor-zero)</span>. <span class="qed">□</span>
 
@@ -245,9 +245,9 @@ title: "Il problema dell'assegnazione"
     \end{array}
     $$
 
-    I minimi di colonna sono $0,2,0,0$: cambia solo la colonna $6$ e $\pi_6=-2$. Il doppio valore $2+1+2+1+2=8$ è un limite inferiore sul costo di ogni incarico.
+    I minimi di colonna sono $0,2,0,0$: cambia solo la colonna $6$ e $\pi_6=-2$. Il valore duale $2+1+2+1+2=8$ è un limite inferiore sul costo di ogni incarico.
 
-    In ciascuna delle seguenti matrici gli zeri indipendenti sono riquadrati, le linee blu e la cella di $\delta$ rossa; il le potenzialità sono ai margini.
+    In ciascuna matrice gli zeri indipendenti sono riquadrati, le linee blu e la cella corrispondente a $\delta$ è evidenziata in rosso; i potenziali sono riportati ai margini.
 
     <div class="tabella" markdown="0"><table>
     <tr>
@@ -307,7 +307,7 @@ title: "Il problema dell'assegnazione"
 
     - Le linee $3<4$ (blu) sono le righe $1$ e $2$ e la colonna $5$.
 
-    - La voce minima scoperta è $\delta=2$, nella cella $(3,6)$ (rossa). Lo sottraiamo dalle voci scoperte e lo aggiungiamo alle voci coperte due volte: $\pi_i$ cresce di $2$ per le righe scoperte $3$ e $4$ e $\pi_j$ cresce di $2$ per la colonna coperta $5$. Il doppio valore cresce di $2\cdot(4-3)=2$.
+    - La voce minima scoperta è $\delta=2$, nella cella $(3,6)$ (rossa). Lo sottraiamo dalle voci scoperte e lo aggiungiamo alle voci coperte due volte: $\pi_i$ cresce di $2$ per le righe scoperte $3$ e $4$ e $\pi_j$ cresce di $2$ per la colonna coperta $5$. Il valore duale cresce di $2\cdot(4-3)=2$.
 
     <div class="tabella" markdown="0"><table>
     <tr>
@@ -367,7 +367,7 @@ title: "Il problema dell'assegnazione"
 
     - Le linee $3<4$ (blu) sono la riga $2$ e le colonne $5$ e $6$.
 
-    - La voce minima scoperta è $\delta=1$, nella cella $(1,7)$ (rossa). Lo sottraiamo dalle voci scoperte e lo aggiungiamo alle voci coperte due volte: $\pi_i$ cresce di $1$ per le righe scoperte $1$, $3$ e $4$ e $\pi_j$ cresce di $1$ per le colonne rivestite $5$ e $6$. Il doppio valore cresce di $1\cdot(4-3)=1$.
+    - La voce minima scoperta è $\delta=1$, nella cella $(1,7)$ (rossa). Lo sottraiamo dalle voci scoperte e lo aggiungiamo alle voci coperte due volte: $\pi_i$ cresce di $1$ per le righe scoperte $1$, $3$ e $4$ e $\pi_j$ cresce di $1$ per le colonne coperte $5$ e $6$. Il valore duale cresce di $1\cdot(4-3)=1$.
 
     <div class="tabella" markdown="0"><table>
     <tr>
@@ -429,13 +429,13 @@ title: "Il problema dell'assegnazione"
 
 - L'assegnazione ottimale è $1 \to 7$, $2 \to 8$, $3 \to 6$, $4 \to 5$, con costo $3+1+6+1=11$, l'ottimo unico di <span style="color:#1971c2">[Esempio 7.9](#box-24-ta-ex-ap)</span>.
 
-- I potenziali finali $\pi_1=3$, $\pi_2=1$, $\pi_3=5$, $\pi_4=4$ e $\pi_5=3$, $\pi_6=-1$, $\pi_7=0$, $\pi_8=0$ sono un'ottima soluzione duale, di pregio $(3+1+5+4)-(3-1+0+0)=11$. Il doppio valore è cresciuto da $8$ a $10$ e poi a $11$.
+- I potenziali finali $\pi_1=3$, $\pi_2=1$, $\pi_3=5$, $\pi_4=4$ e $\pi_5=3$, $\pi_6=-1$, $\pi_7=0$, $\pi_8=0$ sono un'ottima soluzione duale, di valore $(3+1+5+4)-(3-1+0+0)=11$. Il valore duale è cresciuto da $8$ a $10$ e poi a $11$.
 
 - Le righe sono quelle della dimostrazione di <span style="color:#1971c2">[Teorema 7.19](#box-28-ta-th-konig)</span>. Nell'iterazione $1$ la riga $4$ è senza eguali; da esso un percorso alternato raggiunge, attraverso il suo zero, la colonna $5$, e poi la riga $3$, abbinata alla colonna $5$. Quindi $R=\{3,4\}$, $K=\{5\}$ e le righe sono le righe $1$, $2$ e la colonna $5$.
 
 !!! chiave ""
 
-    Il problema di assegnazione è un problema di trasporto con forniture e richieste unitarie, su cui si basa il metodo potenziale molti perni degenerati. L'algoritmo ungherese mantiene $\bar{c}_{ij}=c_{ij}-\pi_i+\pi_j \ge 0$, copre gli zeri con il numero minimo di linee (König–Egerváry) e aumenta il valore duale finché $n$ zeri indipendenti non forniscono un'assegnazione ottimale.
+    Il problema di assegnazione è un problema di trasporto con offerte e domande unitarie. Il metodo dei potenziali è alla base dell’algoritmo ungherese, che può richiedere pivot degeneri. L'algoritmo ungherese mantiene $\bar{c}_{ij}=c_{ij}-\pi_i+\pi_j \ge 0$, copre gli zeri con il numero minimo di linee (König–Egerváry) e aumenta il valore duale finché $n$ zeri indipendenti non forniscono un'assegnazione ottimale.
 
 ## 7.6 Errori tipici
 
@@ -443,11 +443,11 @@ title: "Il problema dell'assegnazione"
 
     - <strong>Risolvere un'istanza sbilanciata così com'è.</strong> Con più offerta che domanda i vincoli di uguaglianza non hanno soluzione: aggiungere una destinazione fittizia a costi zero, oppure un'origine fittizia quando la domanda supera l'offerta.
 
-    - <strong>Tralasciare uno zero di base.</strong> Una base degenere ha ancora celle $m+n-1$; senza la cella del valore $0$ il l'albero è disconnesso e i potenziali non possono essere calcolati.
+    - <strong>Tralasciare uno zero di base.</strong> Una base degenere ha ancora celle $m+n-1$; senza la cella del valore $0$ l'albero è disconnesso e i potenziali non possono essere calcolati.
 
     - <strong>Prendere un insieme con un ciclo come base.</strong> $m+n-1$ le celle sono una base solo se non contengono un percorso chiuso righe e colonne alternate.
 
-    - <strong>Mescolare le convenzioni dei segni.</strong> Qui $\bar{c}_{ij}=c_{ij}-\pi_i+\pi_j$ con $\pi_i-\pi_j=c_{ij}$ sul cellule di base; con $u_i+v_j=c_{ij}$ i potenziali di destinazione cambiano segno.
+    - <strong>Mescolare le convenzioni dei segni.</strong> Qui $\bar{c}_{ij}=c_{ij}-\pi_i+\pi_j$ con $\pi_i-\pi_j=c_{ij}$ sulle celle di base; con $u_i+v_j=c_{ij}$ i potenziali di destinazione cambiano segno.
 
     - <strong>Calcolo $\theta$ su tutte le celle del ciclo.</strong> $\theta$ è il minimo sulle celle con segno $-$ solo; la cella entrante riceve $\theta$.
 
@@ -461,7 +461,7 @@ title: "Il problema dell'assegnazione"
 
 !!! chiave "In sintesi"
 
-    - Il modello $\mathrm{TP}$ spedisce le forniture $a_i$ delle origini $m$ alle richieste $d_j$ delle destinazioni $n$; è un Modello $\mathrm{MCF}$ su rete bipartita completa, realizzabile esattamente quando è bilanciata.
+    - Il modello $\mathrm{TP}$ spedisce le forniture $a_i$ delle origini $m$ alle richieste $d_j$ delle destinazioni $n$; è un Modello $\mathrm{MCF}$ su rete bipartita completa, ammissibile esattamente quando è bilanciata.
 
     - Un'istanza di traslato senza capacità diventa un'istanza di trasporto con le distanze come costi.
 

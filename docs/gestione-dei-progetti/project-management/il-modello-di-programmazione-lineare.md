@@ -54,7 +54,7 @@ title: "Il modello di programmazione lineare"
 
 !!! chiave ""
 
-    Utilizzando una variabile doppia non negativa $x_{ij}$ per ciascun vincolo $\eqref{pm:cons}$, il modello doppio del modello $\mathrm{PD}$ è:
+    Utilizzando una variabile duale non negativa $x_{ij}$ per ciascun vincolo $\eqref{pm:cons}$, il modello duale del modello $\mathrm{PD}$ è:
 
     <a id="eq-pm-DPD"></a>
 
@@ -67,13 +67,13 @@ title: "Il modello di programmazione lineare"
 
     Questo modello LP è denominato modello $D(\mathrm{PD})$.
 
-- Descrizione del modello doppio:
+- Descrizione del modello duale:
 
     - Vincoli  $\eqref{pm:dcons}$ invia un'unità di flusso da INIZIO a FINE;
 
     - la funzione obiettivo $\eqref{pm:dobj}$ massimizza la lunghezza del flusso, con lunghezza $d_i$ sull'arco $(i,j)$: è ammissibile il vettore di incidenza di un percorso $P$ da INIZIO a FINE, con valore $L(P)$.
 
-- Con le lunghezze $-d_i$, il modello $D(\mathrm{PD})$ è il modello $\mathrm{SP}(0,n+1)$ di [Capitolo 3](../../alberi-e-cammini/shortest-paths/la-formulazione-della-programmazione-lineare.md) con il obiettivo moltiplicato per $-1$, e il modello $\mathrm{PD}$ è il suo doppio: gli orari di inizio sono i potenziali, $\pi_i=t_i$.
+- Con le lunghezze $-d_i$, il modello $D(\mathrm{PD})$ è il modello $\mathrm{SP}(0,n+1)$ di [Capitolo 3](../../alberi-e-cammini/shortest-paths/la-formulazione-della-programmazione-lineare.md) con il obiettivo moltiplicato per $-1$, e il modello $\mathrm{PD}$ è il suo duale: gli orari di inizio sono i potenziali, $\pi_i=t_i$.
 
 - Il costo ridotto dell'arco $(i,j)$ è quindi $\bar{c}_{ij}=-d_i-t_i+t_j$. Con $\vet{t}=\mathit{ES}$ lo è $\bar{c}_{ij}=\mathit{ES}_j-\mathit{EF}_i \ge 0$: gli archi stretti sono gli archi a costo ridotto zero, e <span style="color:#1971c2">[Teorema 9.15](margini-e-attivita-critiche.md#box-19-pm-th-tight)</span> è il certificato di [Capitolo 3](../../alberi-e-cammini/shortest-paths/condizioni-e-potenziali-di-ottimalita.md), potenziali ammissibili e percorso di archi con costo ridotto zero.
 
@@ -109,7 +109,7 @@ title: "Il modello di programmazione lineare"
 
     Per il caso di studio il modello $\mathrm{PD}$ ha variabili $16$ e vincoli $19$; ad esempio, il vincolo dell'arco $(5,8)$ è $t_8-t_5 \ge 4$. Risolto con Gurobi:
 
-    - $z(\mathrm{PD})=z(D(\mathrm{PD}))=44$ e la doppia soluzione ottimale restituita da Gurobi è il vettore di incidenza del critico percorso START$,1,2,3,5,6,10,12,14,$FINISH;
+    - $z(\mathrm{PD})=z(D(\mathrm{PD}))=44$ e la soluzione duale ottimale restituita da Gurobi è il vettore di incidenza del critico percorso START$,1,2,3,5,6,10,12,14,$FINISH;
 
     - la soluzione ottimale del modello $\mathrm{PD}$ non è unica: $\mathit{ES}$ e $\mathit{LS}$ sono entrambi ottimali, e differiscono, per ad esempio, sull'attività $4$, con $\mathit{ES}_4=16$ e $\mathit{LS}_4=20$;
 

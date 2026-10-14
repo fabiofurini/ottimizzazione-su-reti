@@ -50,9 +50,9 @@ title: "Gestione dei progetti"
 
 !!! nota "Prerequisiti"
 
-    - Da [Capitolo 1 «Grafi»](../../grafi/graphs/index.md): diretto grafi, cammini diretti e cicli.
+    - Dal [Capitolo 1 «Grafi»](../../grafi/graphs/index.md): grafi orientati, cammini diretti e cicli.
 
-    - Da [Capitolo 3 «Percorsi più brevi»](../../alberi-e-cammini/shortest-paths/index.md): l'ordine topologico di un grafo aciclico, l'algoritmo per grafi aciclici e cammini più lunghi, potenzialità e costi ridotti, il modello LP del cammino minimo e il suo duale.
+    - Dal [Capitolo 3 «Percorsi più brevi»](../../alberi-e-cammini/shortest-paths/index.md): ordinamenti topologici, cammini minimi e massimi in grafi aciclici, potenziali, costi ridotti, modello lineare del cammino minimo e relativo duale.
 
     - Dal modulo Programmazione lineare, [Capitolo 9 «Teoria della dualità»](https://fabiofurini.github.io/programmazione-lineare/dualita/09-dualita/): il duale di un modello LP e il teorema della dualità debole.
 
@@ -60,17 +60,17 @@ title: "Gestione dei progetti"
 
     Alla fine di questo capitolo sarai in grado di:
 
-    - descrivi un progetto attraverso le sue attività, durate e precedenze e disegna la sua rete di progetti con START e nodi FINITURA;
+    - descrivere un progetto tramite attività, durate e precedenze e rappresentarlo con una rete, usando i nodi INIZIO e FINE;
 
-    - calcola il primo e l'ultimo tempo di inizio e di fine con il passaggio in avanti e all'indietro e dimostra che la durata minima del progetto è la lunghezza di un percorso critico;
+    - calcolare i tempi minimi e massimi di inizio e fine con i passaggi in avanti e all'indietro, e dimostrare che la durata minima del progetto coincide con la lunghezza di un percorso critico;
 
-    - calcola i giochi totali e liberi e trova le attività critiche e tutti i percorsi critici;
+    - calcolare i margini totali e liberi e individuare le attività e i percorsi critici;
 
-    - disegna il diagramma di Gantt di una pianificazione;
+    - disegnare il diagramma di Gantt di una pianificazione;
 
-    - scrivere il modello LP della durata del progetto e il suo doppio modello di percorso più lungo;
+    - scrivere il modello LP della durata del progetto e il suo modello duale di percorso più lungo;
 
-    - prevede l'effetto di un cambiamento di una durata sulla durata del progetto.
+    - prevedere l'effetto di un cambiamento di una durata sulla durata del progetto.
 
 ---
 

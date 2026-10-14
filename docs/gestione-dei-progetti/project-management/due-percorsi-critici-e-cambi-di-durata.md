@@ -271,7 +271,7 @@ title: "Due percorsi critici e cambi di durata"
 
     - $\mathit{TS}_j=\mathit{LS}_j-\mathit{ES}_j$ è il ritardo che non ritarda il progetto, $\mathit{FS}_j \le \mathit{TS}_j$ il ritardo che non sposta altre attività; i percorsi critici sono i percorsi di archi stretti.
 
-    - Il modello $\mathrm{PD}$ $\min\{t_{n+1}-t_0 : t_j-t_i \ge d_i\}$ ha il modello con percorso più lungo come doppio ed entrambi hanno valore ottimale $T$.
+    - Il modello $\mathrm{PD}$ $\min\{t_{n+1}-t_0 : t_j-t_i \ge d_i\}$ ha il modello con percorso più lungo come duale ed entrambi hanno valore ottimale $T$.
 
     - L'aumento di $d_j$ di $\delta$ ritarda il progetto di $\max\{0,\delta-\mathit{TS}_j\}$; l'accorciamento aiuta solo se ogni il percorso critico si accorcia.
 

@@ -38,7 +38,7 @@ title: "Circolazioni e loro scomposizione"
 
     Per induzione su $p$.
 
-    1. <em>Un ciclo.</em> Sia $(i_0,i_1)$ un arco con $y_{i_0i_1}>0$. Il nodo $i_1$ riceve un afflusso positivo, quindi da bilanciare alcuni archi $(i_1,i_2)$ ha $y_{i_1i_2}>0$. Proseguendo allo stesso modo costruiamo una cammino direzionata di archi con $y>0$. Poiché $N$ è finito, un nodo si ripete e il tratto di cammino tra le sue due occorrenze è un ciclo diretto $W_1$.
+    1. <em>Un ciclo.</em> Sia $(i_0,i_1)$ un arco con $y_{i_0i_1}>0$. Il nodo $i_1$ riceve un afflusso positivo, quindi da bilanciare alcuni archi $(i_1,i_2)$ ha $y_{i_1i_2}>0$. Proseguendo allo stesso modo costruiamo un cammino diretto formato da archi con $y>0$. Poiché $N$ è finito, un nodo si ripete e il tratto di cammino tra le sue due occorrenze è un ciclo diretto $W_1$.
 
     2. <em>Rimozione.</em> Lascia che $\theta_1=\min_{a \in W_1} y_a>0$. Il vettore $\vet{y}'=\vet{y}-\theta_1 \vet{\chi}^{W_1}$ è non negativo, è bilanciato come differenza di vettori bilanciati e ha al massimo $p-1$ archi positivi, poiché $y'_a=0$ su un arco di $W_1$ che raggiunge il minimo.
 
@@ -89,7 +89,7 @@ title: "Circolazioni e loro scomposizione"
     \tilde{\vet{x}}-\vet{x}^0=(1,\,-1,\,0,\,-1,\,-1,\,-1,\,-1,\,-2,\,1),
     $$
 
-    quindi $\vet{y}$ è positivo su otto archi di $G(\vet{x}^0)$: gli archi in avanti $(1,2)$ e $(5,6)$, con $y=1$, e il archi all'indietro
+    quindi $\vet{y}$ è positivo su otto archi di $G(\vet{x}^0)$: gli archi in avanti $(1,2)$ e $(5,6)$, con $y=1$, e gli archi all'indietro
 
     $$
     y_{31}=1, \qquad y_{23}=1, \qquad y_{53}=1, \qquad y_{34}=1, \qquad y_{64}=1, \qquad y_{45}=2 .

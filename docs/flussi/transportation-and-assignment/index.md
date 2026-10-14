@@ -54,15 +54,15 @@ title: "Trasporto e assegnamento"
 
     Alla fine di questo capitolo sarai in grado di:
 
-    - scrivere il modello di trasporto e il suo tableau, bilanciare un'istanza con un'origine o una destinazione fittizia e ridurre un'istanza di traslato senza capacità a un'istanza di trasporto;
+    - formulare il problema di trasporto e rappresentarlo in tabella, bilanciare un'istanza aggiungendo un'origine o una destinazione fittizia e ridurre un problema di trasbordo senza capacità a un problema di trasporto;
 
-    - riconoscono le basi del modello di trasporto come gli albero ricoprente di una rete bipartita, calcolano un modello di base soluzione e riconoscerne una degenerata;
+    - interpretare le basi del modello di trasporto come alberi ricoprenti di una rete bipartita, calcolare una soluzione di base e riconoscerne la degenerazione;
 
-    - costruisce una prima soluzione fattibile di base con la regola dell'angolo nord-ovest e la regola del costo minimo;
+    - costruire una soluzione ammissibile di base iniziale con la regola dell'angolo nord-ovest o quella del costo minimo;
 
-    - eseguono il metodo delle potenzialità, con potenzialità, costi ridotti, cicli e pivot, e certificano l'ottimalità di un soluzione con il modello duale;
+    - applicare il metodo dei potenziali, calcolare i costi ridotti e i cicli di pivot e certificare l'ottimalità con il modello duale;
 
-    - scrivi il modello di assegnazione, dimostra il teorema di König ed Egerváry ed esegui l'algoritmo ungherese, leggendone le potenzialità come una soluzione duale ottimale.
+    - formulare il problema di assegnamento, dimostrare il teorema di König–Egerváry ed eseguire l'algoritmo ungherese, interpretando i potenziali come una soluzione duale ottimale.
 
 ---
 

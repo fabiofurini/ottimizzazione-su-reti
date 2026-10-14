@@ -109,7 +109,7 @@ title: "La rete residua con i costi"
     </tr>
     </table></div>
 
-    Il suo flusso realizzabile più costoso, calcolato con Gurobi massimizzando il costo, è
+    Il suo flusso ammissibile più costoso, calcolato con Gurobi massimizzando il costo, è
 
     $$
     \vet{x}^0=(1,\,4,\,4,\,1,\,4,\,1,\,3,\,3,\,1), \qquad \vet{c}'\vet{x}^0=80,

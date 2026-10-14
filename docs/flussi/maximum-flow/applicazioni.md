@@ -17,7 +17,7 @@ title: "Applicazioni"
 
 !!! definizione "Definizione 5.16: grafo bipartito e corrispondenza"
 
-    Un grafo non orientato $H=(V_1 \cup V_2,E)$ è <strong>bipartito</strong> se $V_1$ e $V_2$ sono disgiunti e ogni lato ne ha uno endpoint in $V_1$ e uno in $V_2$; scriviamo i lati come $\{i,j\}$ con $i \in V_1$ e $j \in V_2$.
+    Un grafo non orientato $H=(V_1 \cup V_2,E)$ è <strong>bipartito</strong> se $V_1$ e $V_2$ sono disgiunti e ogni lato ne ha uno estremo in $V_1$ e uno in $V_2$; scriviamo i lati come $\{i,j\}$ con $i \in V_1$ e $j \in V_2$.
 
     - A <strong>matching</strong> è un insieme $M \subseteq E$ di lati, nessuno dei quali ha un punto finale comune.
 
@@ -115,7 +115,7 @@ title: "Applicazioni"
 
     2. <em>I flussi danno percorsi.</em> Per <span style="color:#1971c2">[Corollario 5.10](l-algoritmo-ford-fulkerson.md#box-15-mf-cor-integral)</span> esiste un flusso $\vet{x}$ con $x_{ij} \in \{0,1\}$ e valore $\tilde{v}$. Se $\tilde{v} \ge 1$, camminare da $s$ lungo gli archi con $x_{ij}=1$, ciascuno utilizzato al massimo una volta, finché non viene raggiunto $t$:
 
-        - in un nodo $i \notin \{s,t\}$ la cammino ha utilizzato un arco in entrata in più rispetto agli archi in uscita, e la conservazione dà un arco di uscita inutilizzato con flusso;
+        - in un nodo $i \notin \{s,t\}$ il cammino ha utilizzato un arco in entrata in più rispetto agli archi in uscita, e la conservazione dà un arco di uscita inutilizzato con flusso;
 
         - a $s$ il cammino ha utilizzato tanti archi in uscita quanti in entrata, mentre gli archi con flusso in uscita da $s$ sono $\tilde{v} \ge 1$ più di quelli che entrano: ne esiste uno inutilizzato.
 

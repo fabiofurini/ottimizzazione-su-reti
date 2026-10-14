@@ -36,9 +36,9 @@ title: "Reti e flussi"
 
     - Il flusso è <strong>ammissibile</strong> se soddisfa la conservazione del flusso in ogni nodo e $l_{ij} \le x_{ij} \le u_{ij}$ per ogni arco. Il suo <strong>costo</strong> è $\sum_{(i,j) \in A} c_{ij}\, x_{ij}$.
 
-- Un nodo di fornitura invia unità $b_i$ più di quelle che riceve, un nodo di domanda riceve unità $-b_i$ più di quelle che riceve. invia e un nodo di traslato trasmette tutto ciò che riceve.
+- Un nodo di offerta invia $b_i$ unità in più di quante ne riceve; un nodo di domanda riceve $-b_i$ unità in più di quante ne invia. Un nodo di transito trasmette tutto il flusso che riceve.
 
-- Con la matrice di incidenza nodo-arco $\mat{B}$ di [Capitolo 1 «Grafi»](../../grafi/graphs/index.md), conservazione del flusso a tutti i nodi leggono $\mat{B}\vet{x}=\vet{b}$: la riga $i$ di $\mat{B}\vet{x}$ è il deflusso meno l'afflusso di $i$.
+- Con la matrice di incidenza nodo-arco $\mat{B}$ del [Capitolo 1 «Grafi»](../../grafi/graphs/index.md), la conservazione del flusso in tutti i nodi si scrive $\mat{B}\vet{x}=\vet{b}$: la riga $i$ di $\mat{B}\vet{x}$ è il deflusso meno l'afflusso di $i$.
 
 <a id="box-3-nf-ex-ref"></a>
 

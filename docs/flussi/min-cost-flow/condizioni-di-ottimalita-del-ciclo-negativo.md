@@ -54,7 +54,7 @@ title: "Condizioni di ottimalità del ciclo negativo"
 
 !!! esempio "Esempio 6.3: un flusso non ottimale e un'istanza illimitata"
 
-    - Il flusso realizzabile $\bar{\vet{x}}=(1,4,3,0,4,0,2,2,2)$ di [Capitolo 4](../network-flow-models/reti-e-flussi.md) costa $63$. La sua rete residua ha il ciclo $W=1,2,4,5,3,1$, composto dagli archi diretti $(1,2)$, $(2,4)$ e dagli archi all'indietro $(4,5)$, $(5,3)$, $(3,1)$:
+    - Il flusso ammissibile $\bar{\vet{x}}=(1,4,3,0,4,0,2,2,2)$ di [Capitolo 4](../network-flow-models/reti-e-flussi.md) costa $63$. La sua rete residua ha il ciclo $W=1,2,4,5,3,1$, composto dagli archi diretti $(1,2)$, $(2,4)$ e dagli archi all'indietro $(4,5)$, $(5,3)$, $(3,1)$:
 
         $$
         c(W)=2+5-5-3-2=-3, \qquad r(W)=\min\{3,1,2,4,4\}=1 .

@@ -14,9 +14,9 @@ title: "Problemi del percorso più breve"
 
 !!! definizione "Definizione 3.1: problemi sul percorso più breve"
 
-    Sia $G=(N,A)$ un grafo orientato con un <strong>lunghezza</strong> $d_{ij} \in \R$ per ogni arco $(i,j) \in A$, di qualsiasi segno.
+    Sia $G=(N,A)$ un grafo orientato con una <strong>lunghezza</strong> $d_{ij} \in \R$ per ogni arco $(i,j) \in A$, di qualsiasi segno.
 
-    - La lunghezza di una cammino diretta $W=i_0,i_1,\dots,i_k$ è la somma delle lunghezze dei suoi archi, $d(W)=\sum_{t=1}^{k} d_{i_{t-1}i_t}$.
+    - La lunghezza di un cammino diretto $W=i_0,i_1,\dots,i_k$ è la somma delle lunghezze dei suoi archi, $d(W)=\sum_{t=1}^{k} d_{i_{t-1}i_t}$.
 
     - Dati due nodi $s$ e $t$, il problema del percorso più breve <strong>$s$–$t$</strong> richiede un percorso diretto da $s$ a $t$ di lunghezza minima.
 
@@ -78,9 +78,9 @@ title: "Problemi del percorso più breve"
 
     3. Per induzione $W'$ contiene un percorso $P$ con $d(P) \le d(W') \le d(W)$. <span class="qed">□</span>
 
-- Sotto (A2) la lunghezza minima di una cammino da $s$ a $j$ è uguale alla distanza $\tilde{d}(j)$: gli algoritmi di in questo capitolo si calcola la lunghezza dei cammini e il lemma li trasforma in sentieri.
+- Sotto l'ipotesi (A2), la lunghezza minima di un cammino da $s$ a $j$ coincide con la distanza $\tilde{d}(j)$. Gli algoritmi di questo capitolo calcolano le lunghezze minime dei cammini; il lemma precedente permette di ricondurle a percorsi.
 
-- Con un ciclo negativo $C$ raggiungibile da $s$ e da cui è raggiungibile $j$, girando intorno a $C$ ancora e ancora fornisce passeggiate da $s$ a $j$ di lunghezza arbitrariamente negativa. Gli algoritmi di questo capitolo rilevano quindi $C$ invece di calcolo delle distanze.
+- Se esiste un ciclo negativo $C$ raggiungibile da $s$ e da cui si può raggiungere $j$, percorrere $C$ ripetutamente produce cammini da $s$ a $j$ di lunghezza arbitrariamente negativa. In questo caso gli algoritmi rilevano $C$ e non calcolano distanze finite.
 
 <a id="box-5-sp-ex-negcycle"></a>
 

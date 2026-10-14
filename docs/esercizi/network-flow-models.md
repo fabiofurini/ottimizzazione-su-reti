@@ -153,7 +153,7 @@ title: "Esercizi · Modelli di flusso su reti"
         \mat{B}\bar{\vet{x}}=(1,\,0,\,-3,\,3,\,-1)', \qquad \mat{B}\hat{\vet{x}}=(1,\,0,\,-2,\,3,\,-2)', \qquad \vet{b}=(1,\,0,\,-3,\,3,\,-1)'.
         $$
 
-        Entrambi i flussi rispettano i limiti. Il flusso $\bar{\vet{x}}$ è realizzabile; $\hat{\vet{x}}$ non lo è, perché invia un'unità in più su $(3,5)$ e la conservazione fallisce sui nodi $3$ e $5$. Il costo di $\bar{\vet{x}}$ è
+        Entrambi i flussi rispettano i limiti. Il flusso $\bar{\vet{x}}$ è ammissibile; $\hat{\vet{x}}$ non lo è, perché invia un'unità in più su $(3,5)$ e la conservazione fallisce sui nodi $3$ e $5$. Il costo di $\bar{\vet{x}}$ è
 
         $$
         6\cdot 1+2\cdot 3+2\cdot 2+1\cdot 0+5\cdot 2+3\cdot 1+6\cdot 2=41,

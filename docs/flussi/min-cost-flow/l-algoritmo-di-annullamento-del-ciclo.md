@@ -27,7 +27,7 @@ title: "L'algoritmo di annullamento del ciclo"
     \qquad \forall j \in N .
     $$
 
-    - **(a)** $d^k(j)$ è il costo minimo di una cammino di $G(\vet{x})$ con al massimo $k$ archi che termina a $j$, la cammino senza archi con costo $0$.
+    - **(a)** $d^k(j)$ è il costo minimo di un cammino in $G(\vet{x})$ con al massimo $k$ archi che termina a $j$, il cammino senza archi con costo $0$.
 
     - **(b)** $G(\vet{x})$ ha un ciclo negativo se e solo se $d^n \neq d^{n-1}$. In tal caso, se $d^n(j)<d^{n-1}(j)$, i predecessori leggono all'indietro da $j$, una riga per passaggio dalla riga $n$ alla riga $1$, danno una passeggiata di $G(\vet{x})$ con Archi $n$, che terminano in $j$, che contengono un ciclo negativo.
 
@@ -37,7 +37,7 @@ title: "L'algoritmo di annullamento del ciclo"
 
     Sia $H$ $G(\vet{x})$ più il nodo $r$ e gli archi $(r,i)$ di costo $0$, e siano $D^k$ le etichette di Bellman–Ford da $r$ a $H$: $D^1(i)=0$ per ogni $i \in N$ e $D^k(r)=0$ per ogni $k$.
 
-    1. Per induzione su $k$, $D^{k+1}(j)=d^k(j)$ per $j \in N$: le ricorsioni coincidono, e l'arco $(r,j)$ offre $D^k(r)+0=0$, che non abbassa mai il minimo da $d^{k-1}(j) \le d^0(j)=0$. Una passeggiata da $r$ con gli archi $k+1$ è un arco $(r,i)$ seguito da una cammino di $G(\vet{x})$ con archi $k$ da $i$: questo dimostra (a).
+    1. Per induzione su $k$, $D^{k+1}(j)=d^k(j)$ per $j \in N$: le ricorsioni coincidono, e l'arco $(r,j)$ offre $D^k(r)+0=0$, che non abbassa mai il minimo da $d^{k-1}(j) \le d^0(j)=0$. Una passeggiata da $r$ con gli archi $k+1$ è un arco $(r,i)$ seguito da un cammino in $G(\vet{x})$ con archi $k$ da $i$: questo dimostra (a).
 
     2. In $H$ ogni nodo è raggiungibile da $r$, ed i cicli sono quelli di $G(\vet{x})$. Per il Teorema «rilevazione di a ciclo negativo» del Capitolo 3, applicato ai nodi $n+1$ di $H$, esiste un ciclo negativo se e solo se $D^{n+1} \neq D^{n}$, cioè $d^n \neq d^{n-1}$. La cammino da $r$ con gli archi $n+1$ letti in righe $n+1,\dots,2$ di $H$, quali sono le nostre righe $n,\dots,1$, contiene un ciclo negativo; senza il suo primo arco $(r,\cdot)$ è una passeggiata $G(\vet{x})$ con archi $n$ e il ciclo non contiene $r$. Ciò dimostra (b).
 
@@ -51,7 +51,7 @@ title: "L'algoritmo di annullamento del ciclo"
 
 !!! algoritmo "Algoritmo: Algoritmo di annullamento ciclo"
 
-    <div class="pseudocodice" markdown="0"><div class="pc" style="--liv:0"><strong>Input:</strong> una rete bilanciata con <span class="arithmatex">\(\vet{l}=\vet{0}\)</span>, capacità <span class="arithmatex">\(u_{ij}\)</span>, costi <span class="arithmatex">\(c_{ij}\)</span></div><div class="pc" style="--liv:0"><strong>Output:</strong> un flusso ottimale <span class="arithmatex">\(\vet{x}\)</span> con il suo certificato <span class="arithmatex">\(\vet{\pi}\)</span>, o «irrealizzabile», o «illimitato»</div><div class="pc" style="--liv:0"><span class="pc-n">1</span><strong>Passo 0 (inizio).</strong> Se un ciclo di archi con <span class="arithmatex">\(u_{ij}=+\infty\)</span> ha costo negativo, <code>STOP</code>: illimitato.</div><div class="pc" style="--liv:0"><span class="pc-n">2</span>  Trovare un flusso ammissibile <span class="arithmatex">\(\vet{x}\)</span> con un flusso massimo della rete ausiliaria.</div><div class="pc" style="--liv:0"><span class="pc-n">3</span>  Se il suo valore è inferiore a <span class="arithmatex">\(D\)</span>, <code>STOP</code>: impossibile.</div><div class="pc" style="--liv:0"><span class="pc-n">4</span><strong>Passaggio 1 (ciclo negativo).</strong> Esegui Bellman–Ford su <span class="arithmatex">\(G(\vet{x})\)</span> da <span class="arithmatex">\(d^0=\vet{0}\)</span>.</div><div class="pc" style="--liv:0"><span class="pc-n">5</span>  Se <span class="arithmatex">\(d^k=d^{k-1}\)</span> per alcuni <span class="arithmatex">\(k \le n\)</span>, <code>STOP</code>: <span class="arithmatex">\(\vet{x}\)</span> è ottimale, con <span class="arithmatex">\(\vet{\pi}=-d^k\)</span>.</div><div class="pc" style="--liv:0"><span class="pc-n">6</span>  Altrimenti leggere un ciclo negativo <span class="arithmatex">\(W\)</span> dalla tabella.</div><div class="pc" style="--liv:0"><span class="pc-n">7</span><strong>Passaggio 2 (annulla).</strong> Aumenta <span class="arithmatex">\(\vet{x}\)</span> insieme a <span class="arithmatex">\(W\)</span> con <span class="arithmatex">\(\theta=r(W)\)</span> e vai al passaggio 1.</div></div>
+    <div class="pseudocodice" markdown="0"><div class="pc" style="--liv:0"><strong>Input:</strong> una rete bilanciata con <span class="arithmatex">\(\vet{l}=\vet{0}\)</span>, capacità <span class="arithmatex">\(u_{ij}\)</span>, costi <span class="arithmatex">\(c_{ij}\)</span></div><div class="pc" style="--liv:0"><strong>Output:</strong> un flusso ottimale <span class="arithmatex">\(\vet{x}\)</span> con il suo certificato <span class="arithmatex">\(\vet{\pi}\)</span>, o «irammissibile», o «illimitato»</div><div class="pc" style="--liv:0"><span class="pc-n">1</span><strong>Passo 0 (inizio).</strong> Se un ciclo di archi con <span class="arithmatex">\(u_{ij}=+\infty\)</span> ha costo negativo, <code>STOP</code>: illimitato.</div><div class="pc" style="--liv:0"><span class="pc-n">2</span>  Trovare un flusso ammissibile <span class="arithmatex">\(\vet{x}\)</span> con un flusso massimo della rete ausiliaria.</div><div class="pc" style="--liv:0"><span class="pc-n">3</span>  Se il suo valore è inferiore a <span class="arithmatex">\(D\)</span>, <code>STOP</code>: impossibile.</div><div class="pc" style="--liv:0"><span class="pc-n">4</span><strong>Passaggio 1 (ciclo negativo).</strong> Esegui Bellman–Ford su <span class="arithmatex">\(G(\vet{x})\)</span> da <span class="arithmatex">\(d^0=\vet{0}\)</span>.</div><div class="pc" style="--liv:0"><span class="pc-n">5</span>  Se <span class="arithmatex">\(d^k=d^{k-1}\)</span> per alcuni <span class="arithmatex">\(k \le n\)</span>, <code>STOP</code>: <span class="arithmatex">\(\vet{x}\)</span> è ottimale, con <span class="arithmatex">\(\vet{\pi}=-d^k\)</span>.</div><div class="pc" style="--liv:0"><span class="pc-n">6</span>  Altrimenti leggere un ciclo negativo <span class="arithmatex">\(W\)</span> dalla tabella.</div><div class="pc" style="--liv:0"><span class="pc-n">7</span><strong>Passaggio 2 (annulla).</strong> Aumenta <span class="arithmatex">\(\vet{x}\)</span> insieme a <span class="arithmatex">\(W\)</span> con <span class="arithmatex">\(\theta=r(W)\)</span> e vai al passaggio 1.</div></div>
 
 - Il test del Passo 0 è <span style="color:#1971c2">[Proposizione 6.13](#box-18-mc-prop-bf)</span> applicato al grafo degli archi con $u_{ij}=+\infty$ e relativi costi. Quando fallisce, ogni ciclo negativo di $G(\vet{x})$ ha un arco di residuo finito capacità (prova di <span style="color:#1971c2">[Proposizione 6.8](condizioni-di-ottimalita-del-ciclo-negativo.md#box-10-mc-prop-unbounded)</span>), quindi $r(W)<+\infty$ nel passaggio 2.
 
@@ -79,9 +79,9 @@ title: "L'algoritmo di annullamento del ciclo"
 
 ## 6.6.3 Annullamento ciclo sulla rete di riferimento
 
-- Sulla rete di riferimento il passo 0 restituisce $\tilde{\vet{x}}$ (<span style="color:#1971c2">[Esempio 6.5](un-primo-flusso-fattibile.md#box-17-mc-ex-feasible)</span>) e il l'algoritmo si ferma alla prima corsa Bellman-Ford. Per vederlo all'opera partiamo dal flusso più costoso $\vet{x}^0$ di <span style="color:#1971c2">[Esempio 6.1](la-rete-residua-con-i-costi.md#box-4-mc-ex-residual)</span>, di costo $80$.
+- Sulla rete di riferimento, il Passaggio 0 restituisce $\tilde{\vet{x}}$ (<span style="color:#1971c2">[Esempio 6.5](un-primo-flusso-fattibile.md#box-17-mc-ex-feasible)</span>) e l'algoritmo termina alla prima esecuzione di Bellman–Ford. Per osservarne il funzionamento, partiamo dal flusso di costo massimo $\vet{x}^0$ di <span style="color:#1971c2">[Esempio 6.1](la-rete-residua-con-i-costi.md#box-4-mc-ex-residual)</span>, di costo $80$.
 
-- Nelle tabelle ogni riga è una tessera $k$; accanto a un'etichetta diminuita, il suo nuovo predecessore tra parentesi. Il le voci lette al contrario per trovare la passeggiata sono in grassetto.
+- Nelle tabelle ogni riga è una tessera $k$; accanto a un'etichetta diminuita, il suo nuovo predecessore tra parentesi. Le etichette lette in ordine inverso per ricostruire il cammino sono in grassetto.
 
 <a id="box-20-mc-ex-cc"></a>
 
@@ -190,9 +190,9 @@ title: "L'algoritmo di annullamento del ciclo"
     \end{array}
     $$
 
-    Solo il nodo $3$ diminuisce nel passaggio $6$: $j=3$ e la cammino è $6,4,5,3,1,2,3$. Il nodo $3$ è soddisfatto due volte: $W=3,1,2,3$, realizzato dell'arco all'indietro di $(1,3)$, dell'arco in avanti $(1,2)$ e dell'arco all'indietro di $(3,2)$, con $c(W)=-2+2-2=-2$ e $r(W)=\min\{4,3,1\}=1$. Il nuovo flusso è $\vet{x}^3=(2,3,4,0,3,0,2,1,2)=\tilde{\vet{x}}$, di costo $60$.
+    Solo il nodo $3$ diminuisce nel passaggio $6$: $j=3$ e il cammino è $6,4,5,3,1,2,3$. Il nodo $3$ è soddisfatto due volte: $W=3,1,2,3$, realizzato dell'arco all'indietro di $(1,3)$, dell'arco in avanti $(1,2)$ e dell'arco all'indietro di $(3,2)$, con $c(W)=-2+2-2=-2$ e $r(W)=\min\{4,3,1\}=1$. Il nuovo flusso è $\vet{x}^3=(2,3,4,0,3,0,2,1,2)=\tilde{\vet{x}}$, di costo $60$.
 
-    <strong>Iterazione 4</strong><br> Bellman–Ford su $G(\tilde{\vet{x}})$ ripete le righe $0$–$5$ dell'iterazione $3$ e nel passaggio $6$ no l'etichetta diminuisce: $d^6=d^5=(-15,-13,-13,-5,-10,0)$. L'algoritmo si ferma con $\tilde{\vet{x}}$, certificato da $\vet{\pi}=-d^6=(15,13,13,5,10,0)$, già normalizzato con $\pi_6=0$: le potenzialità del capitolo 4.
+    <strong>Iterazione 4</strong><br> Bellman–Ford su $G(\tilde{\vet{x}})$ ripete le righe $0$–$5$ dell'iterazione $3$ e nel passaggio $6$ no l'etichetta diminuisce: $d^6=d^5=(-15,-13,-13,-5,-10,0)$. L'algoritmo si ferma con $\tilde{\vet{x}}$, certificato da $\vet{\pi}=-d^6=(15,13,13,5,10,0)$, già normalizzato con $\pi_6=0$: i potenziali del capitolo 4.
 
 - In sintesi:
 
@@ -238,7 +238,7 @@ title: "L'algoritmo di annullamento del ciclo"
 
 !!! chiave ""
 
-    L'algoritmo di annullamento del ciclo parte da un flusso ammissibile e annulla i cicli negativi di $G(\vet{x})$, trovati da Bellman–Ford dalle etichette tutte uguali a $0$. Con dati interi ogni cancellazione abbassa il costo di almeno $1$; a allo stop le etichette danno le potenzialità che certificano il flusso ottimale.
+    L'algoritmo di annullamento del ciclo parte da un flusso ammissibile e annulla i cicli negativi di $G(\vet{x})$, trovati da Bellman–Ford dalle etichette tutte uguali a $0$. Con dati interi ogni cancellazione abbassa il costo di almeno $1$; a allo stop le etichette danno i potenziali che certificano il flusso ottimale.
 
 ---
 
