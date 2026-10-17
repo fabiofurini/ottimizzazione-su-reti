@@ -6,7 +6,7 @@ title: "Grafi"
 
 <div class="info-capitolo" markdown>
 
-**Parte 1 · Grafi · Capitolo 1** · [:material-file-pdf-box: Dispensa, volume 1 (PDF)](../../pdf/dispensa-1-grafi.pdf) · [:material-pencil: Esercizi: Grafi](../../esercizi/graphs.md) · [:material-gesture-tap: App: Ricerca su grafo: BFS e DFS](../../laboratorio/ricerca-bfs-dfs.md)
+**Parte 1 · Grafi · Capitolo 1** · [:material-file-pdf-box: Dispensa, volume 1 (PDF)](../../pdf/dispensa-1-grafi.pdf) · [:material-presentation: Slide](../../pdf/slide-graphs.pdf) · [:material-pencil: Esercizi: Grafi](../../esercizi/graphs.md) · [:material-gesture-tap: App: Ricerca su grafo: BFS e DFS](../../laboratorio/ricerca-bfs-dfs.md)
 
 </div>
 
@@ -36,11 +36,11 @@ title: "Grafi"
 
     [:octicons-arrow-right-24: Apri](il-rango-della-matrice-di-incidenza.md)
 
--   **1.6 Ricerca su grafi**
+-   **1.6 Visita di un grafo**
 
-    L'albero predecessore · La visita in ampiezza sul grafo di riferimento · La ricerca approfondita sul grafo di riferimento · Utilizzo della ricerca
+    L'albero dei predecessori · La visita in ampiezza sul grafo di riferimento · La visita in profondità sul grafo di riferimento · Usare la visita
 
-    [:octicons-arrow-right-24: Apri](ricerca-su-grafi.md)
+    [:octicons-arrow-right-24: Apri](visita-di-un-grafo.md)
 
 </div>
 
@@ -50,21 +50,21 @@ title: "Grafi"
 
     - Insiemi, relazioni e classi di equivalenza; la notazione $O(\cdot)$ per il tempo di esecuzione di un algoritmo.
 
-    - Non è necessaria alcuna conoscenza della teoria dei grafi: ogni nozione è definita in questo capitolo.
+    - Non serve alcuna conoscenza di teoria dei grafi: ogni nozione è definita in questo capitolo.
 
 !!! chiave "Obiettivi"
 
     Alla fine di questo capitolo sarai in grado di:
 
-    - usare le nozioni di base dei grafi orientati e non orientati: adiacenza, grado, passeggiate, cammini e cicli;
+    - usare le nozioni di base sui grafi non orientati e orientati: adiacenza, grado, passeggiate, cammini e cicli;
 
-    - rappresentare un grafo mediante una matrice di adiacenza, liste di adiacenza, una lista di archi o una matrice di incidenza nodo-arco, e confrontare lo spazio richiesto da ciascuna rappresentazione;
+    - rappresentare un grafo con una matrice di adiacenza, con liste di adiacenza, con una lista degli archi e con una matrice di incidenza nodo–arco, e confrontare lo spazio che richiedono;
 
     - trovare le componenti connesse e le componenti fortemente connesse di un grafo;
 
-    - riconoscere un albero attraverso caratterizzazioni equivalenti e calcolare il rango della matrice di incidenza;
+    - riconoscere un albero con le caratterizzazioni equivalenti, e calcolare il rango della matrice di incidenza;
 
-    - eseguire la ricerca in ampiezza e in profondità, costruire l'albero dei predecessori e dimostrare che la ricerca individua i nodi raggiungibili in tempo $O(|N|+|A|)$.
+    - eseguire la visita in ampiezza e la visita in profondità, disegnare l'albero dei predecessori e dimostrare che la visita trova i nodi raggiungibili in tempo $O(|N|+|A|)$.
 
 ---
 

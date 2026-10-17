@@ -6,7 +6,7 @@ title: "Modelli di flusso su reti"
 
 <div class="info-capitolo" markdown>
 
-**Parte 3 · Flussi · Capitolo 4** · [:material-file-pdf-box: Dispensa, volume 3 (PDF)](../../pdf/dispensa-3-flussi.pdf) · [:material-pencil: Esercizi: Modelli di flusso](../../esercizi/network-flow-models.md)
+**Parte 3 · Flussi · Capitolo 4** · [:material-file-pdf-box: Dispensa, volume 3 (PDF)](../../pdf/dispensa-3-flussi.pdf) · [:material-presentation: Slide](../../pdf/slide-network-flow-models.pdf) · [:material-pencil: Esercizi: Modelli di flusso](../../esercizi/network-flow-models.md)
 
 </div>
 
@@ -20,9 +20,9 @@ title: "Modelli di flusso su reti"
 
     [:octicons-arrow-right-24: Apri](il-modello-di-flusso-di-costo-minimo.md)
 
--   **4.3 Feasibility conditions**
+-   **4.3 Condizioni di ammissibilità**
 
-    [:octicons-arrow-right-24: Apri](feasibility-conditions.md)
+    [:octicons-arrow-right-24: Apri](condizioni-di-ammissibilita.md)
 
 -   **4.4 Rimozione dei limiti inferiori**
 
@@ -44,19 +44,19 @@ title: "Modelli di flusso su reti"
 
     [:octicons-arrow-right-24: Apri](casi-speciali.md)
 
--   **4.9 Un'istanza di traslato**
+-   **4.9 Un'istanza di trasbordo**
 
     Il certificato di ottimalità
 
-    [:octicons-arrow-right-24: Apri](un-istanza-di-traslato.md)
+    [:octicons-arrow-right-24: Apri](un-istanza-di-trasbordo.md)
 
 </div>
 
 !!! nota "Prerequisiti"
 
-    - Da questo modulo, [Capitolo 1 «Grafi»](../../grafi/graphs/index.md): grafi orientati, matrice di incidenza nodo-arco, alberi di copertura e rango della matrice di incidenza.
+    - Da questo modulo, [Capitolo 1 «Grafi»](../../grafi/graphs/index.md): grafi orientati, matrice di incidenza nodo–arco, alberi ricoprenti e rango della matrice di incidenza.
 
-    - Dal modulo Programmazione lineare, [Capitolo 9 «Teoria della dualità»](https://fabiofurini.github.io/programmazione-lineare/dualita/09-dualita/) e [Capitolo 15 «La geometria di Programmazione lineare»](https://fabiofurini.github.io/programmazione-lineare/metodi-avanzati/15-geometria/): duale di un LP, dualità debole e forte, vertici di un poliedro.
+    - Dal modulo Programmazione lineare, [Capitolo 9 «Teoria della dualità»](https://fabiofurini.github.io/programmazione-lineare/dualita/09-dualita/) e [Capitolo 15 «La geometria della programmazione lineare»](https://fabiofurini.github.io/programmazione-lineare/metodi-avanzati/15-geometria/): il duale di un problema LP, dualità debole e forte, vertici di un poliedro.
 
     - Determinanti: lo sviluppo di Laplace lungo una colonna e la regola di Cramer.
 
@@ -64,17 +64,17 @@ title: "Modelli di flusso su reti"
 
     Alla fine di questo capitolo sarai in grado di:
 
-    - descrivono una rete con saldi, limiti inferiori, capacità e costi e scrivono il modello di flusso di costo minimo, anche in forma matriciale con la matrice di incidenza;
+    - descrivere una rete con bilanci, limiti inferiori, capacità e costi, e scrivere il modello di flusso di costo minimo, anche in forma matriciale con la matrice di incidenza;
 
-    - verificare le condizioni necessarie per l'esistenza di un flusso ammissibile e costruire controesempi;
+    - verificare le condizioni necessarie per l'esistenza di un flusso ammissibile, e costruire controesempi;
 
-    - rimuove i limiti inferiori mediante una sostituzione e bilancia un'istanza con un nodo fittizio;
+    - rimuovere i limiti inferiori con una sostituzione, e bilanciare un'istanza con un nodo fittizio;
 
-    - dimostrare che la matrice di incidenza è totalmente unimodulare e dedurre che il modello ha ottimo intero soluzioni quando i dati sono interi;
+    - dimostrare che la matrice di incidenza è totalmente unimodulare, e dedurne che il modello ha soluzioni ottime intere quando i dati sono interi;
 
     - scrivere il duale con i potenziali $\pi_i$, calcolare i costi ridotti e certificare l'ottimalità di un flusso;
 
-    - riconosce il percorso più breve, il flusso massimo, i problemi di trasporto e di assegnazione come costo minimo modelli di flusso.
+    - riconoscere i problemi di cammino minimo, di flusso massimo, di trasporto e di assegnamento come modelli di flusso di costo minimo.
 
 ---
 

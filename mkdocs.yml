@@ -134,6 +134,9 @@ extra_javascript:
   - javascripts/gi-no-0.js?v=da165c7941
   - javascripts/gi-no-a.js?v=c95bdb2f54
   - javascripts/gi-no-b.js?v=685b325a9e
+  - javascripts/gi-no-c.js?v=a8e4a7da8b
+  - javascripts/gi-no-d.js?v=57d7831fd1
+  - javascripts/gi-no-e.js?v=1d484bad24
 
 nav:
   - Home: index.md
@@ -146,89 +149,89 @@ nav:
           - "Connettività": grafi/graphs/connettivita.md
           - "Alberi e foreste": grafi/graphs/alberi-e-foreste.md
           - "Il rango della matrice di incidenza": grafi/graphs/il-rango-della-matrice-di-incidenza.md
-          - "Ricerca su grafi": grafi/graphs/ricerca-su-grafi.md
+          - "Visita di un grafo": grafi/graphs/visita-di-un-grafo.md
   - Alberi e cammini:
       - alberi-e-cammini/index.md
       - "2. Alberi ricoprenti":
           - alberi-e-cammini/minimum-spanning-trees/index.md
-          - "Il problema dell'albero di copertura minimo": alberi-e-cammini/minimum-spanning-trees/il-problema-dell-albero-di-copertura-minimo.md
+          - "Il problema dell'albero ricoprente di costo minimo": alberi-e-cammini/minimum-spanning-trees/il-problema-dell-albero-ricoprente-di-costo-minimo.md
           - "Tagli e cicli": alberi-e-cammini/minimum-spanning-trees/tagli-e-cicli.md
-          - "La proprietà di taglio e la proprietà di ciclo": alberi-e-cammini/minimum-spanning-trees/la-proprieta-di-taglio-e-la-proprieta-di-ciclo.md
+          - "La proprietà del taglio e la proprietà del ciclo": alberi-e-cammini/minimum-spanning-trees/la-proprieta-del-taglio-e-la-proprieta-del-ciclo.md
           - "L'algoritmo greedy generico": alberi-e-cammini/minimum-spanning-trees/l-algoritmo-greedy-generico.md
           - "Algoritmo di Kruskal": alberi-e-cammini/minimum-spanning-trees/algoritmo-di-kruskal.md
           - "Algoritmo di Prim": alberi-e-cammini/minimum-spanning-trees/algoritmo-di-prim.md
-          - "Unicità dell'albero di copertura minimo": alberi-e-cammini/minimum-spanning-trees/unicita-dell-albero-di-copertura-minimo.md
+          - "Unicità dell'albero ricoprente di costo minimo": alberi-e-cammini/minimum-spanning-trees/unicita-dell-albero-ricoprente-di-costo-minimo.md
       - "3. Cammini minimi":
           - alberi-e-cammini/shortest-paths/index.md
-          - "Problemi del percorso più breve": alberi-e-cammini/shortest-paths/problemi-del-percorso-piu-breve.md
-          - "Condizioni e potenziali di ottimalità": alberi-e-cammini/shortest-paths/condizioni-e-potenziali-di-ottimalita.md
-          - "La formulazione della programmazione lineare": alberi-e-cammini/shortest-paths/la-formulazione-della-programmazione-lineare.md
-          - "Percorsi più brevi nei grafici aciclici": alberi-e-cammini/shortest-paths/percorsi-piu-brevi-nei-grafici-aciclici.md
-          - "L'algoritmo Bellman–Ford": alberi-e-cammini/shortest-paths/l-algoritmo-bellmanford.md
-          - "Algoritmo di Dijkstra": alberi-e-cammini/shortest-paths/algoritmo-di-dijkstra.md
+          - "Problemi di cammino minimo": alberi-e-cammini/shortest-paths/problemi-di-cammino-minimo.md
+          - "Condizioni di ottimalità e potenziali": alberi-e-cammini/shortest-paths/condizioni-di-ottimalita-e-potenziali.md
+          - "La formulazione di programmazione lineare": alberi-e-cammini/shortest-paths/la-formulazione-di-programmazione-lineare.md
+          - "Cammini minimi nei grafi aciclici": alberi-e-cammini/shortest-paths/cammini-minimi-nei-grafi-aciclici.md
+          - "L'algoritmo di Bellman–Ford": alberi-e-cammini/shortest-paths/l-algoritmo-di-bellmanford.md
+          - "L'algoritmo di Dijkstra": alberi-e-cammini/shortest-paths/l-algoritmo-di-dijkstra.md
   - Flussi:
       - flussi/index.md
       - "4. Modelli di flusso":
           - flussi/network-flow-models/index.md
           - "Reti e flussi": flussi/network-flow-models/reti-e-flussi.md
           - "Il modello di flusso di costo minimo": flussi/network-flow-models/il-modello-di-flusso-di-costo-minimo.md
-          - "Feasibility conditions": flussi/network-flow-models/feasibility-conditions.md
+          - "Condizioni di ammissibilità": flussi/network-flow-models/condizioni-di-ammissibilita.md
           - "Rimozione dei limiti inferiori": flussi/network-flow-models/rimozione-dei-limiti-inferiori.md
           - "Istanze non bilanciate": flussi/network-flow-models/istanze-non-bilanciate.md
           - "Totale unimodularità e integralità": flussi/network-flow-models/totale-unimodularita-e-integralita.md
           - "Il modello duale e i costi ridotti": flussi/network-flow-models/il-modello-duale-e-i-costi-ridotti.md
           - "Casi speciali": flussi/network-flow-models/casi-speciali.md
-          - "Un'istanza di traslato": flussi/network-flow-models/un-istanza-di-traslato.md
+          - "Un'istanza di trasbordo": flussi/network-flow-models/un-istanza-di-trasbordo.md
       - "5. Flusso massimo":
           - flussi/maximum-flow/index.md
           - "Il problema del flusso massimo": flussi/maximum-flow/il-problema-del-flusso-massimo.md
           - "Tagli": flussi/maximum-flow/tagli.md
           - "La rete residua": flussi/maximum-flow/la-rete-residua.md
-          - "Il teorema del taglio minimo del flusso massimo": flussi/maximum-flow/il-teorema-del-taglio-minimo-del-flusso-massimo.md
-          - "L'algoritmo Ford-Fulkerson": flussi/maximum-flow/l-algoritmo-ford-fulkerson.md
-          - "L'algoritmo Edmonds–Karp": flussi/maximum-flow/l-algoritmo-edmondskarp.md
+          - "Il teorema flusso massimo-taglio minimo": flussi/maximum-flow/il-teorema-flusso-massimo-taglio-minimo.md
+          - "L'algoritmo di Ford–Fulkerson": flussi/maximum-flow/l-algoritmo-di-fordfulkerson.md
+          - "L'algoritmo di Edmonds–Karp": flussi/maximum-flow/l-algoritmo-di-edmondskarp.md
           - "Applicazioni": flussi/maximum-flow/applicazioni.md
       - "6. Flusso di costo minimo":
           - flussi/min-cost-flow/index.md
           - "La rete residua con i costi": flussi/min-cost-flow/la-rete-residua-con-i-costi.md
           - "Circolazioni e loro scomposizione": flussi/min-cost-flow/circolazioni-e-loro-scomposizione.md
-          - "Condizioni di ottimalità del ciclo negativo": flussi/min-cost-flow/condizioni-di-ottimalita-del-ciclo-negativo.md
-          - "Condizioni di ottimalità con potenziali": flussi/min-cost-flow/condizioni-di-ottimalita-con-potenziali.md
-          - "Un primo flusso fattibile": flussi/min-cost-flow/un-primo-flusso-fattibile.md
-          - "L'algoritmo di annullamento del ciclo": flussi/min-cost-flow/l-algoritmo-di-annullamento-del-ciclo.md
-          - "L'algoritmo del percorso più breve successivo": flussi/min-cost-flow/l-algoritmo-del-percorso-piu-breve-successivo.md
+          - "Condizioni di ottimalità dei cicli negativi": flussi/min-cost-flow/condizioni-di-ottimalita-dei-cicli-negativi.md
+          - "Condizioni di ottimalità con i potenziali": flussi/min-cost-flow/condizioni-di-ottimalita-con-i-potenziali.md
+          - "Un primo flusso ammissibile": flussi/min-cost-flow/un-primo-flusso-ammissibile.md
+          - "L'algoritmo di cancellazione dei cicli": flussi/min-cost-flow/l-algoritmo-di-cancellazione-dei-cicli.md
+          - "L'algoritmo dei cammini minimi successivi": flussi/min-cost-flow/l-algoritmo-dei-cammini-minimi-successivi.md
       - "7. Trasporto e assegnamento":
           - flussi/transportation-and-assignment/index.md
-          - "Il problema dei trasporti": flussi/transportation-and-assignment/il-problema-dei-trasporti.md
+          - "Il problema di trasporto": flussi/transportation-and-assignment/il-problema-di-trasporto.md
           - "Soluzioni di base": flussi/transportation-and-assignment/soluzioni-di-base.md
-          - "Soluzioni iniziali di base fattibili": flussi/transportation-and-assignment/soluzioni-iniziali-di-base-fattibili.md
-          - "Il metodo potenziale": flussi/transportation-and-assignment/il-metodo-potenziale.md
-          - "Il problema dell'assegnazione": flussi/transportation-and-assignment/il-problema-dell-assegnazione.md
+          - "Soluzioni ammissibili di base iniziali": flussi/transportation-and-assignment/soluzioni-ammissibili-di-base-iniziali.md
+          - "Il metodo dei potenziali": flussi/transportation-and-assignment/il-metodo-dei-potenziali.md
+          - "Il problema di assegnamento": flussi/transportation-and-assignment/il-problema-di-assegnamento.md
   - Simplesso su reti:
       - simplesso-su-reti/index.md
       - "8. Simplesso su reti":
           - simplesso-su-reti/network-simplex/index.md
-          - "L'algoritmo del simplesso sul modello del flusso di costo minimo": simplesso-su-reti/network-simplex/l-algoritmo-del-simplesso-sul-modello-del-flusso-di-costo-mi.md
+          - "L'algoritmo del simplesso sul modello di flusso di costo minimo": simplesso-su-reti/network-simplex/l-algoritmo-del-simplesso-sul-modello-di-flusso-di-costo-min.md
           - "Basi e alberi ricoprenti": simplesso-su-reti/network-simplex/basi-e-alberi-ricoprenti.md
           - "Potenziali e ottimalità": simplesso-su-reti/network-simplex/potenziali-e-ottimalita.md
-          - "Il perno": simplesso-su-reti/network-simplex/il-perno.md
-          - "L'algoritmo del simplesso di rete": simplesso-su-reti/network-simplex/l-algoritmo-del-simplesso-di-rete.md
+          - "Il pivot": simplesso-su-reti/network-simplex/il-pivot.md
+          - "L'algoritmo del simplesso su reti": simplesso-su-reti/network-simplex/l-algoritmo-del-simplesso-su-reti.md
           - "Un esempio senza capacità": simplesso-su-reti/network-simplex/un-esempio-senza-capacita.md
-          - "Degenerazione e alberi fortemente fattibili": simplesso-su-reti/network-simplex/degenerazione-e-alberi-fortemente-fattibili.md
-          - "Un esempio capacitato con un perno degenere": simplesso-su-reti/network-simplex/un-esempio-capacitato-con-un-perno-degenere.md
-          - "L'albero iniziale: Fase 0": simplesso-su-reti/network-simplex/l-albero-iniziale-fase-0.md
+          - "Degenerazione e alberi fortemente ammissibili": simplesso-su-reti/network-simplex/degenerazione-e-alberi-fortemente-ammissibili.md
+          - "Un esempio con capacità e un pivot degenere": simplesso-su-reti/network-simplex/un-esempio-con-capacita-e-un-pivot-degenere.md
+          - "L'albero iniziale: la Fase 0": simplesso-su-reti/network-simplex/l-albero-iniziale-la-fase-0.md
   - Gestione dei progetti:
       - gestione-dei-progetti/index.md
       - "9. Gestione dei progetti":
           - gestione-dei-progetti/project-management/index.md
-          - "Progetti e reti di progetto": gestione-dei-progetti/project-management/progetti-e-reti-di-progetto.md
-          - "Percorsi e percorsi critici": gestione-dei-progetti/project-management/percorsi-e-percorsi-critici.md
-          - "Il passaggio in avanti: i primi tempi": gestione-dei-progetti/project-management/il-passaggio-in-avanti-i-primi-tempi.md
-          - "Il passaggio all'indietro: ultimi tempi": gestione-dei-progetti/project-management/il-passaggio-all-indietro-ultimi-tempi.md
-          - "Margini e attività critiche": gestione-dei-progetti/project-management/margini-e-attivita-critiche.md
-          - "Il metodo del percorso critico": gestione-dei-progetti/project-management/il-metodo-del-percorso-critico.md
+          - "Progetti e reti delle attività": gestione-dei-progetti/project-management/progetti-e-reti-delle-attivita.md
+          - "Cammini e cammini critici": gestione-dei-progetti/project-management/cammini-e-cammini-critici.md
+          - "La passata in avanti: i tempi al più presto": gestione-dei-progetti/project-management/la-passata-in-avanti-i-tempi-al-piu-presto.md
+          - "La passata all'indietro: i tempi al più tardi": gestione-dei-progetti/project-management/la-passata-all-indietro-i-tempi-al-piu-tardi.md
+          - "Scorte e attività critiche": gestione-dei-progetti/project-management/scorte-e-attivita-critiche.md
+          - "Il metodo del cammino critico": gestione-dei-progetti/project-management/il-metodo-del-cammino-critico.md
           - "Il modello di programmazione lineare": gestione-dei-progetti/project-management/il-modello-di-programmazione-lineare.md
-          - "Due percorsi critici e cambi di durata": gestione-dei-progetti/project-management/due-percorsi-critici-e-cambi-di-durata.md
+          - "Due cammini critici e variazioni delle durate": gestione-dei-progetti/project-management/due-cammini-critici-e-variazioni-delle-durate.md
   - Esercizi:
       - esercizi/index.md
       - "Grafi":

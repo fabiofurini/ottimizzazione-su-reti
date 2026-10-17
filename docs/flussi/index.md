@@ -12,7 +12,7 @@ I modelli di flusso su reti e l'unimodularità totale; il flusso massimo e il ta
 
     ---
 
-    Reti e flussi · Il modello di flusso di costo minimo · Feasibility conditions · Rimozione dei limiti inferiori
+    Reti e flussi · Il modello di flusso di costo minimo · Condizioni di ammissibilità · Rimozione dei limiti inferiori
 
     [:octicons-arrow-right-24: Leggi il capitolo](network-flow-models/index.md) · [Esercizi](../esercizi/network-flow-models.md)
 
@@ -20,7 +20,7 @@ I modelli di flusso su reti e l'unimodularità totale; il flusso massimo e il ta
 
     ---
 
-    Il problema del flusso massimo · Tagli · La rete residua · Il teorema del taglio minimo del flusso massimo
+    Il problema del flusso massimo · Tagli · La rete residua · Il teorema flusso massimo-taglio minimo
 
     [:octicons-arrow-right-24: Leggi il capitolo](maximum-flow/index.md) · [Esercizi](../esercizi/maximum-flow.md)
 
@@ -28,7 +28,7 @@ I modelli di flusso su reti e l'unimodularità totale; il flusso massimo e il ta
 
     ---
 
-    La rete residua con i costi · Circolazioni e loro scomposizione · Condizioni di ottimalità del ciclo negativo · Condizioni di ottimalità con potenziali
+    La rete residua con i costi · Circolazioni e loro scomposizione · Condizioni di ottimalità dei cicli negativi · Condizioni di ottimalità con i potenziali
 
     [:octicons-arrow-right-24: Leggi il capitolo](min-cost-flow/index.md) · [Esercizi](../esercizi/min-cost-flow.md)
 
@@ -36,7 +36,7 @@ I modelli di flusso su reti e l'unimodularità totale; il flusso massimo e il ta
 
     ---
 
-    Il problema dei trasporti · Soluzioni di base · Soluzioni iniziali di base fattibili · Il metodo potenziale
+    Il problema di trasporto · Soluzioni di base · Soluzioni ammissibili di base iniziali · Il metodo dei potenziali
 
     [:octicons-arrow-right-24: Leggi il capitolo](transportation-and-assignment/index.md) · [Esercizi](../esercizi/transportation-and-assignment.md)
 

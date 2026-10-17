@@ -6,7 +6,7 @@ title: "Flusso di costo minimo"
 
 <div class="info-capitolo" markdown>
 
-**Parte 3 · Flussi · Capitolo 6** · [:material-file-pdf-box: Dispensa, volume 3 (PDF)](../../pdf/dispensa-3-flussi.pdf) · [:material-pencil: Esercizi: Flusso di costo minimo](../../esercizi/min-cost-flow.md)
+**Parte 3 · Flussi · Capitolo 6** · [:material-file-pdf-box: Dispensa, volume 3 (PDF)](../../pdf/dispensa-3-flussi.pdf) · [:material-presentation: Slide](../../pdf/slide-min-cost-flow.pdf) · [:material-pencil: Esercizi: Flusso di costo minimo](../../esercizi/min-cost-flow.md) · [:material-gesture-tap: App: Flusso di costo minimo: cancellazione dei cicli e cammini minimi successivi](../../laboratorio/flusso-di-costo-minimo.md)
 
 </div>
 
@@ -20,63 +20,63 @@ title: "Flusso di costo minimo"
 
     [:octicons-arrow-right-24: Apri](circolazioni-e-loro-scomposizione.md)
 
--   **6.3 Condizioni di ottimalità del ciclo negativo**
+-   **6.3 Condizioni di ottimalità dei cicli negativi**
 
-    [:octicons-arrow-right-24: Apri](condizioni-di-ottimalita-del-ciclo-negativo.md)
+    [:octicons-arrow-right-24: Apri](condizioni-di-ottimalita-dei-cicli-negativi.md)
 
--   **6.4 Condizioni di ottimalità con potenziali**
+-   **6.4 Condizioni di ottimalità con i potenziali**
 
-    [:octicons-arrow-right-24: Apri](condizioni-di-ottimalita-con-potenziali.md)
+    [:octicons-arrow-right-24: Apri](condizioni-di-ottimalita-con-i-potenziali.md)
 
--   **6.5 Un primo flusso fattibile**
+-   **6.5 Un primo flusso ammissibile**
 
-    [:octicons-arrow-right-24: Apri](un-primo-flusso-fattibile.md)
+    [:octicons-arrow-right-24: Apri](un-primo-flusso-ammissibile.md)
 
--   **6.6 L'algoritmo di annullamento del ciclo**
+-   **6.6 L'algoritmo di cancellazione dei cicli**
 
-    L'algoritmo · Annullamento ciclo sulla rete di riferimento
+    L'algoritmo · La cancellazione dei cicli sulla rete di riferimento
 
-    [:octicons-arrow-right-24: Apri](l-algoritmo-di-annullamento-del-ciclo.md)
+    [:octicons-arrow-right-24: Apri](l-algoritmo-di-cancellazione-dei-cicli.md)
 
--   **6.7 L'algoritmo del percorso più breve successivo**
+-   **6.7 L'algoritmo dei cammini minimi successivi**
 
-    Percorsi più brevi successivi sulla rete di riferimento
+    I cammini minimi successivi sulla rete di riferimento
 
-    [:octicons-arrow-right-24: Apri](l-algoritmo-del-percorso-piu-breve-successivo.md)
+    [:octicons-arrow-right-24: Apri](l-algoritmo-dei-cammini-minimi-successivi.md)
 
 </div>
 
 !!! nota "Prerequisiti"
 
-    - Da questo modulo, [Capitolo 3 «Percorsi più brevi»](../../alberi-e-cammini/shortest-paths/index.md): l'algoritmo di Bellman–Ford con la rilevazione di un ciclo negativo, l'algoritmo di Dijkstra e il potenziali $\pi_i=-\tilde{d}(i)$ come certificato.
+    - Da questo modulo, [Capitolo 3 «Cammini minimi»](../../alberi-e-cammini/shortest-paths/index.md): l'algoritmo di Bellman–Ford con la rilevazione di un ciclo negativo, l'algoritmo di Dijkstra e i potenziali $\pi_i=-\tilde{d}(i)$ come certificato.
 
-    - [Capitolo 4 «Flusso di rete modelli»](../network-flow-models/index.md): il modello di flusso a costo minimo, il flusso attraverso un taglio, la sostituzione dei limiti inferiori, i potenziali e i costi ridotti.
+    - [Capitolo 4 «Modelli di flusso su reti»](../network-flow-models/index.md): il modello del flusso di costo minimo, il flusso attraverso un taglio, la sostituzione dei limiti inferiori, i potenziali e i costi ridotti.
 
-    - [Capitolo 5 «Portata massima»](../maximum-flow/index.md): il rete residua $G(\vet{x})$, percorsi aumentanti e algoritmo di Edmonds–Karp.
+    - [Capitolo 5 «Flusso massimo»](../maximum-flow/index.md): la rete residua $G(\vet{x})$, i cammini aumentanti e l'algoritmo di Edmonds–Karp.
 
 !!! chiave "Obiettivi"
 
     Alla fine di questo capitolo sarai in grado di:
 
-    - costruire la rete residua di un flusso con capacità e costi residui, calcolare il costo di uno dei suoi cicli, e aumentare il flusso lungo di esso;
+    - costruire la rete residua di un flusso con le capacità residue e i costi, calcolare il costo di uno dei suoi cicli e aumentare il flusso lungo di esso;
 
-    - decompone una circolazione, e la differenza di due flussi ammissibili, in cicli;
+    - scomporre in cicli una circolazione e la differenza di due flussi ammissibili;
 
-    - dimostrare che un flusso ammissibile è ottimale se e solo se la sua rete residua non ha ciclo negativo, e se e solo se esistono potenziali con costi ridotti non negativi, e riconoscono un'istanza illimitata;
+    - dimostrare che un flusso ammissibile è ottimo se e solo se la sua rete residua non ha cicli negativi, e se e solo se esistono potenziali con costi ridotti non negativi, e riconoscere un'istanza illimitata;
 
-    - trovare una prima portata ammissibile con portata massima;
+    - trovare un primo flusso ammissibile con un flusso massimo;
 
-    - esegue l'algoritmo di annullamento del ciclo e il successivo algoritmo del percorso più breve e ne dimostra la correttezza.
+    - eseguire l'algoritmo di cancellazione dei cicli e l'algoritmo dei cammini minimi successivi, e dimostrarne la correttezza.
 
 !!! nota "Dove eravamo"
 
-    - In [Capitolo 4 «Rete modelli di flusso»](../network-flow-models/index.md) il problema del flusso di costo minimo è il LP $\min\{\vet{c}'\vet{x} : \mat{B}\vet{x}=\vet{b},~\vet{l} \le \vet{x} \le \vet{u}\}$. Potentials $\pi_i$ whose reduced costs $\bar{c}_{ij}=c_{ij}-\pi_i+\pi_j$ sono positivi solo su archi vuoti e negativi solo su archi saturi certificano che un flusso è ottimale.
+    - Nel [Capitolo 4 «Modelli di flusso su reti»](../network-flow-models/index.md) il problema del flusso di costo minimo è il PL $\min\{\vet{c}'\vet{x} : \mat{B}\vet{x}=\vet{b},~\vet{l} \le \vet{x} \le \vet{u}\}$. Potenziali $\pi_i$ i cui costi ridotti $\bar{c}_{ij}=c_{ij}-\pi_i+\pi_j$ sono positivi solo sugli archi vuoti e negativi solo sugli archi saturi certificano che un flusso è ottimo.
 
-    - Sulla rete di riferimento il flusso ottimale $\tilde{\vet{x}}$ costa $60$ e $\vet{\pi}=(15,13,13,5,10,0)$ lo certifica.
+    - Sulla rete di riferimento il flusso ottimo $\tilde{\vet{x}}$ costa $60$, e $\vet{\pi}=(15,13,13,5,10,0)$ lo certifica.
 
-    - In [Capitolo 5 «Portata massima»](../maximum-flow/index.md) a il flusso cresce lungo percorsi aumentanti della rete residua $G(\vet{x})$.
+    - Nel [Capitolo 5 «Flusso massimo»](../maximum-flow/index.md) un flusso cresce lungo i cammini aumentanti della rete residua $G(\vet{x})$.
 
-    - In questo capitolo il certificato diventa un algoritmo: abbassiamo il costo di un flusso ammissibile lungo cicli di $G(\vet{x})$, oppure costruiamo il flusso lungo i percorsi più brevi di $G(\vet{x})$ mantenendo vero il certificato.
+    - In questo capitolo il certificato diventa un algoritmo: abbassiamo il costo di un flusso ammissibile lungo cicli di $G(\vet{x})$, oppure costruiamo il flusso lungo cammini minimi di $G(\vet{x})$ mantenendo vero il certificato.
 
 ---
 
@@ -85,3 +85,7 @@ title: "Flusso di costo minimo"
 ---
 
 **Esercizi su questo capitolo:** [:material-pencil: Flusso di costo minimo](../../esercizi/min-cost-flow.md)
+
+<!-- laboratorio-interattivo: sezione generata da interattivi.py -->
+
+:material-flask-outline: **Nel laboratorio interattivo:** [Flusso di costo minimo: cancellazione dei cicli e cammini minimi successivi](../../laboratorio/flusso-di-costo-minimo.md).

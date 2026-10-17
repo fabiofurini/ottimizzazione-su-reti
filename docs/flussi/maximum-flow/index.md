@@ -6,7 +6,7 @@ title: "Flusso massimo"
 
 <div class="info-capitolo" markdown>
 
-**Parte 3 · Flussi · Capitolo 5** · [:material-file-pdf-box: Dispensa, volume 3 (PDF)](../../pdf/dispensa-3-flussi.pdf) · [:material-pencil: Esercizi: Flusso massimo](../../esercizi/maximum-flow.md) · [:material-gesture-tap: App: Flusso massimo: Ford–Fulkerson ed Edmonds–Karp](../../laboratorio/flusso-massimo-ford-fulkerson-edmonds-karp.md)
+**Parte 3 · Flussi · Capitolo 5** · [:material-file-pdf-box: Dispensa, volume 3 (PDF)](../../pdf/dispensa-3-flussi.pdf) · [:material-presentation: Slide](../../pdf/slide-maximum-flow.pdf) · [:material-pencil: Esercizi: Flusso massimo](../../esercizi/maximum-flow.md) · [:material-gesture-tap: App: Flusso massimo: Ford–Fulkerson ed Edmonds–Karp](../../laboratorio/flusso-massimo-ford-fulkerson-edmonds-karp.md)
 
 </div>
 
@@ -24,23 +24,23 @@ title: "Flusso massimo"
 
     [:octicons-arrow-right-24: Apri](la-rete-residua.md)
 
--   **5.4 Il teorema del taglio minimo del flusso massimo**
+-   **5.4 Il teorema flusso massimo-taglio minimo**
 
-    [:octicons-arrow-right-24: Apri](il-teorema-del-taglio-minimo-del-flusso-massimo.md)
+    [:octicons-arrow-right-24: Apri](il-teorema-flusso-massimo-taglio-minimo.md)
 
--   **5.5 L'algoritmo Ford-Fulkerson**
+-   **5.5 L'algoritmo di Ford–Fulkerson**
 
     Il numero di aumenti
 
-    [:octicons-arrow-right-24: Apri](l-algoritmo-ford-fulkerson.md)
+    [:octicons-arrow-right-24: Apri](l-algoritmo-di-fordfulkerson.md)
 
--   **5.6 L'algoritmo Edmonds–Karp**
+-   **5.6 L'algoritmo di Edmonds–Karp**
 
-    [:octicons-arrow-right-24: Apri](l-algoritmo-edmondskarp.md)
+    [:octicons-arrow-right-24: Apri](l-algoritmo-di-edmondskarp.md)
 
 -   **5.7 Applicazioni**
 
-    Corrispondenza massima in un grafo bipartito · Percorsi arcodisgiunti
+    Accoppiamento massimo in un grafo bipartito · Cammini arco-disgiunti
 
     [:octicons-arrow-right-24: Apri](applicazioni.md)
 
@@ -48,27 +48,27 @@ title: "Flusso massimo"
 
 !!! nota "Prerequisiti"
 
-    - Da questo modulo, [Capitolo 1 «Grafi»](../../grafi/graphs/index.md): percorsi orientati, la ricerca in ampiezza e la ricerca in profondità.
+    - Da questo modulo, [Capitolo 1 «Grafi»](../../grafi/graphs/index.md): cammini orientati, la visita in ampiezza e la visita in profondità.
 
-    - Da questo modulo, [Capitolo 4 «Modelli di flusso di rete»](../network-flow-models/index.md): conservazione del flusso, flusso attraverso un taglio, modello di flusso a costo minimo e suo intero vertici.
+    - Da questo modulo, [Capitolo 4 «Modelli di flusso su reti»](../network-flow-models/index.md): la conservazione del flusso, il flusso attraverso un taglio, il modello di flusso di costo minimo e i suoi vertici interi.
 
-    - Dal modulo Programmazione lineare, [Capitolo 15 «La geometria di Programmazione lineare»](https://fabiofurini.github.io/programmazione-lineare/metodi-avanzati/15-geometria/): una funzione lineare raggiunge il suo massimo su un poliedro limitato non vuoto.
+    - Dal modulo Programmazione lineare, [Capitolo 15 «La geometria della programmazione lineare»](https://fabiofurini.github.io/programmazione-lineare/metodi-avanzati/15-geometria/): una funzione lineare raggiunge il massimo su un poliedro limitato non vuoto.
 
 !!! chiave "Obiettivi"
 
     Alla fine di questo capitolo sarai in grado di:
 
-    - formula il problema del flusso massimo e scrive il suo modello LP;
+    - formulare il problema del flusso massimo e scriverne il modello LP;
 
-    - calcola la capacità di un taglio $s$–$t$ e utilizza i tagli come limite superiore del valore di ogni flusso;
+    - calcolare la capacità di un taglio $s$–$t$ e usare i tagli come limiti superiori del valore di ogni flusso;
 
-    - costruisce la rete residua di un flusso, trova un percorso aumentante e il suo collo di bottiglia e aumenta il flusso;
+    - costruire la rete residua di un flusso, trovare un cammino aumentante e il suo collo di bottiglia, e aumentare il flusso;
 
-    - dimostrare il teorema del taglio minimo del flusso massimo e il teorema dell'integralità;
+    - dimostrare il teorema flusso massimo-taglio minimo e il teorema di integralità;
 
-    - esegue gli algoritmi Ford–Fulkerson e Edmonds–Karp, legge un taglio minimo alla fermata e fornisce i propri dati tempi di esecuzione;
+    - eseguire gli algoritmi di Ford–Fulkerson e di Edmonds–Karp, leggere un taglio minimo all'arresto e darne i tempi di esecuzione;
 
-    - calcola una corrispondenza massima in un grafo bipartito e un insieme massimo di percorsi arcodisgiunti come flussi massimi.
+    - calcolare un accoppiamento massimo in un grafo bipartito e un insieme massimo di cammini arco-disgiunti come flussi massimi.
 
 ---
 

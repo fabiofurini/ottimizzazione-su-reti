@@ -12,7 +12,7 @@ La gestione dei progetti con il metodo del cammino critico: reti di progetto, te
 
     ---
 
-    Progetti e reti di progetto · Percorsi e percorsi critici · Il passaggio in avanti: i primi tempi · Il passaggio all'indietro: ultimi tempi
+    Progetti e reti delle attività · Cammini e cammini critici · La passata in avanti: i tempi al più presto · La passata all'indietro: i tempi al più tardi
 
     [:octicons-arrow-right-24: Leggi il capitolo](project-management/index.md) · [Esercizi](../esercizi/project-management.md)
 

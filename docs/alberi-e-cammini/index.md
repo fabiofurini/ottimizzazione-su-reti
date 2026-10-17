@@ -12,7 +12,7 @@ Alberi ricoprenti di costo minimo (Kruskal, Prim, proprietà del taglio e del ci
 
     ---
 
-    Il problema dell'albero di copertura minimo · Tagli e cicli · La proprietà di taglio e la proprietà di ciclo · L'algoritmo greedy generico
+    Il problema dell'albero ricoprente di costo minimo · Tagli e cicli · La proprietà del taglio e la proprietà del ciclo · L'algoritmo greedy generico
 
     [:octicons-arrow-right-24: Leggi il capitolo](minimum-spanning-trees/index.md) · [Esercizi](../esercizi/minimum-spanning-trees.md)
 
@@ -20,7 +20,7 @@ Alberi ricoprenti di costo minimo (Kruskal, Prim, proprietà del taglio e del ci
 
     ---
 
-    Problemi del percorso più breve · Condizioni e potenziali di ottimalità · La formulazione della programmazione lineare · Percorsi più brevi nei grafici aciclici
+    Problemi di cammino minimo · Condizioni di ottimalità e potenziali · La formulazione di programmazione lineare · Cammini minimi nei grafi aciclici
 
     [:octicons-arrow-right-24: Leggi il capitolo](shortest-paths/index.md) · [Esercizi](../esercizi/shortest-paths.md)
 

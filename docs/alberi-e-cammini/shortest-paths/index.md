@@ -6,47 +6,47 @@ title: "Cammini minimi"
 
 <div class="info-capitolo" markdown>
 
-**Parte 2 · Alberi e cammini · Capitolo 3** · [:material-file-pdf-box: Dispensa, volume 2 (PDF)](../../pdf/dispensa-2-alberi-e-cammini.pdf) · [:material-pencil: Esercizi: Cammini minimi](../../esercizi/shortest-paths.md) · [:material-gesture-tap: App: Cammini minimi: Dijkstra, Bellman–Ford, grafi aciclici](../../laboratorio/cammini-minimi-dijkstra-bellman-ford.md)
+**Parte 2 · Alberi e cammini · Capitolo 3** · [:material-file-pdf-box: Dispensa, volume 2 (PDF)](../../pdf/dispensa-2-alberi-e-cammini.pdf) · [:material-presentation: Slide](../../pdf/slide-shortest-paths.pdf) · [:material-pencil: Esercizi: Cammini minimi](../../esercizi/shortest-paths.md) · [:material-gesture-tap: App: Cammini minimi: Dijkstra, Bellman–Ford, grafi aciclici](../../laboratorio/cammini-minimi-dijkstra-bellman-ford.md)
 
 </div>
 
 <div class="grid cards sottopagine" markdown>
 
--   **3.1 Problemi del percorso più breve**
+-   **3.1 Problemi di cammino minimo**
 
-    Ottimità dei sottopercorsi
+    Ottimalità dei sottocammini
 
-    [:octicons-arrow-right-24: Apri](problemi-del-percorso-piu-breve.md)
+    [:octicons-arrow-right-24: Apri](problemi-di-cammino-minimo.md)
 
--   **3.2 Condizioni e potenziali di ottimalità**
+-   **3.2 Condizioni di ottimalità e potenziali**
 
-    [:octicons-arrow-right-24: Apri](condizioni-e-potenziali-di-ottimalita.md)
+    [:octicons-arrow-right-24: Apri](condizioni-di-ottimalita-e-potenziali.md)
 
--   **3.3 La formulazione della programmazione lineare**
+-   **3.3 La formulazione di programmazione lineare**
 
-    Il modello a fonte unica
+    Il modello a sorgente singola
 
-    [:octicons-arrow-right-24: Apri](la-formulazione-della-programmazione-lineare.md)
+    [:octicons-arrow-right-24: Apri](la-formulazione-di-programmazione-lineare.md)
 
--   **3.4 Percorsi più brevi nei grafici aciclici**
+-   **3.4 Cammini minimi nei grafi aciclici**
 
-    [:octicons-arrow-right-24: Apri](percorsi-piu-brevi-nei-grafici-aciclici.md)
+    [:octicons-arrow-right-24: Apri](cammini-minimi-nei-grafi-aciclici.md)
 
--   **3.5 L'algoritmo Bellman–Ford**
+-   **3.5 L'algoritmo di Bellman–Ford**
 
-    [:octicons-arrow-right-24: Apri](l-algoritmo-bellmanford.md)
+    [:octicons-arrow-right-24: Apri](l-algoritmo-di-bellmanford.md)
 
--   **3.6 Algoritmo di Dijkstra**
+-   **3.6 L'algoritmo di Dijkstra**
 
-    Algoritmo di Dijkstra sul grafo di riferimento · Lunghezze negative
+    L'algoritmo di Dijkstra sul grafo di riferimento · Lunghezze negative
 
-    [:octicons-arrow-right-24: Apri](algoritmo-di-dijkstra.md)
+    [:octicons-arrow-right-24: Apri](l-algoritmo-di-dijkstra.md)
 
 </div>
 
 !!! nota "Prerequisiti"
 
-    - Da [Capitolo 1 «Grafi»](../../grafi/graphs/index.md): cammini orientati, percorsi e cicli, la matrice di incidenza nodo-arco, gli alberi e il grafo di riferimento.
+    - Dal [Capitolo 1 «Grafi»](../../grafi/graphs/index.md): passeggiate, cammini e cicli orientati, la matrice di incidenza nodo-arco, gli alberi e il grafo di riferimento.
 
     - Dal modulo Programmazione lineare, [Capitolo 9 «Teoria della dualità»](https://fabiofurini.github.io/programmazione-lineare/dualita/09-dualita/): il duale di un modello LP e il teorema della dualità debole.
 
@@ -54,17 +54,17 @@ title: "Cammini minimi"
 
     Alla fine di questo capitolo sarai in grado di:
 
-    - indica i problemi $s$–$t$ e i problemi del percorso più breve a sorgente singola e riconosce quando si verifica un ciclo negativo loro mal posati;
+    - enunciare il problema del cammino minimo $s$–$t$ e quello a sorgente singola, e riconoscere quando un ciclo negativo li rende mal posti;
 
-    - utilizza l'ottimalità dei sottopercorsi, le equazioni di Bellman e l'albero dei percorsi più brevi;
+    - usare l'ottimalità dei sottocammini, le equazioni di Bellman e l'albero dei cammini minimi;
 
-    - scrivi il modello LP di un percorso minimo come flusso unitario, scrivi il suo duale con i potenziali $\pi_i$ e usa potenziali ammissibili come certificato di ottimalità;
+    - scrivere il modello LP di un cammino minimo come flusso unitario, scriverne il duale con i potenziali $\pi_i$ e usare potenziali ammissibili come certificato di ottimalità;
 
-    - esegue l'algoritmo per grafi aciclici, l'algoritmo Bellman–Ford (con il rilevamento di un ciclo negativo) e L'algoritmo di Dijkstra dimostra la loro correttezza e fornisce il loro tempo di esecuzione.
+    - eseguire l'algoritmo per i grafi aciclici, l'algoritmo di Bellman–Ford (con il rilevamento di un ciclo negativo) e l'algoritmo di Dijkstra, dimostrarne la correttezza e darne il tempo di esecuzione.
 
 ---
 
-**Avanti:** [3.1 Problemi del percorso più breve](problemi-del-percorso-piu-breve.md)
+**Avanti:** [3.1 Problemi di cammino minimo](problemi-di-cammino-minimo.md)
 
 ---
 
