@@ -105,6 +105,7 @@ extra_css:
   - stylesheets/extra.css?v=a25c6f8414
   - https://cdn.jsdelivr.net/npm/jsxgraph@1.10.1/distrib/jsxgraph.css
   - stylesheets/interattivi.css?v=c51ac2286b
+  - stylesheets/quiz.css?v=9e3792b41c
 
 markdown_extensions:
   - admonition
@@ -137,6 +138,7 @@ extra_javascript:
   - javascripts/gi-no-c.js?v=a8e4a7da8b
   - javascripts/gi-no-d.js?v=57d7831fd1
   - javascripts/gi-no-e.js?v=1d484bad24
+  - javascripts/quiz.js?v=a75e27774a
 
 nav:
   - Home: index.md
@@ -248,6 +250,7 @@ nav:
           - "8. Simplesso su reti": esercizi/network-simplex.md
       - "Gestione dei progetti":
           - "9. Gestione dei progetti": esercizi/project-management.md
+  - Quiz: autovalutazione.md
   - Laboratorio: laboratorio/index.md
   - Materiale: materiale.md
   - Indice: indice.md

@@ -18,6 +18,7 @@ Per gli studenti del terzo anno della laurea in Ingegneria gestionale della Sapi
 
 [:material-school: Studia il corso](grafi/graphs/index.md){ .md-button .md-button--primary }
 [:material-pencil: Esercitati](esercizi/index.md){ .md-button }
+[:material-clipboard-check-outline: Mettiti alla prova](autovalutazione.md){ .md-button }
 [:material-download: Il materiale](materiale.md){ .md-button }
 
 </div>
@@ -87,6 +88,16 @@ Le stesse voci del menu: ogni scheda dice a quale parte e a quali capitoli della
     Gli algoritmi del corso passo per passo, sulle istanze di riferimento o su istanze tue.
 
     [:octicons-arrow-right-24: Le app](laboratorio/index.md)
+
+-   :material-clipboard-check-outline: **Autovalutazione**
+
+    ---
+
+    *Facsimile d'esame*
+
+    Un facsimile nuovo a ogni avvio: 13 domande, 33 punti, con la soluzione e il link alle dispense.
+
+    [:octicons-arrow-right-24: Mettiti alla prova](autovalutazione.md)
 
 </div>
 

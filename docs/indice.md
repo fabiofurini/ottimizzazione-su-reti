@@ -113,3 +113,4 @@ Tutte le pagine del sito, nell'ordine del menu: i capitoli con le loro sezioni e
 - [Esercizi](esercizi/index.md)
 - [Laboratorio](laboratorio/index.md)
 - [Materiale](materiale.md)
+- [Autovalutazione](autovalutazione.md)
