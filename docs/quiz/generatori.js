@@ -111,8 +111,8 @@
         return pacchetto(sc, function (v) { return M(seq(v)); },
           T(l, "Il grafo orientato con nodi $1,\\dots,6$ ha le liste di adiacenza (ordinate per indice crescente) ",
             "The directed graph with nodes $1,\\dots,6$ has the adjacency lists (sorted by increasing index) ") +
-          testoListe(n, L) + T(l, ". In quale ordine la visita in ampiezza (BFS) da $s=1$ etichetta i nodi?",
-            ". In which order does the breadth-first search (BFS) from $s=1$ label the nodes?"),
+          testoListe(n, L) + T(l, ". La visita generica da $s=1$ tiene in $\\mathit{LIST}$ i nodi etichettati da esaminare: esamina un nodo $i$ di $\\mathit{LIST}$, etichetta la prima testa non etichettata della lista $L(i)$, oppure toglie $i$ da $\\mathit{LIST}$ se non ce ne sono. Nella visita in ampiezza (BFS) $i$ è sempre il primo nodo di $\\mathit{LIST}$ (una coda). In quale ordine la BFS etichetta i nodi?",
+            ". The generic search from $s=1$ keeps in $\\mathit{LIST}$ the labelled nodes to be examined: it examines a node $i$ of $\\mathit{LIST}$ and labels the first unlabelled head of the list $L(i)$, or removes $i$ from $\\mathit{LIST}$ if there is none. In the breadth-first search (BFS) $i$ is always the first node of $\\mathit{LIST}$ (a queue). In which order does the BFS label the nodes?"),
           T(l, "La BFS prende sempre il primo nodo di $\\mathit{LIST}$ (una coda) e il primo arco ammissibile della sua lista: ordine " + M(seq(bfs)) + ". L'ordine " + M(seq(dfs)) + " è quello della DFS, che prende l'ultimo nodo.",
             "The BFS always selects the first node of $\\mathit{LIST}$ (a queue) and the first admissible arc of its list: order " + M(seq(bfs)) + ". The order " + M(seq(dfs)) + " is that of the DFS, which selects the last node."),
           { n: n, arcs: arcs });
@@ -135,8 +135,8 @@
         return pacchetto(sc, function (x) { return M(seq(x)); },
           T(l, "Il grafo orientato con nodi $1,\\dots,6$ ha le liste di adiacenza (ordinate per indice crescente) ",
             "The directed graph with nodes $1,\\dots,6$ has the adjacency lists (sorted by increasing index) ") +
-          testoListe(n, L) + T(l, ". In quale ordine la visita in profondità (DFS) da $s=1$ etichetta i nodi?",
-            ". In which order does the depth-first search (DFS) from $s=1$ label the nodes?"),
+          testoListe(n, L) + T(l, ". La visita generica da $s=1$ tiene in $\\mathit{LIST}$ i nodi etichettati da esaminare: esamina un nodo $i$ di $\\mathit{LIST}$, etichetta la prima testa non etichettata della lista $L(i)$, oppure toglie $i$ da $\\mathit{LIST}$ se non ce ne sono. Nella visita in profondità (DFS) $i$ è sempre l'ultimo nodo di $\\mathit{LIST}$ (una pila). In quale ordine la DFS etichetta i nodi?",
+            ". The generic search from $s=1$ keeps in $\\mathit{LIST}$ the labelled nodes to be examined: it examines a node $i$ of $\\mathit{LIST}$ and labels the first unlabelled head of the list $L(i)$, or removes $i$ from $\\mathit{LIST}$ if there is none. In the depth-first search (DFS) $i$ is always the last node of $\\mathit{LIST}$ (a stack). In which order does the DFS label the nodes?"),
           T(l, "La DFS prende sempre l'ultimo nodo di $\\mathit{LIST}$ (una pila) e il primo arco ammissibile della sua lista; un nodo senza archi ammissibili esce da $\\mathit{LIST}$. Ordine di etichettatura " + M(seq(dfs)) + "; " + M(seq(post)) + " è l'ordine in cui i nodi escono da $\\mathit{LIST}$.",
             "The DFS always selects the last node of $\\mathit{LIST}$ (a stack) and the first admissible arc of its list; a node without admissible arcs leaves $\\mathit{LIST}$. Labelling order " + M(seq(dfs)) + "; " + M(seq(post)) + " is the order in which the nodes leave $\\mathit{LIST}$."),
           { n: n, arcs: arcs });
@@ -167,7 +167,7 @@
         return pacchetto(sc, function (v) { return M(v); },
           T(l, "Il grafo orientato con nodi $1,\\dots," + n + "$ ha gli archi ", "The directed graph with nodes $1,\\dots," + n + "$ has the arcs ") +
           arcs.map(function (a) { return M(arc(a)); }).join(", ") +
-          T(l, ". Quanto vale il rango della sua matrice di incidenza nodo–arco $\\mat{B}$?", ". What is the rank of its node–arc incidence matrix $\\mat{B}$?"),
+          T(l, ". Quanto vale il rango della sua matrice di incidenza nodo–arco $\\mat{B}$ (una riga per nodo, una colonna per arco, $+1$ nella coda e $-1$ nella testa)?", ". What is the rank of its node–arc incidence matrix $\\mat{B}$ (one row per node, one column per arc, $+1$ in the tail and $-1$ in the head)?"),
           T(l, "Il grafo non orientato sottostante ha $k=" + k + "$ componenti connesse, quindi $\\rank(\\mat{B})=|N|-k=" + n + "-" + k + "=" + corr + "$. $|N|-1$ vale solo per un grafo connesso.",
             "The underlying undirected graph has $k=" + k + "$ connected components, so $\\rank(\\mat{B})=|N|-k=" + n + "-" + k + "=" + corr + "$. $|N|-1$ holds only for a connected graph."),
           { n: n, arcs: arcs });
@@ -243,7 +243,7 @@
         if (!sc) return null;
         return pacchetto(sc, function (v) { return M(v); },
           T(l, "Il grafo non orientato con vertici $1,\\dots,6$ ha gli spigoli con pesi ", "The undirected graph with vertices $1,\\dots,6$ has the edges with weights ") +
-          testoSpigoli(E) + T(l, " (dove $w_{uv}$ è il peso di $\\{u,v\\}$). Quanto pesa un albero ricoprente di costo minimo?", " (where $w_{uv}$ is the weight of $\\{u,v\\}$). What is the weight of a minimum spanning tree?"),
+          testoSpigoli(E) + T(l, " (dove $w_{uv}$ è il peso di $\\{u,v\\}$). Quanto pesa un albero ricoprente di costo minimo, cioè di peso totale minimo?", " (where $w_{uv}$ is the weight of $\\{u,v\\}$). What is the weight of a minimum spanning tree, that is, of minimum total weight?"),
           T(l, "Kruskal accetta, per pesi crescenti, gli spigoli che uniscono due componenti: " + F.map(function (e) { return M(edge(e)); }).join(", ") + ", peso $" + w + "$. La somma dei $5$ pesi più piccoli ($" + light + "$) ignora i cicli.",
             "Kruskal accepts, by increasing weight, the edges joining two components: " + F.map(function (e) { return M(edge(e)); }).join(", ") + ", weight $" + w + "$. The sum of the $5$ smallest weights ($" + light + "$) ignores the cycles."),
           { n: n, E: E });
@@ -270,7 +270,7 @@
         if (!sc) return null;
         return pacchetto(sc, function (v) { return M(seq(v)); },
           T(l, "Il grafo non orientato con vertici $1,\\dots,6$ ha gli spigoli con pesi ", "The undirected graph with vertices $1,\\dots,6$ has the edges with weights ") +
-          testoSpigoli(E) + T(l, ". In quale ordine l'algoritmo di Prim da $s=1$ inserisce gli altri vertici in $S$?", ". In which order does Prim's algorithm from $s=1$ insert the other vertices into $S$?"),
+          testoSpigoli(E) + T(l, " ($w_{uv}$ è il peso di $\\{u,v\\}$). L'algoritmo di Prim parte da $S=\\{1\\}$ e a ogni passo inserisce in $S$ il vertice fuori da $S$ collegato a $S$ dallo spigolo più leggero. In quale ordine inserisce gli altri vertici?", " ($w_{uv}$ is the weight of $\\{u,v\\}$). Prim's algorithm starts from $S=\\{1\\}$ and at every step inserts into $S$ the vertex outside $S$ joined to $S$ by the lightest edge. In which order does it insert the other vertices?"),
           T(l, "Prim sceglie il vertice fuori da $S$ con etichetta minima e aggiorna $d(u):=w_{vu}$ se $w_{vu}<d(u)$: ordine " + M(seq(prim)) + ". Con $d(v)+w_{vu}$ (Dijkstra) si otterrebbe " + M(seq(dij)) + ".",
             "Prim selects the vertex outside $S$ with minimum label and updates $d(u):=w_{vu}$ if $w_{vu}<d(u)$: order " + M(seq(prim)) + ". With $d(v)+w_{vu}$ (Dijkstra) one would get " + M(seq(dij)) + "."),
           { n: n, E: E });
@@ -337,7 +337,7 @@
         if (!sc) return null;
         return pacchetto(sc, function (v) { return M(vec(v)); },
           T(l, "Il grafo orientato con nodi $1,\\dots,6$ ha gli archi con lunghezze ", "The directed graph with nodes $1,\\dots,6$ has the arcs with lengths ") +
-          testoArchiPesati(A, "d") + T(l, ". Quali distanze $\\tilde{d}=(\\tilde{d}(1),\\dots,\\tilde{d}(6))$ da $s=1$ calcola l'algoritmo di Dijkstra?", ". Which distances $\\tilde{d}=(\\tilde{d}(1),\\dots,\\tilde{d}(6))$ from $s=1$ does Dijkstra's algorithm compute?"),
+          testoArchiPesati(A, "d") + T(l, " ($d_{ij}$ è la lunghezza dell'arco $(i,j)$). La distanza $\\tilde{d}(j)$ è la lunghezza minima di un cammino orientato da $s=1$ a $j$. Quali distanze $\\tilde{d}=(\\tilde{d}(1),\\dots,\\tilde{d}(6))$ calcola l'algoritmo di Dijkstra da $s=1$?", " ($d_{ij}$ is the length of the arc $(i,j)$). The distance $\\tilde{d}(j)$ is the minimum length of a directed path from $s=1$ to $j$. Which distances $\\tilde{d}=(\\tilde{d}(1),\\dots,\\tilde{d}(6))$ does Dijkstra's algorithm from $s=1$ compute?"),
           T(l, "Dijkstra rende permanente il nodo temporaneo con etichetta minima e aggiorna $d(j):=d(i)+d_{ij}$ quando migliora; l'etichetta di un nodo può migliorare più volte prima che diventi permanente. Distanze " + M(vec(d)) + ".",
             "Dijkstra makes permanent the temporary node with the smallest label and updates $d(j):=d(i)+d_{ij}$ when it improves; a label can improve several times before it becomes permanent. Distances " + M(vec(d)) + "."),
           { n: n, A: A });
@@ -364,8 +364,8 @@
         if (!sc) return null;
         return pacchetto(sc, function (v) { return M(vec(v)); },
           T(l, "Il grafo orientato con nodi $1,\\dots,5$ ha gli archi con lunghezze ", "The directed graph with nodes $1,\\dots,5$ has the arcs with lengths ") +
-          testoArchiPesati(A, "d") + T(l, ". Con l'algoritmo di Bellman–Ford da $s=1$, quali sono le etichette $d^2=(d^2(1),\\dots,d^2(5))$ dopo la passata $k=2$?",
-            ". With the Bellman–Ford algorithm from $s=1$, what are the labels $d^2=(d^2(1),\\dots,d^2(5))$ after pass $k=2$?"),
+          testoArchiPesati(A, "d") + T(l, ". L'algoritmo di Bellman–Ford da $s=1$ parte da $d^0=(0,+\\infty,\\dots,+\\infty)$ e nella passata $k$ pone $d^k(j)=\\min\\{d^{k-1}(j),\\min_{(i,j)}(d^{k-1}(i)+d_{ij})\\}$, usando solo le etichette della passata precedente. Quali sono le etichette $d^2=(d^2(1),\\dots,d^2(5))$?",
+            ". The Bellman–Ford algorithm from $s=1$ starts from $d^0=(0,+\\infty,\\dots,+\\infty)$ and in pass $k$ sets $d^k(j)=\\min\\{d^{k-1}(j),\\min_{(i,j)}(d^{k-1}(i)+d_{ij})\\}$, using only the labels of the previous pass. What are the labels $d^2=(d^2(1),\\dots,d^2(5))$?"),
           T(l, "$d^k(j)$ è la lunghezza minima di una passeggiata da $s$ a $j$ con al più $k$ archi: $d^k(j)=\\min\\{d^{k-1}(j),\\min_{(i,j)}(d^{k-1}(i)+d_{ij})\\}$, usando solo le etichette della passata precedente. $d^1=" + vec(tab[1]) + "$, $d^2=" + vec(tab[2]) + "$.",
             "$d^k(j)$ is the minimum length of a walk from $s$ to $j$ with at most $k$ arcs: $d^k(j)=\\min\\{d^{k-1}(j),\\min_{(i,j)}(d^{k-1}(i)+d_{ij})\\}$, using only the labels of the previous pass. $d^1=" + vec(tab[1]) + "$, $d^2=" + vec(tab[2]) + "$."),
           { n: n, A: A });
@@ -401,7 +401,7 @@
         if (!sc) return null;
         return pacchetto(sc, function (x) { return M(x); },
           T(l, "Il grafo orientato aciclico con nodi $1,\\dots,6$ (ordine topologico $1,2,\\dots,6$) ha gli archi con lunghezze ", "The acyclic directed graph with nodes $1,\\dots,6$ (topological order $1,2,\\dots,6$) has the arcs with lengths ") +
-          testoArchiPesati(A, "d") + T(l, ". Quanto vale la distanza $\\tilde{d}(6)$ da $s=1$?", ". What is the distance $\\tilde{d}(6)$ from $s=1$?"),
+          testoArchiPesati(A, "d") + T(l, ". Quanto vale la distanza $\\tilde{d}(6)$, cioè la lunghezza minima di un cammino orientato da $s=1$ a $6$?", ". What is the distance $\\tilde{d}(6)$, that is, the minimum length of a directed path from $s=1$ to $6$?"),
           T(l, "Nei grafi aciclici si esaminano i nodi in ordine topologico e ogni etichetta è definitiva quando il nodo viene elaborato, con lunghezze di segno qualsiasi: $\\tilde{d}=" + vec(d) + "$. Dijkstra può sbagliare con archi negativi; il massimo dà il cammino più lungo.",
             "In acyclic graphs the nodes are scanned in topological order and each label is final when its node is processed, with lengths of any sign: $\\tilde{d}=" + vec(d) + "$. Dijkstra can fail with negative arcs; the maximum gives the longest path."),
           { n: n, A: A });
@@ -432,8 +432,8 @@
           T(l, "Una rete con nodi $1,\\dots,5$ ha gli archi ", "A network with nodes $1,\\dots,5$ has the arcs ") + arcs.map(function (a) { return M(arc(a)); }).join(", ") +
           T(l, ", bilanci $\\vet{b}=" + vec(b) + "$ e i limiti inferiori ", ", balances $\\vet{b}=" + vec(b) + "$ and the lower bounds ") +
           lb.map(function (a) { return M("l_{" + a[0] + a[1] + "}=" + a[2]); }).join(T(l, " e ", " and ")) +
-          T(l, " (gli altri sono nulli). Con la sostituzione $\\vet{x}=\\vet{l}+\\vet{x}'$, quali sono i bilanci $\\vet{b}'=\\vet{b}-\\mat{B}\\vet{l}$?",
-            " (the others are zero). With the substitution $\\vet{x}=\\vet{l}+\\vet{x}'$, what are the balances $\\vet{b}'=\\vet{b}-\\mat{B}\\vet{l}$?"),
+          T(l, " (gli altri sono nulli). Con la sostituzione $\\vet{x}=\\vet{l}+\\vet{x}'$, quali sono i bilanci $\\vet{b}'=\\vet{b}-\\mat{B}\\vet{l}$ ($\\mat{B}$: matrice di incidenza, $+1$ nella coda e $-1$ nella testa)?",
+            " (the others are zero). With the substitution $\\vet{x}=\\vet{l}+\\vet{x}'$, what are the balances $\\vet{b}'=\\vet{b}-\\mat{B}\\vet{l}$ ($\\mat{B}$: incidence matrix, $+1$ in the tail and $-1$ in the head)?"),
           T(l, "La coda di $(i,j)$ perde $l_{ij}$ unità di bilancio e la testa le guadagna: $\\vet{b}'=" + vec(giusto) + "$.",
             "The tail of $(i,j)$ loses $l_{ij}$ units of balance and the head gains them: $\\vet{b}'=" + vec(giusto) + "$."),
           { n: n, arcs: arcs, b: b, lb: lb });
@@ -457,7 +457,7 @@
         return pacchetto(sc, function (v) { return M(vec(v)); },
           T(l, "I potenziali sono $\\vet{\\pi}=" + vec(pi) + "$ e gli archi ", "The potentials are $\\vet{\\pi}=" + vec(pi) + "$ and the arcs ") +
           A.map(function (a) { return M(arc(a)); }).join(", ") + T(l, " hanno costi ", " have costs ") + testoArchiPesati(A, "c") +
-          T(l, ". Quali sono i loro costi ridotti $\\bar{c}_{ij}$, nello stesso ordine?", ". What are their reduced costs $\\bar{c}_{ij}$, in the same order?"),
+          T(l, ". Quali sono i loro costi ridotti $\\bar{c}_{ij}=c_{ij}-\\pi_i+\\pi_j$ (convenzione del corso), nello stesso ordine?", ". What are their reduced costs $\\bar{c}_{ij}=c_{ij}-\\pi_i+\\pi_j$ (convention of the course), in the same order?"),
           T(l, "$\\bar{c}_{ij}=c_{ij}-\\pi_i+\\pi_j$: $-\\pi$ della coda e $+\\pi$ della testa. Risultato " + M(vec(giusto)) + ".",
             "$\\bar{c}_{ij}=c_{ij}-\\pi_i+\\pi_j$: $-\\pi$ of the tail and $+\\pi$ of the head. Result " + M(vec(giusto)) + "."),
           { pi: pi, A: A });
@@ -490,8 +490,8 @@
         var tab = A.map(function (a) { return M(arc(a) + ":\\ c=" + a[2] + ",\\ u=" + a[3] + ",\\ x=" + a[4]); }).join("; ");
         return pacchetto(sc, function (v) { return M(arc(v)); },
           T(l, "Un flusso $\\vet{x}$ (limiti inferiori nulli) e i potenziali $\\vet{\\pi}=" + vec(pi) + "$ sono dati sugli archi ", "A flow $\\vet{x}$ (zero lower bounds) and the potentials $\\vet{\\pi}=" + vec(pi) + "$ are given on the arcs ") +
-          tab + T(l, ". Quale arco viola le condizioni degli scarti complementari ($\\bar{c}_{ij}>0 \\Rightarrow x_{ij}=0$, $\\bar{c}_{ij}<0 \\Rightarrow x_{ij}=u_{ij}$)?",
-            ". Which arc violates the complementary slackness conditions ($\\bar{c}_{ij}>0 \\Rightarrow x_{ij}=0$, $\\bar{c}_{ij}<0 \\Rightarrow x_{ij}=u_{ij}$)?"),
+          tab + T(l, ". Con i costi ridotti $\\bar{c}_{ij}=c_{ij}-\\pi_i+\\pi_j$, quale arco viola le condizioni degli scarti complementari ($\\bar{c}_{ij}>0 \\Rightarrow x_{ij}=0$, $\\bar{c}_{ij}<0 \\Rightarrow x_{ij}=u_{ij}$)?",
+            ". With the reduced costs $\\bar{c}_{ij}=c_{ij}-\\pi_i+\\pi_j$, which arc violates the complementary slackness conditions ($\\bar{c}_{ij}>0 \\Rightarrow x_{ij}=0$, $\\bar{c}_{ij}<0 \\Rightarrow x_{ij}=u_{ij}$)?"),
           T(l, "Costi ridotti $\\bar{c}_{ij}=c_{ij}-\\pi_i+\\pi_j$: ", "Reduced costs $\\bar{c}_{ij}=c_{ij}-\\pi_i+\\pi_j$: ") +
           A.map(function (a) { return M("\\bar{c}_{" + a[0] + a[1] + "}=" + (a[2] - pi[a[0] - 1] + pi[a[1] - 1])); }).join(", ") +
           T(l, ". Solo " + M(arc(A[viola])) + " ha un costo ridotto non nullo senza stare al limite giusto.", ". Only " + M(arc(A[viola])) + " has a nonzero reduced cost without sitting at the right bound."),
@@ -605,8 +605,8 @@
         return pacchetto(sc, function (v) { return M(v); },
           T(l, "Nella rete con nodi $1,\\dots,5$ ($s=1$, $t=5$) gli archi hanno capacità e flusso ", "In the network with nodes $1,\\dots,5$ ($s=1$, $t=5$) the arcs have capacity and flow ") +
           A.map(function (a, k) { return M(arc(a) + ":\\ u=" + a[2] + ",\\ x=" + x[k]); }).join("; ") +
-          T(l, ". Quanto vale il collo di bottiglia $\\delta$ del cammino aumentante " + M(seq(nodiP)) + " della rete residua $G(\\vet{x})$?",
-            ". What is the bottleneck $\\delta$ of the augmenting path " + M(seq(nodiP)) + " of the residual network $G(\\vet{x})$?"),
+          T(l, ". Quanto vale il collo di bottiglia $\\delta$ (minima capacità residua degli archi) del cammino aumentante " + M(seq(nodiP)) + " della rete residua $G(\\vet{x})$?",
+            ". What is the bottleneck $\\delta$ (minimum residual capacity of its arcs) of the augmenting path " + M(seq(nodiP)) + " of the residual network $G(\\vet{x})$?"),
           T(l, "Capacità residue lungo il cammino: ", "Residual capacities along the path: ") +
           P.map(function (r) { return M("r_{" + r[0] + r[1] + "}=" + r[2]) + (r[4] === -1 ? T(l, " (all'indietro, $=x_{" + r[1] + r[0] + "}$)", " (backward, $=x_{" + r[1] + r[0] + "}$)") : ""); }).join(", ") +
           T(l, "; il minimo è $\\delta=" + dl + "$. Un arco all'indietro ha $r_{ji}=x_{ij}$, non $u_{ij}$.", "; the minimum is $\\delta=" + dl + "$. A backward arc has $r_{ji}=x_{ij}$, not $u_{ij}$."),
@@ -633,7 +633,7 @@
         var S = range(1, n).filter(function (i) { return ek.S[i]; });
         return pacchetto(sc, function (z) { return M(z); },
           T(l, "La rete con nodi $1,\\dots,6$, $s=1$ e $t=6$, ha gli archi con capacità ", "The network with nodes $1,\\dots,6$, $s=1$ and $t=6$, has the arcs with capacities ") +
-          testoCapacita(A) + T(l, ". Quanto vale il flusso massimo $\\tilde{v}$?", ". What is the maximum flow value $\\tilde{v}$?"),
+          testoCapacita(A) + T(l, ". Quanto vale il flusso massimo $\\tilde{v}$, cioè il massimo flusso netto uscente da $s$ fra i flussi ammissibili?", ". What is the maximum flow value $\\tilde{v}$, that is, the largest net outflow of $s$ over the feasible flows?"),
           T(l, "Un flusso massimo vale $\\tilde{v}=" + v + "$; il taglio minimo $S=\\{" + S.join(",") + "\\}$ (nodi raggiungibili da $s$ nella rete residua finale) ha la stessa capacità. I tagli $\\{s\\}$ e $N \\setminus \\{t\\}$ danno solo limiti superiori, e gli archi saturi non formano in generale un taglio.",
             "A maximum flow has value $\\tilde{v}=" + v + "$; the minimum cut $S=\\{" + S.join(",") + "\\}$ (nodes reachable from $s$ in the final residual network) has the same capacity. The cuts $\\{s\\}$ and $N \\setminus \\{t\\}$ give only upper bounds, and the saturated arcs do not form a cut in general."),
           { n: n, A: A });
@@ -694,8 +694,8 @@
         return pacchetto(sc, function (v) { return M(v); },
           T(l, "Un flusso ammissibile $\\vet{x}$ costa $" + C0 + "$. Sugli archi ", "A feasible flow $\\vet{x}$ costs $" + C0 + "$. On the arcs ") +
           arcsA.map(function (a) { return M(arc(a) + ":\\ c=" + a[2] + ",\\ u=" + a[3] + ",\\ x=" + a[4]); }).join("; ") +
-          T(l, " (limiti inferiori nulli), la rete residua $G(\\vet{x})$ contiene il ciclo $W=" + seq(ciclo) + "$. Quanto costa il flusso aumentato lungo $W$ di $\\theta=r(W)$?",
-            " (zero lower bounds), the residual network $G(\\vet{x})$ contains the cycle $W=" + seq(ciclo) + "$. What does the flow augmented along $W$ by $\\theta=r(W)$ cost?"),
+          T(l, " (limiti inferiori nulli), la rete residua $G(\\vet{x})$ contiene il ciclo $W=" + seq(ciclo) + "$. Quanto costa il flusso aumentato lungo $W$ di $\\theta=r(W)$, la minima capacità residua degli archi di $W$?",
+            " (zero lower bounds), the residual network $G(\\vet{x})$ contains the cycle $W=" + seq(ciclo) + "$. What does the flow augmented along $W$ by $\\theta=r(W)$, the minimum residual capacity of the arcs of $W$, cost?"),
           T(l, "Gli archi in avanti hanno costo $c_{ij}$ e capacità residua $u_{ij}-x_{ij}$, quelli all'indietro costo $-c_{ij}$ e capacità residua $x_{ij}$: $c(W)=" + cW + "$, $r(W)=" + rW + "$, nuovo costo $" + C0 + "+" + rW + "\\cdot(" + cW + ")=" + corr + "$.",
             "Forward arcs have cost $c_{ij}$ and residual capacity $u_{ij}-x_{ij}$, backward arcs cost $-c_{ij}$ and residual capacity $x_{ij}$: $c(W)=" + cW + "$, $r(W)=" + rW + "$, new cost $" + C0 + "+" + rW + "\\cdot(" + cW + ")=" + corr + "$."),
           { arcs: arcsA, W: ciclo, C0: C0 });
@@ -1079,8 +1079,8 @@
           T(l, "Una rete senza capacità ha nodi $1,\\dots,5$, bilanci $\\vet{b}=" + vec(b) + "$ e gli archi con costi ", "An uncapacitated network has nodes $1,\\dots,5$, balances $\\vet{b}=" + vec(b) + "$ and the arcs with costs ") +
           A.map(function (a) { return M("c_{" + a[0] + a[1] + "}=" + a[2]); }).join(", ") +
           T(l, ". L'albero corrente è $T=\\{", ". The current tree is $T=\\{") + Tr.map(function (k) { return arc(A[k]); }).join(",") +
-          T(l, "\\}$ (radice $5$, gli altri archi in $L$), con soluzione ad albero di costo $" + z + "$. Si fa un pivot del simplesso su reti (entra l'arco ammissibile con il massimo $|\\bar{c}_{ij}|$). Quali sono l'arco entrante, l'arco uscente e il nuovo costo?",
-            "\\}$ (root $5$, the other arcs in $L$), with a tree solution of cost $" + z + "$. Perform one pivot of the network simplex (the eligible arc with the largest $|\\bar{c}_{ij}|$ enters). What are the entering arc, the leaving arc and the new cost?"),
+          T(l, "\\}$ (radice $5$, gli altri archi in $L$), con soluzione ad albero di costo $" + z + "$. Si fa un pivot del simplesso su reti (potenziali con $\\pi_5=0$, $\\bar{c}_{ij}=c_{ij}-\\pi_i+\\pi_j$; entra, fra gli archi di $L$ con $\\bar{c}_{ij}<0$, quello con il massimo $|\\bar{c}_{ij}|$). Quali sono l'arco entrante, l'arco uscente e il nuovo costo?",
+            "\\}$ (root $5$, the other arcs in $L$), with a tree solution of cost $" + z + "$. Perform one pivot of the network simplex (potentials with $\\pi_5=0$, $\\bar{c}_{ij}=c_{ij}-\\pi_i+\\pi_j$; among the arcs of $L$ with $\\bar{c}_{ij}<0$, the one with the largest $|\\bar{c}_{ij}|$ enters). What are the entering arc, the leaving arc and the new cost?"),
           T(l, "Potenziali $\\vet{\\pi}=" + vec(pi) + "$; entra " + M(arc(A[e])) + " con $\\bar{c}=" + pv.cb + "$. Il ciclo, orientato come l'arco entrante, è bloccato solo dagli archi all'indietro: $\\theta=" + pv.theta + "$, esce " + M(arc(A[pv.esce])) + ", e il costo scende di $\\theta\\,|\\bar{c}_{kl}|$ a $" + corr[4] + "$.",
             "Potentials $\\vet{\\pi}=" + vec(pi) + "$; " + M(arc(A[e])) + " enters with $\\bar{c}=" + pv.cb + "$. The cycle, oriented as the entering arc, is blocked only by backward arcs: $\\theta=" + pv.theta + "$, " + M(arc(A[pv.esce])) + " leaves, and the cost drops by $\\theta\\,|\\bar{c}_{kl}|$ to $" + corr[4] + "$."),
           { n: n, A: A, T: Tr, x: x, b: b });
@@ -1154,7 +1154,7 @@
         var sc = scegli(rng, r.T, [minFine, r.T - P.d[ult - 1], piuLungo, somma(P.d)]);
         if (!sc) return null;
         return pacchetto(sc, function (v) { return M(v); },
-          testoProgetto(l, P) + T(l, "Quanto vale la durata minima $T$ del progetto?", "What is the minimum project duration $T$?"),
+          testoProgetto(l, P) + T(l, "Un'attività inizia quando tutti i suoi predecessori immediati sono finiti. Quanto vale la durata minima $T$ del progetto, cioè il minimo istante in cui tutte le attività possono essere finite?", "An activity starts when all its immediate predecessors are finished. What is the minimum project duration $T$, that is, the earliest time by which all the activities can be finished?"),
           T(l, "Passata in avanti: $\\mathit{ES}_j=\\max \\mathit{EF}_i$ sui predecessori immediati, $\\mathit{EF}_j=\\mathit{ES}_j+d_j$; $T=\\mathit{ES}_{\\mathrm{FINISH}}=" + r.T + "$, la lunghezza del cammino critico " + M("\\text{START}," + crit.join(",") + ",\\text{FINISH}") + ". Con il minimo al posto del massimo si ottiene $" + minFine + "$.",
             "Forward pass: $\\mathit{ES}_j=\\max \\mathit{EF}_i$ over the immediate predecessors, $\\mathit{EF}_j=\\mathit{ES}_j+d_j$; $T=\\mathit{ES}_{\\mathrm{FINISH}}=" + r.T + "$, the length of the critical path " + M("\\text{START}," + crit.join(",") + ",\\text{FINISH}") + ". With the minimum instead of the maximum one gets $" + minFine + "$."),
           P);
@@ -1175,7 +1175,7 @@
         var sc = scegli(rng, crit[0].c, altri);
         if (!sc) return null;
         return pacchetto(sc, function (v) { return M("\\text{START}," + v.join(",") + ",\\text{FINISH}"); },
-          testoProgetto(l, P) + T(l, "Qual è il cammino critico?", "Which is the critical path?"),
+          testoProgetto(l, P) + T(l, "Nella rete delle attività (nodi START e FINISH di durata $0$), qual è il cammino critico, cioè il cammino da START a FINISH di lunghezza (somma delle durate) massima?", "In the project network (nodes START and FINISH of duration $0$), which is the critical path, that is, the path from START to FINISH of maximum length (sum of the durations)?"),
           T(l, "Un cammino critico è un cammino da START a FINISH di lunghezza massima (somma delle durate delle sue attività): qui è unico, lungo $T=" + r.T + "$; i suoi archi sono tutti stretti, $\\mathit{ES}_j=\\mathit{EF}_i$.",
             "A critical path is a path from START to FINISH of maximum length (sum of the durations of its activities): here it is unique, of length $T=" + r.T + "$; all its arcs are tight, $\\mathit{ES}_j=\\mathit{EF}_i$."),
           P);
@@ -1197,11 +1197,165 @@
         var sc = scegli(rng, [TS, FS], [[FS, TS], [TS, TS], [TSmax, FS], [TS, 0]]);
         if (!sc) return null;
         return pacchetto(sc, function (v) { return M("\\mathit{TS}_{" + j + "}=" + v[0] + ",\\ \\mathit{FS}_{" + j + "}=" + v[1]); },
-          testoProgetto(l, P) + T(l, "Quanto valgono la scorta totale $\\mathit{TS}_{" + j + "}$ e la scorta libera $\\mathit{FS}_{" + j + "}$ dell'attività $" + j + "$?",
-            "What are the total slack $\\mathit{TS}_{" + j + "}$ and the free slack $\\mathit{FS}_{" + j + "}$ of activity $" + j + "$?"),
+          testoProgetto(l, P) + T(l, "La scorta totale $\\mathit{TS}_{" + j + "}=\\mathit{LS}_{" + j + "}-\\mathit{ES}_{" + j + "}$ è il ritardo massimo dell'attività $" + j + "$ che non allunga il progetto; la scorta libera $\\mathit{FS}_{" + j + "}$ è il ritardo massimo che non sposta l'inizio al più presto di alcun successore. Quanto valgono?",
+            "The total slack $\\mathit{TS}_{" + j + "}=\\mathit{LS}_{" + j + "}-\\mathit{ES}_{" + j + "}$ is the largest delay of activity $" + j + "$ that does not lengthen the project; the free slack $\\mathit{FS}_{" + j + "}$ is the largest delay that moves the earliest start of no successor. What are they?"),
           T(l, "Passata in avanti: $\\mathit{ES}_{" + j + "}=" + r.ES[j] + "$, $\\mathit{EF}_{" + j + "}=" + r.EF[j] + "$, $T=" + r.T + "$; passata all'indietro ($\\mathit{LF}_j=\\min \\mathit{LS}_k$): $\\mathit{LS}_{" + j + "}=" + r.LS[j] + "$. Quindi $\\mathit{TS}_{" + j + "}=\\mathit{LS}_{" + j + "}-\\mathit{ES}_{" + j + "}=" + TS + "$ e $\\mathit{FS}_{" + j + "}=\\min_k \\mathit{ES}_k-\\mathit{EF}_{" + j + "}=" + FS + "$.",
             "Forward pass: $\\mathit{ES}_{" + j + "}=" + r.ES[j] + "$, $\\mathit{EF}_{" + j + "}=" + r.EF[j] + "$, $T=" + r.T + "$; backward pass ($\\mathit{LF}_j=\\min \\mathit{LS}_k$): $\\mathit{LS}_{" + j + "}=" + r.LS[j] + "$. Hence $\\mathit{TS}_{" + j + "}=\\mathit{LS}_{" + j + "}-\\mathit{ES}_{" + j + "}=" + TS + "$ and $\\mathit{FS}_{" + j + "}=\\min_k \\mathit{ES}_k-\\mathit{EF}_{" + j + "}=" + FS + "$."),
           { P: P, j: j });
+      });
+    }
+  });
+  // ------------------------------------------------------------------ 28. componente fortemente connessa di un nodo
+  function raggiungibili(n, arcs, v, indietro) {
+    var vis = {}; vis[v] = 1; var q = [v];
+    while (q.length) {
+      var u = q.shift();
+      arcs.forEach(function (a) { var p = indietro ? a[1] : a[0], h = indietro ? a[0] : a[1]; if (p === u && !vis[h]) { vis[h] = 1; q.push(h); } });
+    }
+    return range(1, n).filter(function (i) { return vis[i]; });
+  }
+  GEN.push({
+    id: "no-g-strong-component", livello: "media", capitolo: "graphs",
+    link: link("graphs/graphs/connectivity/", "grafi/graphs/connettivita/", "box-18-gr-ex-components"),
+    genera: function (rng, l) {
+      return riprova(function () {
+        var n = 7, m = ri(rng, 9, 11), arcs = [], has = {}, g = 0;
+        while (arcs.length < m && g++ < 500) { var i = ri(rng, 1, n), j = ri(rng, 1, n); if (i !== j && !has[i + "," + j]) { has[i + "," + j] = 1; arcs.push([i, j]); } }
+        arcs.sort(function (a, b) { return a[0] - b[0] || a[1] - b[1]; });
+        var v = ri(rng, 1, n), R = raggiungibili(n, arcs, v, false), Ri = raggiungibili(n, arcs, v, true);
+        var comp = R.filter(function (x) { return Ri.indexOf(x) >= 0; });
+        var uni = range(1, n).filter(function (x) { return R.indexOf(x) >= 0 || Ri.indexOf(x) >= 0; });
+        if (comp.length < 2 || key(R) === key(comp) || key(Ri) === key(comp)) return null;
+        var sc = scegli(rng, comp, [R, Ri, uni]);
+        if (!sc) return null;
+        function insieme(x) { return M("\\{" + x.join(",") + "\\}"); }
+        return pacchetto(sc, insieme,
+          T(l, "Il grafo orientato con nodi $1,\\dots,7$ ha gli archi ", "The directed graph with nodes $1,\\dots,7$ has the arcs ") +
+          arcs.map(function (a) { return M(arc(a)); }).join(", ") +
+          T(l, ". Due nodi $i,j$ sono fortemente connessi se esistono cammini orientati da $i$ a $j$ e da $j$ a $i$. Qual è la componente fortemente connessa del nodo $" + v + "$, cioè l'insieme dei nodi fortemente connessi a $" + v + "$?",
+            ". Two nodes $i,j$ are strongly connected if there are directed paths from $i$ to $j$ and from $j$ to $i$. What is the strongly connected component of node $" + v + "$, that is, the set of the nodes strongly connected to $" + v + "$?"),
+          T(l, "Nodi raggiungibili da $" + v + "$: $R=" + insieme(R).slice(1, -1) + "$; nodi da cui $" + v + "$ è raggiungibile: $R'=" + insieme(Ri).slice(1, -1) + "$. La componente è $R \\cap R'=" + insieme(comp).slice(1, -1) + "$; $R$ da solo, $R'$ da solo o l'unione contengono nodi da cui non si torna.",
+            "Nodes reachable from $" + v + "$: $R=" + insieme(R).slice(1, -1) + "$; nodes from which $" + v + "$ is reachable: $R'=" + insieme(Ri).slice(1, -1) + "$. The component is $R \\cap R'=" + insieme(comp).slice(1, -1) + "$; $R$ alone, $R'$ alone or the union contain nodes with no way back."),
+          { n: n, arcs: arcs, v: v });
+      });
+    }
+  });
+
+  // ------------------------------------------------------------------ 29. scambio di uno spigolo in un albero ricoprente
+  GEN.push({
+    id: "no-g-mst-exchange", livello: "media", capitolo: "minimum-spanning-trees",
+    link: link("trees-and-paths/minimum-spanning-trees/cuts-and-cycles/", "alberi-e-cammini/minimum-spanning-trees/tagli-e-cicli/", "box-7-mst-lem-exchange"),
+    genera: function (rng, l) {
+      return riprova(function () {
+        var n = 6, E = grafoPesato(rng, n, 9, 15);
+        var Tr = kruskal(n, shuffle(rng, E).map(function (e, k) { return [e[0], e[1], k]; })).map(function (e) {
+          return E.filter(function (f) { return f[0] === e[0] && f[1] === e[1]; })[0];
+        });
+        Tr.sort(function (a, b) { return a[0] - b[0] || a[1] - b[1]; });
+        var fuori = E.filter(function (e) { return Tr.indexOf(e) < 0; });
+        var e = fuori[ri(rng, 0, fuori.length - 1)], W = peso(Tr);
+        var ciclo = Tr.filter(function (f) { return kruskal(n, Tr.filter(function (g) { return g !== f; }).concat([e])).length === n - 1; });
+        if (ciclo.length < 2) return null;
+        var wc = ciclo.map(function (f) { return f[2]; });
+        var corr = W + e[2] - Math.max.apply(null, wc);
+        var maxT = Math.max.apply(null, Tr.map(function (f) { return f[2]; }));
+        var sc = scegli(rng, corr, [W + e[2] - Math.min.apply(null, wc), W + e[2] - maxT, W, W + e[2]]);
+        if (!sc) return null;
+        return pacchetto(sc, function (v) { return M(v); },
+          T(l, "Il grafo non orientato con vertici $1,\\dots,6$ ha gli spigoli con pesi ", "The undirected graph with vertices $1,\\dots,6$ has the edges with weights ") +
+          testoSpigoli(E) + T(l, " ($w_{uv}$ è il peso di $\\{u,v\\}$). L'albero ricoprente $T=\\{", " ($w_{uv}$ is the weight of $\\{u,v\\}$). The spanning tree $T=\\{") +
+          Tr.map(function (f) { return edge(f); }).join(",") +
+          T(l, "\\}$ pesa $" + W + "$. Si aggiunge a $T$ lo spigolo $" + edge(e) + "$ e si toglie uno spigolo in modo da ottenere ancora un albero ricoprente. Quanto pesa il più leggero degli alberi così ottenuti?",
+            "\\}$ weighs $" + W + "$. The edge $" + edge(e) + "$ is added to $T$ and one edge is removed so as to obtain a spanning tree again. What is the weight of the lightest tree obtained in this way?"),
+          T(l, "Si può togliere solo uno spigolo del ciclo fondamentale di $" + edge(e) + "$, cioè " + ciclo.map(function (f) { return M(edge(f)); }).join(", ") + " (lemma di scambio); conviene il più pesante: $" + W + "+" + e[2] + "-" + Math.max.apply(null, wc) + "=" + corr + "$. Lo spigolo più pesante di $T$ può stare fuori dal ciclo.",
+            "Only an edge of the fundamental cycle of $" + edge(e) + "$ can be removed, that is " + ciclo.map(function (f) { return M(edge(f)); }).join(", ") + " (exchange lemma); the heaviest is the best choice: $" + W + "+" + e[2] + "-" + Math.max.apply(null, wc) + "=" + corr + "$. The heaviest edge of $T$ may lie outside the cycle."),
+          { n: n, E: E, T: Tr, e: e });
+      });
+    }
+  });
+
+  // ------------------------------------------------------------------ 30. Dijkstra completo: ordine dei nodi permanenti e distanze
+  GEN.push({
+    id: "no-g-dijkstra-run", livello: "complessa", capitolo: "shortest-paths",
+    link: link("trees-and-paths/shortest-paths/dijkstra-s-algorithm/", "alberi-e-cammini/shortest-paths/l-algoritmo-di-dijkstra/", "box-30-sp-th-dijkstra"),
+    genera: function (rng, l) {
+      return riprova(function () {
+        var n = 6, arcs = digrafo(rng, n, ri(rng, 9, 11));
+        var A = arcs.map(function (a) { return [a[0], a[1], ri(rng, 1, 9)]; });
+        var g = dijkstra(n, A, 1, "giusto"), p = dijkstra(n, A, 1, "primo"), q = dijkstra(n, A, 1, "prim");
+        var hop = minArchi(n, A, 1);
+        var corr = [g.ordine, g.d];
+        var sc = scegli(rng, corr, [[p.ordine, p.d], [q.ordine, q.d], [g.ordine, hop], [g.ordine, p.d]]);
+        if (!sc) return null;
+        return pacchetto(sc, function (v) { return T(l, "ordine ", "order ") + M(seq(v[0])) + "; " + M("\\tilde{d}=" + vec(v[1])); },
+          T(l, "Il grafo orientato con nodi $1,\\dots,6$ ha gli archi con lunghezze ", "The directed graph with nodes $1,\\dots,6$ has the arcs with lengths ") +
+          testoArchiPesati(A, "d") +
+          T(l, ". L'algoritmo di Dijkstra da $s=1$ rende permanente a ogni passo il nodo temporaneo con etichetta minima (a parità, quello di indice minore) e aggiorna $d(j):=d(i)+d_{ij}$ sugli archi uscenti dal nodo $i$ appena reso permanente, se migliora. In quale ordine i nodi diventano permanenti, e quali sono le distanze finali $\\tilde{d}=(\\tilde{d}(1),\\dots,\\tilde{d}(6))$?",
+            ". Dijkstra's algorithm from $s=1$ makes permanent at every step the temporary node with the smallest label (ties: the smallest index) and updates $d(j):=d(i)+d_{ij}$ on the arcs leaving the node $i$ just made permanent, if it improves. In which order do the nodes become permanent, and what are the final distances $\\tilde{d}=(\\tilde{d}(1),\\dots,\\tilde{d}(6))$?"),
+          T(l, "Con lunghezze positive i nodi diventano permanenti in ordine di distanza: ordine " + M(seq(g.ordine)) + ", distanze " + M(vec(g.d)) + ". Un'etichetta può migliorare più volte prima di diventare permanente; tenere la prima etichetta trovata, o usare $d_{ij}$ al posto di $d(i)+d_{ij}$ (come in Prim), dà risultati sbagliati.",
+            "With positive lengths the nodes become permanent in order of distance: order " + M(seq(g.ordine)) + ", distances " + M(vec(g.d)) + ". A label can improve several times before becoming permanent; keeping the first label found, or using $d_{ij}$ instead of $d(i)+d_{ij}$ (as in Prim), gives wrong results."),
+          { n: n, A: A });
+      });
+    }
+  });
+
+  // ------------------------------------------------------------------ 31. flusso di costo minimo con un limite inferiore
+  // A: [i,j,c,l,u]; b bilanci; opzioni: senzaIndietro (niente archi all'indietro nella rete residua)
+  function mcfSSP(n, A, b, senzaIndietro) {
+    var bp = b.slice();
+    A.forEach(function (a) { bp[a[0] - 1] -= a[3]; bp[a[1] - 1] += a[3]; });
+    var E = A.map(function (a) { return [a[0], a[1], a[2], a[4] - a[3]]; }), D = 0;
+    for (var i = 1; i <= n; i++) {
+      if (bp[i - 1] > 0) { E.push([0, i, 0, bp[i - 1]]); D += bp[i - 1]; }
+      if (bp[i - 1] < 0) E.push([i, n + 1, 0, -bp[i - 1]]);
+    }
+    var x = E.map(function () { return 0; }), tot = 0, guard = 0;
+    while (tot < D && guard++ < 100) {
+      var R = [];
+      E.forEach(function (e, k) {
+        if (x[k] < e[3]) R.push([e[0], e[1], e[2], e[3] - x[k], k, 1]);
+        if (x[k] > 0 && !senzaIndietro) R.push([e[1], e[0], -e[2], x[k], k, -1]);
+      });
+      var d = {}, pr = {}; for (i = 0; i <= n + 1; i++) d[i] = INF; d[0] = 0;
+      for (var it = 0; it <= n + 2; it++) R.forEach(function (r) { if (d[r[0]] + r[2] < d[r[1]]) { d[r[1]] = d[r[0]] + r[2]; pr[r[1]] = r; } });
+      if (d[n + 1] === INF) return null;
+      var P = [], w = n + 1; while (w !== 0) { P.push(pr[w]); w = pr[w][0]; }
+      var dl = Math.min.apply(null, P.map(function (r) { return r[3]; }));
+      dl = Math.min(dl, D - tot);
+      P.forEach(function (r) { x[r[4]] += r[5] * dl; });
+      tot += dl;
+    }
+    if (tot < D) return null;
+    var c = 0; A.forEach(function (a, k) { c += a[2] * (x[k] + a[3]); });
+    return c;
+  }
+  GEN.push({
+    id: "no-g-mcf-lower-bound", livello: "media", capitolo: "network-flow-models",
+    link: link("flows/network-flow-models/removing-the-lower-bounds/", "flussi/network-flow-models/rimozione-dei-limiti-inferiori/", "box-12-nf-prop-subst"),
+    genera: function (rng, l) {
+      return riprova(function () {
+        var n = 5, arcs = digrafo(rng, n, 7, { noOpposti: true }), k = ri(rng, 3, 6);
+        var A = arcs.map(function (a) { var u = ri(rng, 2, 6); return [a[0], a[1], ri(rng, 1, 9), 0, u]; });
+        var q = ri(rng, 0, A.length - 1); A[q][3] = ri(rng, 1, Math.min(2, A[q][4] - 1));
+        var b = [k, 0, 0, 0, -k];
+        var opt = mcfSSP(n, A, b, false);
+        if (opt === null) return null;
+        var A0 = A.map(function (a) { return [a[0], a[1], a[2], 0, a[4]]; });
+        var senzaL = mcfSSP(n, A0, b, false);
+        var cl = A[q][2] * A[q][3];
+        var gol = mcfSSP(n, A, b, true);
+        if (senzaL === null || senzaL === opt) return null;
+        var sc = scegli(rng, opt, [senzaL, opt - cl, gol, opt + cl]);
+        if (!sc) return null;
+        return pacchetto(sc, function (v) { return M(v); },
+          T(l, "Una rete con nodi $1,\\dots,5$ ha bilanci $\\vet{b}=" + vec(b) + "$ (flusso uscente meno entrante) e gli archi, con costo $c$, limite inferiore $l$ e capacità $u$: ",
+            "A network with nodes $1,\\dots,5$ has balances $\\vet{b}=" + vec(b) + "$ (outflow minus inflow) and the arcs, with cost $c$, lower bound $l$ and capacity $u$: ") +
+          A.map(function (a) { return M(arc(a) + ":\\ c=" + a[2] + ",\\ l=" + a[3] + ",\\ u=" + a[4]); }).join("; ") +
+          T(l, ". Quanto vale il costo minimo $\\sum c_{ij}x_{ij}$ di un flusso ammissibile ($l_{ij} \\le x_{ij} \\le u_{ij}$ e conservazione in ogni nodo)?",
+            ". What is the minimum cost $\\sum c_{ij}x_{ij}$ of a feasible flow ($l_{ij} \\le x_{ij} \\le u_{ij}$ and conservation at every node)?"),
+          T(l, "Con $\\vet{x}=\\vet{l}+\\vet{x}'$ l'arco " + M(arc(A[q])) + " parte con $" + A[q][3] + "$ unità (costo fisso $\\vet{c}'\\vet{l}=" + cl + "$) e i bilanci diventano $\\vet{b}-\\mat{B}\\vet{l}$; il problema senza limiti inferiori costa $" + (opt - cl) + "$, quindi l'ottimo è $" + opt + "$. Ignorare il limite inferiore dà $" + senzaL + "$; mandare flusso solo lungo archi in avanti, senza correzioni, può non essere ottimo.",
+            "With $\\vet{x}=\\vet{l}+\\vet{x}'$ the arc " + M(arc(A[q])) + " starts with $" + A[q][3] + "$ units (fixed cost $\\vet{c}'\\vet{l}=" + cl + "$) and the balances become $\\vet{b}-\\mat{B}\\vet{l}$; the problem without lower bounds costs $" + (opt - cl) + "$, so the optimum is $" + opt + "$. Ignoring the lower bound gives $" + senzaL + "$; sending flow only along forward arcs, without corrections, may not be optimal."),
+          { n: n, A: A, b: b });
       });
     }
   });
