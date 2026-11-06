@@ -138,7 +138,7 @@ extra_javascript:
   - javascripts/gi-no-c.js?v=a8e4a7da8b
   - javascripts/gi-no-d.js?v=57d7831fd1
   - javascripts/gi-no-e.js?v=1d484bad24
-  - javascripts/quiz.js?v=a75e27774a
+  - javascripts/quiz.js?v=3990768383
 
 nav:
   - Home: index.md
