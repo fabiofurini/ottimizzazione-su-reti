@@ -1359,4 +1359,408 @@
       });
     }
   });
+  // ================================================================== copertura dettagliata (7 novembre 2026)
+  function insiemeTxt(x) { return M("\\{" + x.join(",") + "\\}"); }
+  function profondita(pred, s, j) { var k = 0; while (j !== s) { j = pred[j]; k++; } return k; }
+
+  // ------------------------------------------------------------------ 32. riga di B x (flusso netto uscente)
+  GEN.push({
+    id: "no-g-net-outflow", livello: "facile", capitolo: "graphs",
+    link: link("graphs/graphs/representations-of-a-graph/", "grafi/graphs/rappresentazioni-di-un-grafo/", "box-11-gr-def-incidence"),
+    genera: function (rng, l) {
+      return riprova(function () {
+        var n = 5, arcs = digrafo(rng, n, 8, { noOpposti: true }), x = arcs.map(function () { return ri(rng, 0, 6); });
+        var v = ri(rng, 1, n), out = 0, inn = 0, nout = 0, nin = 0;
+        arcs.forEach(function (a, k) { if (a[0] === v) { out += x[k]; nout++; } if (a[1] === v) { inn += x[k]; nin++; } });
+        if (!nout || !nin) return null;
+        var sc = scegli(rng, out - inn, [inn - out, out + inn, out, -inn]);
+        if (!sc) return null;
+        return pacchetto(sc, function (w) { return M(w); },
+          T(l, "Il grafo orientato con nodi $1,\\dots,5$ ha gli archi con i valori ", "The directed graph with nodes $1,\\dots,5$ has the arcs with the values ") +
+          arcs.map(function (a, k) { return M("x_{" + a[0] + a[1] + "}=" + x[k]); }).join(", ") +
+          T(l, ". Sia $\\mat{B}$ la sua matrice di incidenza nodo–arco ($+1$ nella riga della coda, $-1$ in quella della testa di ogni arco). Quanto vale la componente $" + v + "$ del vettore $\\mat{B}\\vet{x}$?",
+            ". Let $\\mat{B}$ be its node–arc incidence matrix ($+1$ in the row of the tail, $-1$ in that of the head of every arc). What is component $" + v + "$ of the vector $\\mat{B}\\vet{x}$?"),
+          T(l, "La riga $" + v + "$ di $\\mat{B}\\vet{x}$ è ciò che esce dal nodo meno ciò che vi entra: $" + out + "-" + inn + "=" + (out - inn) + "$. Con il segno opposto si ottiene entrante meno uscente.",
+            "Row $" + v + "$ of $\\mat{B}\\vet{x}$ is what leaves the node minus what enters it: $" + out + "-" + inn + "=" + (out - inn) + "$. The opposite sign gives inflow minus outflow."),
+          { n: n, arcs: arcs, x: x, v: v });
+      });
+    }
+  });
+
+  // ------------------------------------------------------------------ 33. BFS: numero minimo di archi
+  GEN.push({
+    id: "no-g-bfs-dist", livello: "facile", capitolo: "graphs",
+    link: link("graphs/graphs/graph-search/", "grafi/graphs/visita-di-un-grafo/", "box-37-gr-prop-bfs"),
+    genera: function (rng, l) {
+      return riprova(function () {
+        var n = 7, arcs = digrafo(rng, n, ri(rng, 10, 12)), L = liste(n, arcs);
+        var b = visita(n, L, 1, "bfs"), dfs = visita(n, L, 1, "dfs");
+        var cand = range(2, n).filter(function (j) { return profondita(b.pred, 1, j) >= 2 && profondita(dfs.pred, 1, j) !== profondita(b.pred, 1, j); });
+        if (!cand.length) return null;
+        var t = cand[ri(rng, 0, cand.length - 1)], d = profondita(b.pred, 1, t);
+        var sc = scegli(rng, d, [profondita(dfs.pred, 1, t), b.ordine.indexOf(t), d + 1, d - 1]);
+        if (!sc) return null;
+        return pacchetto(sc, function (w) { return M(w); },
+          T(l, "Il grafo orientato con nodi $1,\\dots,7$ ha le liste di adiacenza (ordinate per indice crescente) ", "The directed graph with nodes $1,\\dots,7$ has the adjacency lists (sorted by increasing index) ") +
+          testoListe(n, L) + T(l, ". Qual è il numero minimo di archi di un cammino orientato dal nodo $1$ al nodo $" + t + "$ (come lo calcola la visita in ampiezza da $1$, che tiene in una coda i nodi etichettati da esaminare)?",
+            ". What is the minimum number of arcs of a directed path from node $1$ to node $" + t + "$ (as computed by the breadth-first search from $1$, which keeps the labelled nodes to examine in a queue)?"),
+          T(l, "Nella BFS $d(j)=d(\\mathit{pred}(j))+1$ è il minimo numero di archi: risalendo i predecessori da $" + t + "$ si arriva a $1$ in $" + d + "$ archi. La DFS può dare un cammino più lungo ($" + profondita(dfs.pred, 1, t) + "$ archi); la posizione nell'ordine di etichettatura non è una distanza.",
+            "In the BFS $d(j)=d(\\mathit{pred}(j))+1$ is the minimum number of arcs: tracing back the predecessors from $" + t + "$ reaches $1$ in $" + d + "$ arcs. The DFS may give a longer path ($" + profondita(dfs.pred, 1, t) + "$ arcs); the position in the labelling order is not a distance."),
+          { n: n, arcs: arcs, t: t });
+      });
+    }
+  });
+
+  // ------------------------------------------------------------------ 34. greedy generico: spigolo più leggero di un taglio
+  GEN.push({
+    id: "no-g-cut-lightest", livello: "facile", capitolo: "minimum-spanning-trees",
+    link: link("trees-and-paths/minimum-spanning-trees/the-generic-greedy-algorithm/", "alberi-e-cammini/minimum-spanning-trees/l-algoritmo-greedy-generico/", "box-15-mst-th-greedy"),
+    genera: function (rng, l) {
+      return riprova(function () {
+        var n = 6, E = grafoPesato(rng, n, 9, 15), S = [1].concat(shuffle(rng, range(2, n)).slice(0, ri(rng, 1, 2))).sort();
+        function dentro(v) { return S.indexOf(v) >= 0; }
+        var taglio = E.filter(function (e) { return dentro(e[0]) !== dentro(e[1]); }).sort(function (a, b) { return a[2] - b[2]; });
+        var resto = E.filter(function (e) { return dentro(e[0]) === dentro(e[1]); }).sort(function (a, b) { return a[2] - b[2]; });
+        if (taglio.length < 3 || !resto.length || resto[0][2] > taglio[0][2]) return null;
+        var c = function (e) { return [e[0], e[1]]; };
+        var sc = scegli(rng, c(taglio[0]), [c(resto[0]), c(taglio[1]), c(taglio[taglio.length - 1]), resto[1] ? c(resto[1]) : null]);
+        if (!sc) return null;
+        return pacchetto(sc, function (w) { return M(edge(w)); },
+          T(l, "Il grafo non orientato con vertici $1,\\dots,6$ ha gli spigoli con pesi ", "The undirected graph with vertices $1,\\dots,6$ has the edges with weights ") +
+          testoSpigoli(E) + T(l, " ($w_{uv}$ è il peso di $\\{u,v\\}$). L'algoritmo greedy generico per l'albero ricoprente di costo minimo, con $F=\\emptyset$, sceglie il taglio $\\delta(S)$ con $S=" + insiemeTxt(S).slice(1, -1) + "$ (gli spigoli con un estremo in $S$ e l'altro fuori). Quale spigolo aggiunge a $F$?",
+            " ($w_{uv}$ is the weight of $\\{u,v\\}$). The generic greedy algorithm for the minimum spanning tree, with $F=\\emptyset$, chooses the cut $\\delta(S)$ with $S=" + insiemeTxt(S).slice(1, -1) + "$ (the edges with one endpoint in $S$ and the other outside). Which edge does it add to $F$?"),
+          T(l, "Aggiunge lo spigolo di peso minimo del taglio: " + M(edge(taglio[0])) + ", di peso $" + taglio[0][2] + "$; per la proprietà del taglio sta in un albero ricoprente di costo minimo. Lo spigolo più leggero del grafo, " + M(edge(resto[0])) + ", non attraversa $\\delta(S)$.",
+            "It adds the minimum-weight edge of the cut: " + M(edge(taglio[0])) + ", of weight $" + taglio[0][2] + "$; by the cut property it lies in a minimum spanning tree. The lightest edge of the graph, " + M(edge(resto[0])) + ", does not cross $\\delta(S)$."),
+          { n: n, E: E, S: S });
+      });
+    }
+  });
+
+  // ------------------------------------------------------------------ 35. condizioni di ottimalità delle etichette: arco che viola
+  GEN.push({
+    id: "no-g-sp-violation", livello: "facile", capitolo: "shortest-paths",
+    link: link("trees-and-paths/shortest-paths/optimality-conditions-and-potentials/", "alberi-e-cammini/shortest-paths/condizioni-di-ottimalita-e-potenziali/", "box-12-sp-cor-conditions"),
+    genera: function (rng, l) {
+      return riprova(function () {
+        var n = 6, arcs = digrafo(rng, n, ri(rng, 9, 10)), A = arcs.map(function (a) { return [a[0], a[1], ri(rng, 1, 9)]; });
+        var d = dijkstra(n, A, 1, "giusto").d.slice(), j = ri(rng, 2, n);
+        d[j - 1] += ri(rng, 2, 4);
+        var viola = A.filter(function (a) { return d[a[1] - 1] > d[a[0] - 1] + a[2]; });
+        var ok = A.filter(function (a) { return d[a[1] - 1] <= d[a[0] - 1] + a[2]; });
+        if (viola.length !== 1 || ok.length < 3) return null;
+        var opz = shuffle(rng, ok).slice(0, 3).map(function (a) { return [a[0], a[1]]; });
+        var sc = scegli(rng, [viola[0][0], viola[0][1]], opz);
+        if (!sc) return null;
+        return pacchetto(sc, function (w) { return M(arc(w)); },
+          T(l, "Il grafo orientato con nodi $1,\\dots,6$ ha gli archi con lunghezze ", "The directed graph with nodes $1,\\dots,6$ has the arcs with lengths ") +
+          testoArchiPesati(A, "d") +
+          T(l, ". Si vuole verificare se le etichette $d=" + vec(d) + "$ (per i nodi $1,\\dots,6$, con $d(1)=0$) sono le distanze da $s=1$. Le condizioni di ottimalità chiedono $d(j) \\le d(i)+d_{ij}$ su ogni arco $(i,j)$. Quale arco le viola?",
+            ". One wants to check whether the labels $d=" + vec(d) + "$ (for nodes $1,\\dots,6$, with $d(1)=0$) are the distances from $s=1$. The optimality conditions require $d(j) \\le d(i)+d_{ij}$ on every arc $(i,j)$. Which arc violates them?"),
+          T(l, "Sull'arco " + M(arc(viola[0])) + ": $d(" + viola[0][1] + ")=" + d[viola[0][1] - 1] + ">" + d[viola[0][0] - 1] + "+" + viola[0][2] + "$, quindi l'etichetta di $" + viola[0][1] + "$ non è la distanza: passando per quell'arco si farebbe meglio. Sugli altri archi la disuguaglianza vale.",
+            "On the arc " + M(arc(viola[0])) + ": $d(" + viola[0][1] + ")=" + d[viola[0][1] - 1] + ">" + d[viola[0][0] - 1] + "+" + viola[0][2] + "$, so the label of $" + viola[0][1] + "$ is not the distance: going through that arc would do better. On the other arcs the inequality holds."),
+          { n: n, A: A, d: d });
+      });
+    }
+  });
+
+  // ------------------------------------------------------------------ 36. regola del costo minimo
+  GEN.push({
+    id: "no-g-min-cost-rule", livello: "facile", capitolo: "transportation-and-assignment",
+    link: link("flows/transportation-and-assignment/initial-basic-feasible-solutions/", "flussi/transportation-and-assignment/soluzioni-ammissibili-di-base-iniziali/", "box-14-ta-ex-mc"),
+    genera: function (rng, l) {
+      return riprova(function () {
+        var I = istanzaTrasporto(rng, 3, 4); if (!I) return null;
+        var v = costo(I, iniziale(I, "cm"));
+        var sc = scegli(rng, v, [costo(I, iniziale(I, "no")), costo(I, iniziale(I, "rm")), costo(I, iniziale(I, "ne"))]);
+        if (!sc) return null;
+        return pacchetto(sc, function (w) { return M(w); },
+          testoTrasporto(l, I) + T(l, "La regola del costo minimo riempie a ogni passo, con la quantità massima possibile, la cella più economica fra righe e colonne attive (a parità di costo: riga più piccola, poi colonna più piccola), e barra la riga o la colonna esaurita. Quanto costa la soluzione iniziale che produce?",
+            "The minimum cost rule fills at every step, with the largest possible amount, the cheapest cell among the active rows and columns (ties: smallest row, then smallest column), and crosses out the exhausted row or column. What does the initial solution it produces cost?"),
+          T(l, "Celle riempite: " + iniziale(I, "cm").map(function (t) { return M("x_{" + (t[0] + 1) + "," + (I.m + t[1] + 1) + "}=" + t[2]); }).join(", ") + "; costo $" + v + "$. La regola dell'angolo nord-ovest, che ignora i costi, dà $" + costo(I, iniziale(I, "no")) + "$.",
+            "Filled cells: " + iniziale(I, "cm").map(function (t) { return M("x_{" + (t[0] + 1) + "," + (I.m + t[1] + 1) + "}=" + t[2]); }).join(", ") + "; cost $" + v + "$. The northwest corner rule, which ignores the costs, gives $" + costo(I, iniziale(I, "no")) + "$."),
+          { a: I.a, d: I.d, c: I.c });
+      });
+    }
+  });
+
+  // ------------------------------------------------------------------ 37. costo ridotto di un arco fuori base
+  GEN.push({
+    id: "no-g-ns-reduced", livello: "facile", capitolo: "network-simplex",
+    link: link("network-simplex/network-simplex/potentials-and-optimality/", "simplesso-su-reti/network-simplex/potenziali-e-ottimalita/", "box-13-ns-ex-potentials"),
+    genera: function (rng, l) {
+      return riprova(function () {
+        var n = 5, Tr = alberoCasuale(rng, n), c = Tr.map(function () { return ri(rng, 1, 9); });
+        var pi = potenzialiAlbero(n, Tr, c, n), k = ri(rng, 1, n), q = ri(rng, 1, n);
+        if (k === q || Tr.some(function (a) { return (a[0] === k && a[1] === q) || (a[0] === q && a[1] === k); })) return null;
+        var ce = ri(rng, 1, 9), cb = ce - pi[k - 1] + pi[q - 1];
+        var sc = scegli(rng, cb, [ce + pi[k - 1] - pi[q - 1], pi[k - 1] - pi[q - 1] - ce, ce - pi[k - 1] - pi[q - 1], ce]);
+        if (!sc) return null;
+        return pacchetto(sc, function (w) { return M(w); },
+          T(l, "Nel simplesso su reti, l'albero ricoprente $T$ di una rete con nodi $1,\\dots,5$ ha gli archi con costi ", "In the network simplex, the spanning tree $T$ of a network with nodes $1,\\dots,5$ has the arcs with costs ") +
+          Tr.map(function (a, t) { return M("c_{" + a[0] + a[1] + "}=" + c[t]); }).join(", ") +
+          T(l, ". I potenziali dell'albero hanno $\\pi_5=0$ e $\\bar{c}_{ij}=c_{ij}-\\pi_i+\\pi_j=0$ sugli archi di $T$. Quanto vale il costo ridotto dell'arco fuori base $(" + k + "," + q + ")$, che ha costo $c_{" + k + q + "}=" + ce + "$?",
+            ". The tree potentials have $\\pi_5=0$ and $\\bar{c}_{ij}=c_{ij}-\\pi_i+\\pi_j=0$ on the arcs of $T$. What is the reduced cost of the nonbasic arc $(" + k + "," + q + ")$, whose cost is $c_{" + k + q + "}=" + ce + "$?"),
+          T(l, "Potenziali $\\vet{\\pi}=" + vec(pi) + "$ (costo del cammino nell'albero verso la radice); quindi $\\bar{c}_{" + k + q + "}=" + ce + "-(" + pi[k - 1] + ")+(" + pi[q - 1] + ")=" + cb + "$, il costo del ciclo fondamentale dell'arco.",
+            "Potentials $\\vet{\\pi}=" + vec(pi) + "$ (cost of the tree path to the root); hence $\\bar{c}_{" + k + q + "}=" + ce + "-(" + pi[k - 1] + ")+(" + pi[q - 1] + ")=" + cb + "$, the cost of the arc's fundamental cycle."),
+          { n: n, T: Tr, c: c, e: [k, q, ce] });
+      });
+    }
+  });
+
+  // ------------------------------------------------------------------ 38. inizio al più presto
+  GEN.push({
+    id: "no-g-pm-earliest", livello: "facile", capitolo: "project-management",
+    link: link("project-management/project-management/the-forward-pass-earliest-times/", "gestione-dei-progetti/project-management/la-passata-in-avanti-i-tempi-al-piu-presto/", "box-12-pm-ex-forward"),
+    genera: function (rng, l) {
+      return riprova(function () {
+        var P = progetto(rng, 7), r = cpm(P), rmin = cpm(P, true);
+        var cand = range(2, P.n).filter(function (j) { return P.pred[j].length >= 2 && rmin.ES[j] !== r.ES[j]; });
+        if (!cand.length) return null;
+        var j = cand[ri(rng, 0, cand.length - 1)];
+        var sc = scegli(rng, r.ES[j], [rmin.ES[j], r.EF[j], r.LS[j], somma(P.pred[j].map(function (i) { return P.d[i - 1]; }))]);
+        if (!sc) return null;
+        return pacchetto(sc, function (w) { return M(w); },
+          testoProgetto(l, P) + T(l, "Un'attività può iniziare solo quando tutti i suoi predecessori immediati sono finiti, e il progetto inizia al tempo $0$. Quanto vale l'inizio al più presto $\\mathit{ES}_{" + j + "}$ dell'attività $" + j + "$?",
+            "An activity can start only when all its immediate predecessors are finished, and the project starts at time $0$. What is the earliest start $\\mathit{ES}_{" + j + "}$ of activity $" + j + "$?"),
+          T(l, "Passata in avanti: $\\mathit{ES}_j=\\max \\mathit{EF}_i$ sui predecessori immediati, $\\mathit{EF}_j=\\mathit{ES}_j+d_j$. Per l'attività $" + j + "$: $\\mathit{ES}_{" + j + "}=\\max\\{" + P.pred[j].map(function (i) { return r.EF[i]; }).join(",") + "\\}=" + r.ES[j] + "$. Con il minimo si otterrebbe $" + rmin.ES[j] + "$.",
+            "Forward pass: $\\mathit{ES}_j=\\max \\mathit{EF}_i$ over the immediate predecessors, $\\mathit{EF}_j=\\mathit{ES}_j+d_j$. For activity $" + j + "$: $\\mathit{ES}_{" + j + "}=\\max\\{" + P.pred[j].map(function (i) { return r.EF[i]; }).join(",") + "\\}=" + r.ES[j] + "$. With the minimum one would get $" + rmin.ES[j] + "$."),
+          { P: P, j: j });
+      });
+    }
+  });
+
+  // ------------------------------------------------------------------ 39. inizio al più tardi
+  GEN.push({
+    id: "no-g-pm-latest", livello: "facile", capitolo: "project-management",
+    link: link("project-management/project-management/the-backward-pass-latest-times/", "gestione-dei-progetti/project-management/la-passata-all-indietro-i-tempi-al-piu-tardi/", "box-15-pm-ex-backward"),
+    genera: function (rng, l) {
+      return riprova(function () {
+        var P = progetto(rng, 7), r = cpm(P);
+        var cand = range(1, P.n - 1).filter(function (j) { return r.succ[j].length >= 2 && r.LS[j] > r.ES[j] && r.LSmax[j] !== r.LS[j]; });
+        if (!cand.length) return null;
+        var j = cand[ri(rng, 0, cand.length - 1)];
+        var sc = scegli(rng, r.LS[j], [r.ES[j], r.LF[j], r.LSmax[j], r.T - P.d[j - 1]]);
+        if (!sc) return null;
+        return pacchetto(sc, function (w) { return M(w); },
+          testoProgetto(l, P) + T(l, "Il progetto deve finire entro la sua durata minima $T$. Quanto vale l'inizio al più tardi $\\mathit{LS}_{" + j + "}$ dell'attività $" + j + "$, cioè l'ultimo istante in cui può iniziare senza ritardare il progetto?",
+            "The project must end within its minimum duration $T$. What is the latest start $\\mathit{LS}_{" + j + "}$ of activity $" + j + "$, that is, the last time at which it can start without delaying the project?"),
+          T(l, "$T=" + r.T + "$. Passata all'indietro: $\\mathit{LF}_j=\\min \\mathit{LS}_k$ sui successori immediati, $\\mathit{LS}_j=\\mathit{LF}_j-d_j$: $\\mathit{LF}_{" + j + "}=\\min\\{" + r.succ[j].map(function (k) { return r.LS[k]; }).join(",") + "\\}=" + r.LF[j] + "$ e $\\mathit{LS}_{" + j + "}=" + r.LF[j] + "-" + P.d[j - 1] + "=" + r.LS[j] + "$. Con il massimo si otterrebbe $" + r.LSmax[j] + "$.",
+            "$T=" + r.T + "$. Backward pass: $\\mathit{LF}_j=\\min \\mathit{LS}_k$ over the immediate successors, $\\mathit{LS}_j=\\mathit{LF}_j-d_j$: $\\mathit{LF}_{" + j + "}=\\min\\{" + r.succ[j].map(function (k) { return r.LS[k]; }).join(",") + "\\}=" + r.LF[j] + "$ and $\\mathit{LS}_{" + j + "}=" + r.LF[j] + "-" + P.d[j - 1] + "=" + r.LS[j] + "$. With the maximum one would get $" + r.LSmax[j] + "$."),
+          { P: P, j: j });
+      });
+    }
+  });
+
+  // ------------------------------------------------------------------ 40. cammini minimi successivi: costo minimo con due offerte
+  GEN.push({
+    id: "no-g-ssp-cost", livello: "media", capitolo: "min-cost-flow",
+    link: link("flows/min-cost-flow/the-successive-shortest-path-algorithm/", "flussi/min-cost-flow/l-algoritmo-dei-cammini-minimi-successivi/", "box-23-mc-th-ssp"),
+    genera: function (rng, l) {
+      return riprova(function () {
+        var n = 5, arcs = digrafo(rng, n, 8, { noOpposti: true });
+        var A = arcs.map(function (a) { return [a[0], a[1], ri(rng, 1, 9), 0, ri(rng, 2, 5)]; });
+        var k1 = ri(rng, 2, 4), k2 = ri(rng, 1, 3), b = [k1, 0, 0, 0, -k1], s2 = ri(rng, 2, 4);
+        b[s2 - 1] = k2; b[4] = -(k1 + k2);
+        var opt = mcfSSP(n, A, b, false);
+        if (opt === null) return null;
+        var gol = mcfSSP(n, A, b, true);
+        var Au = A.map(function (a) { return [a[0], a[1], a[2], 0, 99]; }), unc = mcfSSP(n, Au, b, false);
+        var uno = mcfSSP(n, A, [k1, 0, 0, 0, -k1], false);
+        var sc = scegli(rng, opt, [gol, unc, uno]);
+        if (!sc) return null;
+        return pacchetto(sc, function (w) { return M(w); },
+          T(l, "Una rete con nodi $1,\\dots,5$ ha bilanci $\\vet{b}=" + vec(b) + "$ (flusso uscente meno entrante) e gli archi, con costo $c$ e capacità $u$ (limiti inferiori nulli): ",
+            "A network with nodes $1,\\dots,5$ has balances $\\vet{b}=" + vec(b) + "$ (outflow minus inflow) and the arcs, with cost $c$ and capacity $u$ (zero lower bounds): ") +
+          A.map(function (a) { return M(arc(a) + ":\\ c=" + a[2] + ",\\ u=" + a[4]); }).join("; ") +
+          T(l, ". L'algoritmo dei cammini minimi successivi manda ripetutamente flusso da un nodo in eccesso a uno in deficit lungo un cammino minimo della rete residua (archi all'indietro compresi, con costo $-c_{ij}$). Quanto costa il flusso finale, cioè il costo minimo di un flusso ammissibile?",
+            ". The successive shortest path algorithm repeatedly sends flow from an excess node to a deficit node along a shortest path of the residual network (backward arcs included, with cost $-c_{ij}$). What does the final flow cost, that is, the minimum cost of a feasible flow?"),
+          T(l, "I cammini minimi successivi terminano con un flusso ottimo di costo $" + opt + "$. Senza archi all'indietro (niente correzioni) si ottiene $" + gol + "$, ignorando le capacità $" + unc + "$.",
+            "Successive shortest paths end with an optimal flow of cost $" + opt + "$. Without backward arcs (no corrections) one gets $" + gol + "$, ignoring capacities $" + unc + "$."),
+          { n: n, A: A, b: b });
+      });
+    }
+  });
+
+  // ------------------------------------------------------------------ 41. simplesso su reti: arco entrante (regola di Dantzig, con L e U)
+  GEN.push({
+    id: "no-g-ns-entering", livello: "media", capitolo: "network-simplex",
+    link: link("network-simplex/network-simplex/the-pivot/", "simplesso-su-reti/network-simplex/il-pivot/", "box-14-ns-def-pivot"),
+    genera: function (rng, l) {
+      return riprova(function () {
+        var n = 5, Tn = alberoCasuale(rng, n), has = {}, A = [];
+        Tn.forEach(function (a) { has[a[0] + "," + a[1]] = 1; has[a[1] + "," + a[0]] = 1; A.push([a[0], a[1], ri(rng, 1, 9), 1]); });
+        var g = 0; while (A.length < 9 && g++ < 300) { var i = ri(rng, 1, n), j = ri(rng, 1, n); if (i !== j && !has[i + "," + j] && !has[j + "," + i]) { has[i + "," + j] = 1; A.push([i, j, ri(rng, 1, 9), rng() < 0.4 ? 2 : 0]); } }
+        A.sort(function (p, q) { return p[0] - q[0] || p[1] - q[1]; });
+        var Ta = A.filter(function (a) { return a[3] === 1; });
+        var pi = potenzialiAlbero(n, Ta, Ta.map(function (a) { return a[2]; }), n);
+        var fuori = A.filter(function (a) { return a[3] !== 1; }).map(function (a) { return { a: a, cb: a[2] - pi[a[0] - 1] + pi[a[1] - 1] }; });
+        var U = fuori.filter(function (f) { return f.a[3] === 2; });
+        if (!U.length || U.length === fuori.length) return null;
+        var elig = fuori.filter(function (f) { return (f.a[3] === 0 && f.cb < 0) || (f.a[3] === 2 && f.cb > 0); }).sort(function (p, q) { return Math.abs(q.cb) - Math.abs(p.cb); });
+        if (elig.length < 2 || Math.abs(elig[0].cb) === Math.abs(elig[1].cb)) return null;
+        var errati = fuori.filter(function (f) { return f !== elig[0] && ((f.a[3] === 2 && f.cb < 0) || (f.a[3] === 0 && f.cb > 0)); });
+        if (!errati.length) return null;
+        errati.sort(function (p, q) { return Math.abs(q.cb) - Math.abs(p.cb); });
+        var cand = errati.map(function (f) { return [f.a[0], f.a[1]]; }).concat(elig.slice(1).map(function (f) { return [f.a[0], f.a[1]]; }));
+        var sc = scegli(rng, [elig[0].a[0], elig[0].a[1]], cand);
+        if (!sc) return null;
+        function lista(st) { return A.filter(function (a) { return a[3] === st; }).map(function (a) { return arc(a); }).join(","); }
+        return pacchetto(sc, function (w) { return M(arc(w)); },
+          T(l, "Nel simplesso su reti per il flusso di costo minimo, una rete con nodi $1,\\dots,5$ ha gli archi con costi ", "In the network simplex for minimum cost flow, a network with nodes $1,\\dots,5$ has the arcs with costs ") +
+          A.map(function (a) { return M("c_{" + a[0] + a[1] + "}=" + a[2]); }).join(", ") +
+          T(l, ". La struttura ad albero corrente ha $T=\\{" + lista(1) + "\\}$ (radice $5$, $\\pi_5=0$), $L=\\{" + lista(0) + "\\}$ (fuori base a flusso $0$) e $U=\\{" + lista(2) + "\\}$ (fuori base alla capacità). Con $\\bar{c}_{ij}=c_{ij}-\\pi_i+\\pi_j$, entra l'arco ammissibile ($L$ con $\\bar{c}_{ij}<0$, oppure $U$ con $\\bar{c}_{ij}>0$) con il massimo $|\\bar{c}_{ij}|$. Quale arco entra?",
+            ". The current tree structure has $T=\\{" + lista(1) + "\\}$ (root $5$, $\\pi_5=0$), $L=\\{" + lista(0) + "\\}$ (nonbasic at flow $0$) and $U=\\{" + lista(2) + "\\}$ (nonbasic at capacity). With $\\bar{c}_{ij}=c_{ij}-\\pi_i+\\pi_j$, the eligible arc ($L$ with $\\bar{c}_{ij}<0$, or $U$ with $\\bar{c}_{ij}>0$) with the largest $|\\bar{c}_{ij}|$ enters. Which arc enters?"),
+          T(l, "Potenziali $\\vet{\\pi}=" + vec(pi) + "$; costi ridotti fuori base: " + fuori.map(function (f) { return M("\\bar{c}_{" + f.a[0] + f.a[1] + "}=" + f.cb); }).join(", ") + ". Entra " + M(arc(elig[0].a)) + ". Un arco di $U$ con $\\bar{c}<0$ o di $L$ con $\\bar{c}>0$ è già nella posizione migliore.",
+            "Potentials $\\vet{\\pi}=" + vec(pi) + "$; nonbasic reduced costs: " + fuori.map(function (f) { return M("\\bar{c}_{" + f.a[0] + f.a[1] + "}=" + f.cb); }).join(", ") + ". " + M(arc(elig[0].a)) + " enters. An arc of $U$ with $\\bar{c}<0$ or of $L$ with $\\bar{c}>0$ is already in its best position."),
+          { n: n, A: A });
+      });
+    }
+  });
+
+  // ------------------------------------------------------------------ 42. variazione di una durata
+  GEN.push({
+    id: "no-g-pm-change", livello: "media", capitolo: "project-management",
+    link: link("project-management/project-management/two-critical-paths-and-changes-of-durations/", "gestione-dei-progetti/project-management/due-cammini-critici-e-variazioni-delle-durate/", "box-26-pm-prop-change"),
+    genera: function (rng, l) {
+      return riprova(function () {
+        var P = progetto(rng, 7), r = cpm(P);
+        var cand = range(1, P.n).filter(function (j) { return r.LS[j] - r.ES[j] > 0; });
+        if (!cand.length) return null;
+        var j = cand[ri(rng, 0, cand.length - 1)], TS = r.LS[j] - r.ES[j], dl = ri(rng, Math.max(1, TS - 2), TS + 4);
+        var P2 = { n: P.n, d: P.d.slice(), pred: P.pred }; P2.d[j - 1] += dl;
+        var T2 = cpm(P2).T;
+        var sc = scegli(rng, T2, [r.T + dl, r.T, r.T + Math.max(0, dl - r.FS[j]), r.T + TS]);
+        if (!sc) return null;
+        return pacchetto(sc, function (w) { return M(w); },
+          testoProgetto(l, P) + T(l, "La durata dell'attività $" + j + "$ aumenta di $" + dl + "$ (da $" + P.d[j - 1] + "$ a $" + P2.d[j - 1] + "$). Quanto vale la nuova durata minima del progetto?",
+            "The duration of activity $" + j + "$ grows by $" + dl + "$ (from $" + P.d[j - 1] + "$ to $" + P2.d[j - 1] + "$). What is the new minimum duration of the project?"),
+          T(l, "Prima della variazione $T=" + r.T + "$ e la scorta totale dell'attività è $\\mathit{TS}_{" + j + "}=" + TS + "$. La nuova durata è $T+\\max\\{0,\\delta-\\mathit{TS}_{" + j + "}\\}=" + r.T + "+" + Math.max(0, dl - TS) + "=" + T2 + "$: il ritardo è assorbito fino alla scorta totale (non alla scorta libera, $\\mathit{FS}_{" + j + "}=" + r.FS[j] + "$).",
+            "Before the change $T=" + r.T + "$ and the total slack of the activity is $\\mathit{TS}_{" + j + "}=" + TS + "$. The new duration is $T+\\max\\{0,\\delta-\\mathit{TS}_{" + j + "}\\}=" + r.T + "+" + Math.max(0, dl - TS) + "=" + T2 + "$: the delay is absorbed up to the total slack (not the free slack, $\\mathit{FS}_{" + j + "}=" + r.FS[j] + "$)."),
+          { P: P, j: j, delta: dl });
+      });
+    }
+  });
+
+  // ------------------------------------------------------------------ 43. DFS completa: albero dei predecessori
+  GEN.push({
+    id: "no-g-dfs-tree", livello: "complessa", capitolo: "graphs",
+    link: link("graphs/graphs/graph-search/", "grafi/graphs/visita-di-un-grafo/", "box-38-gr-ex-dfs"),
+    genera: function (rng, l) {
+      return riprova(function () {
+        var n = 6, arcs = digrafo(rng, n, ri(rng, 8, 10)), L = liste(n, arcs);
+        var Lr = {}; for (var i = 1; i <= n; i++) Lr[i] = L[i].slice().reverse();
+        function pv(v) { return range(2, n).map(function (j) { return v.pred[j]; }); }
+        var dfs = visita(n, L, 1, "dfs"), bfs = visita(n, L, 1, "bfs"), dfsR = visita(n, Lr, 1, "dfs");
+        var catena = range(2, n).map(function (j) { var o = dfs.ordine; return o[o.indexOf(j) - 1]; });
+        var sc = scegli(rng, pv(dfs), [pv(bfs), pv(dfsR), catena]);
+        if (!sc) return null;
+        return pacchetto(sc, function (w) { return M("(\\mathit{pred}(2),\\dots,\\mathit{pred}(6))=" + vec(w)); },
+          T(l, "Il grafo orientato con nodi $1,\\dots,6$ ha le liste di adiacenza (ordinate per indice crescente) ", "The directed graph with nodes $1,\\dots,6$ has the adjacency lists (sorted by increasing index) ") +
+          testoListe(n, L) + T(l, ". La visita in profondità (DFS) da $s=1$ tiene in una pila $\\mathit{LIST}$ i nodi etichettati da esaminare: esamina l'ultimo nodo $i$ di $\\mathit{LIST}$, etichetta la prima testa $j$ non etichettata di $L(i)$ ponendo $\\mathit{pred}(j)=i$, oppure toglie $i$ da $\\mathit{LIST}$ se non ce ne sono. Quali sono i predecessori dei nodi $2,\\dots,6$?",
+            ". The depth-first search (DFS) from $s=1$ keeps in a stack $\\mathit{LIST}$ the labelled nodes to examine: it examines the last node $i$ of $\\mathit{LIST}$, labels the first unlabelled head $j$ of $L(i)$ setting $\\mathit{pred}(j)=i$, or removes $i$ from $\\mathit{LIST}$ if there is none. What are the predecessors of nodes $2,\\dots,6$?"),
+          T(l, "Ordine di etichettatura " + M(seq(dfs.ordine)) + "; predecessori " + M(vec(pv(dfs))) + ". Quando un nodo non ha più archi ammissibili la DFS torna al nodo precedente della pila, quindi il predecessore non è sempre il nodo etichettato subito prima; la BFS darebbe " + M(vec(pv(bfs))) + ".",
+            "Labelling order " + M(seq(dfs.ordine)) + "; predecessors " + M(vec(pv(dfs))) + ". When a node has no more admissible arcs the DFS goes back to the previous node of the stack, so the predecessor is not always the node labelled just before; the BFS would give " + M(vec(pv(bfs))) + "."),
+          { n: n, arcs: arcs });
+      });
+    }
+  });
+
+  // ------------------------------------------------------------------ 44. Kruskal completo: spigoli accettati in ordine
+  GEN.push({
+    id: "no-g-kruskal-run", livello: "complessa", capitolo: "minimum-spanning-trees",
+    link: link("trees-and-paths/minimum-spanning-trees/kruskal-s-algorithm/", "alberi-e-cammini/minimum-spanning-trees/algoritmo-di-kruskal/", "box-18-mst-ex-kruskal"),
+    genera: function (rng, l) {
+      return riprova(function () {
+        var n = 6, E = grafoPesato(rng, n, 10, 15), F = kruskal(n, E);
+        var light = E.slice().sort(function (a, b) { return a[2] - b[2]; }).slice(0, n - 1);
+        var prim = primLike(n, E, 1, false).F, spt = primLike(n, E, 1, true).F;
+        function sp(X) { return X.map(function (e) { return [e[0], e[1]]; }); }
+        if (key(sp(light)) === key(sp(F))) return null;
+        var sc = scegli(rng, sp(F), [sp(prim), sp(light), sp(spt)]);
+        if (!sc) return null;
+        return pacchetto(sc, function (w) { return w.map(function (e) { return M(edge(e)); }).join(", "); },
+          T(l, "Il grafo non orientato con vertici $1,\\dots,6$ ha gli spigoli con pesi ", "The undirected graph with vertices $1,\\dots,6$ has the edges with weights ") +
+          testoSpigoli(E) + T(l, " ($w_{uv}$ è il peso di $\\{u,v\\}$). L'algoritmo di Kruskal esamina gli spigoli per peso crescente e accetta quelli che uniscono due componenti diverse della foresta corrente. Quali spigoli accetta, nell'ordine?",
+            " ($w_{uv}$ is the weight of $\\{u,v\\}$). Kruskal's algorithm examines the edges by increasing weight and accepts those joining two different components of the current forest. Which edges does it accept, in order?"),
+          T(l, "Kruskal accetta " + F.map(function (e) { return M(edge(e)); }).join(", ") + " e rifiuta gli spigoli che chiudono un ciclo; i $5$ spigoli più leggeri non formano necessariamente un albero. Prim da $1$ aggiunge gli spigoli dello stesso albero in un altro ordine (" + prim.map(function (e) { return M(edge(e)); }).join(", ") + ").",
+            "Kruskal accepts " + F.map(function (e) { return M(edge(e)); }).join(", ") + " and rejects the edges closing a cycle; the $5$ lightest edges do not necessarily form a tree. Prim from $1$ adds the edges of the same tree in another order (" + prim.map(function (e) { return M(edge(e)); }).join(", ") + ")."),
+          { n: n, E: E });
+      });
+    }
+  });
+
+  // ------------------------------------------------------------------ 45. Bellman–Ford completo con un arco negativo
+  GEN.push({
+    id: "no-g-bf-run", livello: "complessa", capitolo: "shortest-paths",
+    link: link("trees-and-paths/shortest-paths/the-bellman-ford-algorithm/", "alberi-e-cammini/shortest-paths/l-algoritmo-di-bellmanford/", "box-28-sp-ex-bf"),
+    genera: function (rng, l) {
+      return riprova(function () {
+        var n = 5, arcs = digrafo(rng, n, ri(rng, 7, 8)), A = arcs.map(function (a) { return [a[0], a[1], ri(rng, 1, 9)]; });
+        var q = ri(rng, 0, A.length - 1); A[q][2] = -ri(rng, 2, 6);
+        var tab = bellmanK(n, A, 1, n);
+        if (key(tab[n]) !== key(tab[n - 1])) return null;
+        var k = 1; while (key(tab[k]) !== key(tab[k - 1])) k++;
+        var dj = dijkstra(n, A, 1, "giusto").d, fin = tab[k];
+        if (key(dj) === key(fin) || k < 3) return null;
+        var sc = scegli(rng, [k, fin], [[k, dj], [k - 1, fin], [k, tab[2]], [n, fin]]);
+        if (!sc) return null;
+        return pacchetto(sc, function (w) { return T(l, "passata ", "pass ") + M("k=" + w[0]) + "; " + M("\\tilde{d}=" + vec(w[1])); },
+          T(l, "Il grafo orientato con nodi $1,\\dots,5$ ha gli archi con lunghezze ", "The directed graph with nodes $1,\\dots,5$ has the arcs with lengths ") +
+          testoArchiPesati(A, "d") +
+          T(l, " (nessun ciclo negativo). Bellman–Ford da $s=1$ parte da $d^0=(0,\\infty,\\dots,\\infty)$, calcola $d^k(j)=\\min\\{d^{k-1}(j),\\min_{(i,j)}(d^{k-1}(i)+d_{ij})\\}$ e si ferma alla prima passata $k$ con $d^k=d^{k-1}$. In quale passata si ferma, e quali sono le distanze $\\tilde{d}$?",
+            " (no negative cycle). Bellman–Ford from $s=1$ starts from $d^0=(0,\\infty,\\dots,\\infty)$, computes $d^k(j)=\\min\\{d^{k-1}(j),\\min_{(i,j)}(d^{k-1}(i)+d_{ij})\\}$ and stops at the first pass $k$ with $d^k=d^{k-1}$. In which pass does it stop, and what are the distances $\\tilde{d}$?"),
+          T(l, "Le etichette sono " + tab.slice(1, k + 1).map(function (t, i) { return M("d^{" + (i + 1) + "}=" + vec(t)); }).join(", ") + ": la passata $" + k + "$ ripete la precedente. Dijkstra, con l'arco negativo, darebbe " + M(vec(dj)) + ".",
+            "The labels are " + tab.slice(1, k + 1).map(function (t, i) { return M("d^{" + (i + 1) + "}=" + vec(t)); }).join(", ") + ": pass $" + k + "$ repeats the previous one. Dijkstra, with the negative arc, would give " + M(vec(dj)) + "."),
+          { n: n, A: A });
+      });
+    }
+  });
+
+  // ------------------------------------------------------------------ 46. Ford–Fulkerson completo con la visita in profondità
+  GEN.push({
+    id: "no-g-ford-fulkerson", livello: "complessa", capitolo: "maximum-flow",
+    link: link("flows/maximum-flow/the-ford-fulkerson-algorithm/", "flussi/maximum-flow/l-algoritmo-di-fordfulkerson/", "box-17-mf-ex-ff"),
+    genera: function (rng, l) {
+      return riprova(function () {
+        var n = 6, A = rete(rng, n, ri(rng, 8, 9), 6);
+        var ff = fordFulkerson(n, A, "dfs"), ek = fordFulkerson(n, A, "bfs"), ffR = fordFulkerson(n, A, "dfsR"), av = fordFulkerson(n, A, "dfs", true);
+        if (!ff || !ek || !ffR || !av || ff.deltas.length < 3 || somma(ff.deltas) < 3) return null;
+        var sc = scegli(rng, ff.deltas, [ek.deltas, ffR.deltas, av.deltas, ff.deltas.slice().sort(function (a, b) { return b - a; })]);
+        if (!sc) return null;
+        return pacchetto(sc, function (w) { return M(seq(w)); },
+          T(l, "La rete con sorgente $s=1$ e pozzo $t=6$ ha gli archi con capacità ", "The network with source $s=1$ and sink $t=6$ has the arcs with capacities ") +
+          testoCapacita(A) +
+          T(l, ". Ford–Fulkerson parte dal flusso nullo e, a ogni iterazione, cerca un cammino da $1$ a $6$ nella rete residua (archi in avanti con capacità $u_{ij}-x_{ij}$, archi all'indietro con capacità $x_{ij}$) con la visita in profondità (si esamina l'ultimo nodo della pila, archi uscenti per indice crescente della testa, arresto appena $6$ è etichettato) e aumenta del collo di bottiglia $\\delta$. Qual è la sequenza dei $\\delta$?",
+            ". Ford–Fulkerson starts from the zero flow and, at every iteration, looks for a path from $1$ to $6$ in the residual network (forward arcs with capacity $u_{ij}-x_{ij}$, backward arcs with capacity $x_{ij}$) by depth-first search (the last node of the stack is examined, outgoing arcs by increasing head, stop as soon as $6$ is labelled) and augments by the bottleneck $\\delta$. What is the sequence of the $\\delta$?"),
+          T(l, "Sequenza " + M(seq(ff.deltas)) + ", valore massimo $" + somma(ff.deltas) + "$. Con la visita in ampiezza (Edmonds–Karp) si ottiene " + M(seq(ek.deltas)) + "; senza archi all'indietro la sequenza è " + M(seq(av.deltas)) + " e il flusso può non essere massimo.",
+            "Sequence " + M(seq(ff.deltas)) + ", maximum value $" + somma(ff.deltas) + "$. With breadth-first search (Edmonds–Karp) one gets " + M(seq(ek.deltas)) + "; without backward arcs the sequence is " + M(seq(av.deltas)) + " and the flow may not be maximum."),
+          { n: n, A: A });
+      });
+    }
+  });
+
+  // ------------------------------------------------------------------ 47. due variazioni di durata
+  GEN.push({
+    id: "no-g-pm-two-changes", livello: "complessa", capitolo: "project-management",
+    link: link("project-management/project-management/two-critical-paths-and-changes-of-durations/", "gestione-dei-progetti/project-management/due-cammini-critici-e-variazioni-delle-durate/", "box-28-pm-ex-changes"),
+    genera: function (rng, l) {
+      return riprova(function () {
+        var P = progetto(rng, 7), r = cpm(P);
+        var nonc = range(1, P.n).filter(function (j) { return r.LS[j] > r.ES[j]; }), crit = range(1, P.n).filter(function (j) { return r.LS[j] === r.ES[j] && P.d[j - 1] >= 3; });
+        if (!nonc.length || !crit.length) return null;
+        var a = nonc[ri(rng, 0, nonc.length - 1)], b = crit[ri(rng, 0, crit.length - 1)];
+        var TSa = r.LS[a] - r.ES[a], d1 = ri(rng, 1, TSa + 3), d2 = ri(rng, 1, P.d[b - 1] - 1);
+        var P2 = { n: P.n, d: P.d.slice(), pred: P.pred }; P2.d[a - 1] += d1; P2.d[b - 1] -= d2;
+        var T2 = cpm(P2).T;
+        var sc = scegli(rng, T2, [r.T + d1 - d2, r.T - d2, r.T + Math.max(0, d1 - TSa), r.T + Math.max(0, d1 - TSa) - d2, r.T]);
+        if (!sc) return null;
+        return pacchetto(sc, function (w) { return M(w); },
+          testoProgetto(l, P) + T(l, "Contemporaneamente la durata dell'attività $" + a + "$ aumenta di $" + d1 + "$ e quella dell'attività $" + b + "$ diminuisce di $" + d2 + "$. Quanto vale la nuova durata minima del progetto?",
+            "At the same time the duration of activity $" + a + "$ grows by $" + d1 + "$ and that of activity $" + b + "$ decreases by $" + d2 + "$. What is the new minimum duration of the project?"),
+          T(l, "Prima $T=" + r.T + "$, con $\\mathit{TS}_{" + a + "}=" + TSa + "$ e l'attività $" + b + "$ critica. Le due variazioni interagiscono, quindi si rifà la passata in avanti con le nuove durate: la durata minima è la lunghezza massima di un cammino, $" + T2 + "$. Sommare gli effetti separati non basta.",
+            "Before, $T=" + r.T + "$, with $\\mathit{TS}_{" + a + "}=" + TSa + "$ and activity $" + b + "$ critical. The two changes interact, so the forward pass is redone with the new durations: the minimum duration is the maximum length of a path, $" + T2 + "$. Adding the separate effects is not enough."),
+          { P: P, a: a, b: b, d1: d1, d2: d2 });
+      });
+    }
+  });
 })();
