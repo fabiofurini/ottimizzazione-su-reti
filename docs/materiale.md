@@ -53,3 +53,10 @@ Le slide delle lezioni, un PDF per capitolo, con le stesse definizioni ed esempi
 | 9 | [Gestione dei progetti](gestione-dei-progetti/project-management/index.md) | [:material-file-pdf-box: PDF](pdf/slide-project-management.pdf) (0.6 MB) |
 
 </div>
+
+<!-- banca-domande -->
+## Banca delle domande del quiz
+
+Tutte le domande dell'autovalutazione, divise per parte e capitolo, con la risposta corretta e la spiegazione; per le domande generate, che cambiano i numeri a ogni avvio, alcuni esempi.
+
+[:material-format-list-checks: Banca delle domande](quiz/elenco_domande.html){ .md-button }
