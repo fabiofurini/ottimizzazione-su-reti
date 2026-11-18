@@ -18,7 +18,7 @@ associato al [DIAG](https://www.diag.uniroma1.it/), Sapienza Università di Roma
 
 **Le dispense del corso, online**: grafi, alberi ricoprenti di costo minimo, cammini minimi, flussi su reti (flusso massimo, flusso di costo minimo, trasporto e assegnamento), il simplesso su reti e la gestione dei progetti; con definizioni, risultati con dimostrazione, esempi svolti passo per passo ed esercizi con le soluzioni.
 
-Per gli studenti del terzo anno della laurea in Ingegneria gestionale della Sapienza, e per chi vuole imparare l'ottimizzazione su reti. Prerequisiti: [Programmazione lineare](https://fabiofurini.github.io/programmazione-lineare/).
+Prerequisiti: [Programmazione lineare](https://fabiofurini.github.io/programmazione-lineare/).
 
 [Comincia :material-arrow-right:](grafi/graphs/index.md){ .md-button .md-button--primary }
 [:material-pencil: Esercizi](esercizi/index.md){ .md-button }
