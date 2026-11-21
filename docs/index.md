@@ -31,9 +31,9 @@ Prerequisiti: [Programmazione lineare](https://fabiofurini.github.io/programmazi
 <!-- collana-app -->
 ## Provalo subito
 
-I cammini minimi: segui Dijkstra e Bellman-Ford che aggiornano le etichette dei nodi, un arco alla volta.
+I cammini minimi con Dijkstra, alla fine: tutte le etichette sono permanenti e gli archi dei predecessori formano l'albero dei cammini minimi dalla sorgente. Premi «Esegui» per seguire l'algoritmo un arco alla volta, oppure passa a Bellman-Ford.
 
-<div class="gi" data-grafico="no-shortest-paths"></div>
+<div class="gi" data-grafico="no-shortest-paths" data-vetrina="dijkstra"></div>
 
 [:material-gesture-tap: Altre app nel laboratorio](laboratorio/index.md){ .md-button }
 <!-- /collana-app -->

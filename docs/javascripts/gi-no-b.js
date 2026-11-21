@@ -232,6 +232,8 @@
       D.algIst = alg;
       osservaDimensioni(board, st);
       daIndirizzo(st);
+      // home della collana: data-vetrina="algoritmo" (una voce), etichette finali e albero dei cammini minimi
+      N.vetrina(st, (v) => { N.scegliVoce(st, v.trim()); N.vaiAlPasso(st, null); });
     },
     aggiorna(board, st) {
       const S = spStato(st), D = S.D, C = M.COL(st), [W, H] = dim(board), { R, k, K, P, alg } = S;

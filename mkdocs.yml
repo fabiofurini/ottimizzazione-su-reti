@@ -133,9 +133,9 @@ extra_javascript:
   - https://cdn.jsdelivr.net/npm/jsxgraph@1.10.1/distrib/jsxgraphcore.js
   - javascripts/interattivi.js?v=2687ca69e3
   - javascripts/gi-comune.js?v=40df75e3e5
-  - javascripts/gi-no-0.js?v=da165c7941
+  - javascripts/gi-no-0.js?v=524b00e68a
   - javascripts/gi-no-a.js?v=c95bdb2f54
-  - javascripts/gi-no-b.js?v=685b325a9e
+  - javascripts/gi-no-b.js?v=9c7ab73e74
   - javascripts/gi-no-c.js?v=a8e4a7da8b
   - javascripts/gi-no-d.js?v=57d7831fd1
   - javascripts/gi-no-e.js?v=1d484bad24
