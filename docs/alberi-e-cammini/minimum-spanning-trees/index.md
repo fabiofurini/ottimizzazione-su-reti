@@ -50,7 +50,7 @@ title: "Alberi ricoprenti di costo minimo"
 
     - Il capitolo [<u>«Grafi»</u>](../../grafi/graphs/index.md): cammini e cicli, componenti connesse, le caratterizzazioni di un albero e i cicli fondamentali.
 
-    - La notazione $O(\cdot)$ per il tempo di esecuzione di un algoritmo, e l'ordinamento di $m$ numeri in tempo $O(m\log m)$.
+    - Dal modulo <em>Algoritmi</em>, i capitoli [«Notazione asintotica»](https://fabiofurini.github.io/algoritmi/notazione-asintotica/09-notazione-asintotica/) e [«Algoritmi ricorsivi»](https://fabiofurini.github.io/algoritmi/ricorsione/17-algoritmi-ricorsivi/): la notazione $O(\cdot)$ per il tempo di esecuzione di un algoritmo, e l'ordinamento di $m$ numeri in tempo $O(m\log m)$ (merge sort).
 
 !!! chiave "Obiettivi"
 

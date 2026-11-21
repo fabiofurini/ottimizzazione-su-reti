@@ -46,9 +46,11 @@ title: "Grafi"
 
 !!! nota "Prerequisiti"
 
-    - Algebra lineare: matrici, combinazioni lineari, vettori linearmente indipendenti e rango di una matrice.
+    - Dal modulo <em>Algebra lineare</em>, i capitoli [«Vettori»](https://fabiofurini.github.io/algebra-lineare/vettori-matrici/01-vettori/) e [«Matrici»](https://fabiofurini.github.io/algebra-lineare/vettori-matrici/02-matrici/): matrici, combinazioni lineari, vettori linearmente indipendenti e rango di una matrice.
 
-    - Insiemi, relazioni e classi di equivalenza; la notazione $O(\cdot)$ per il tempo di esecuzione di un algoritmo.
+    - Dal modulo <em>Analisi matematica 1</em>, i capitoli [«Insiemi»](https://fabiofurini.github.io/analisi-matematica-1/numeri/01-insiemi/) e [«Relazioni binarie»](https://fabiofurini.github.io/analisi-matematica-1/relazioni/01-relazioni-binarie/): insiemi, relazioni e classi di equivalenza.
+
+    - Dal modulo <em>Algoritmi</em>, il capitolo [«Notazione asintotica»](https://fabiofurini.github.io/algoritmi/notazione-asintotica/09-notazione-asintotica/): la notazione $O(\cdot)$ per il tempo di esecuzione di un algoritmo.
 
     - Non serve alcuna conoscenza di teoria dei grafi: ogni nozione è definita in questo capitolo.
 

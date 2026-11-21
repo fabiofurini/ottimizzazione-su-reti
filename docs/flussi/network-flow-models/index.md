@@ -58,7 +58,7 @@ title: "Modelli di flusso su reti"
 
     - Dal modulo Programmazione lineare, [Capitolo 9 «Teoria della dualità»](https://fabiofurini.github.io/programmazione-lineare/dualita/09-dualita/) e [Capitolo 15 «La geometria della programmazione lineare»](https://fabiofurini.github.io/programmazione-lineare/metodi-avanzati/15-geometria/): il duale di un problema LP, dualità debole e forte, vertici di un poliedro.
 
-    - Determinanti: lo sviluppo di Laplace lungo una colonna e la regola di Cramer.
+    - Dal modulo <em>Algebra lineare</em>, i capitoli [«Matrici»](https://fabiofurini.github.io/algebra-lineare/vettori-matrici/02-matrici/) e [«Sistemi di equazioni lineari»](https://fabiofurini.github.io/algebra-lineare/sistemi/01-sistemi-lineari/): determinanti, sviluppo di Laplace lungo una colonna e regola di Cramer.
 
 !!! chiave "Obiettivi"
 
