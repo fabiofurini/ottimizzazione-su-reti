@@ -20,8 +20,6 @@ Il corso presenta l'ottimizzazione su reti: i grafi, gli alberi ricoprenti di co
 minimi, i flussi su reti (flusso massimo, flusso di costo minimo, trasporto e assegnamento), il
 simplesso su reti e la gestione dei progetti.
 
-Ogni capitolo ha definizioni, risultati con dimostrazione, esempi svolti passo per passo ed esercizi con le soluzioni.
-
 Prerequisiti: [Programmazione lineare](https://fabiofurini.github.io/programmazione-lineare/).
 
 [Comincia :material-arrow-right:](grafi/graphs/index.md){ .md-button .md-button--primary }
