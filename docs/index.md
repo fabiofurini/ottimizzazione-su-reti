@@ -16,7 +16,11 @@ hide:
 Materiale didattico ideato e sviluppato da **[Fabio Furini](https://fabiofurini.github.io/)**, professore
 associato al [DIAG](https://www.diag.uniroma1.it/), Sapienza Università di Roma.
 
-**Le dispense del corso, online**: grafi, alberi ricoprenti di costo minimo, cammini minimi, flussi su reti (flusso massimo, flusso di costo minimo, trasporto e assegnamento), il simplesso su reti e la gestione dei progetti; con definizioni, risultati con dimostrazione, esempi svolti passo per passo ed esercizi con le soluzioni.
+Il corso presenta l'ottimizzazione su reti: i grafi, gli alberi ricoprenti di costo minimo, i cammini
+minimi, i flussi su reti (flusso massimo, flusso di costo minimo, trasporto e assegnamento), il
+simplesso su reti e la gestione dei progetti.
+
+Ogni capitolo ha definizioni, risultati con dimostrazione, esempi svolti passo per passo ed esercizi con le soluzioni.
 
 Prerequisiti: [Programmazione lineare](https://fabiofurini.github.io/programmazione-lineare/).
 
